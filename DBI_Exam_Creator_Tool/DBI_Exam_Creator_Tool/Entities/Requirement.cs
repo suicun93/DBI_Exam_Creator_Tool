@@ -5,7 +5,8 @@ using System.Text;
 
 namespace DBI_Exam_Creator_Tool.Entities
 {
-    class Requirement
+    [Serializable]
+    public class Requirement
     {
         public string RequirementId { get; set; }
         public int CandidateId { get; set; }

@@ -6,68 +6,138 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using System.IO;
 using DBI_Exam_Creator_Tool.Entities;
+using DBI_Exam_Creator_Tool.Commons;
 
 namespace DBI_Exam_Creator_Tool
 {
     public partial class MainForm : Form
     {
-        private List<Candidate> candidates = new List<Candidate>();
-        private BindingSource bindingSource = new BindingSource();
+        private int questionId = 1;
+        private List<Question> questions = new List<Question>();
+        private Question currentQuestion;
+        private string dataFileName = "data.json";
 
         public MainForm()
         {
             InitializeComponent();
-            dataGridView.DataSource = bindingSource;
         }
 
-        private void browseImgBtn_Click(object sender, EventArgs e)
-        {
-            browseImgDialog.InitialDirectory = "C:\\";
-            browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            if (browseImgDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Get the path of specified file
-                string filePath = browseImgDialog.FileName;
-                
-                var image = Image.FromFile(filePath);
-                //Size viewSize = new Size(pictureBox.Width, pictureBox.Height);
-
-                pictureBox.Image = image;
-                pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
-
-                // Read the contents of the file into a stream
-                //var fileStream = browseImgDialog.OpenFile();
-
-                //using (StreamReader reader = new StreamReader(fileStream))
-                //{
-                //    string fileContent = reader.ReadToEnd();
-                //}
-            }
-        }
-
-        private void addRequirementBtn_Click(object sender, EventArgs e)
-        {
-            bindingSource.Add(new Requirement("1", 1, 1, "select * from girls", "", ""));
-
-            //dataGridView.Update();
-            //dataGridView.Refresh();
-        }
-
+        // Trigger when user click "Add Candidate" button
+        // add new Candidate to the current Question
         private void addCandidateBtn_Click(object sender, EventArgs e)
         {
-            candidates.Add(new Candidate());
-            TabPage tp = new TabPage("Candidate " + (candidates.Count() + 1));
+            if (currentQuestion == null)
+            {
+                Console.WriteLine("no question selected");
+                return;
+            }
+
+            Candidate c = new Candidate();
+
+            Requirement r = new Requirement("1", 1, 1, "hello mother fucker", "haha", "hahahehe");
+            c.Requirements = new List<Requirement> { r };
+            c.QuestionType = Constants.QUESTIONTYPE_PROCEDURE;
+
+            currentQuestion.Candidates.Add(c);
+            TabPage tp = new TabPage("Candidate " + currentQuestion.Candidates.Count());
+
+            CandidatePanel candidatePanel = new CandidatePanel(c);
             tp.Controls.Add(candidatePanel);
             candidateControl.TabPages.Add(tp);
 
+            // focus new tab
+            candidateControl.SelectedIndex = candidateControl.TabCount - 1;
+            tp.Focus();
+        }
 
-            //TextBox tb = new TextBox();
-            //tb.Dock = DockStyle.Fill;
-            //tb.Multiline = true;
 
-            //tp.Controls.Add(tb);
+        // Trigger when user click "Add Question" button
+        // add new Question to list
+        private void addQuestionBtn_Click(object sender, EventArgs e)
+        {
+            Question q = new Question(this.questionId, 1, new List<Candidate>());
+            Candidate c = new Candidate();
+            c.CandidateId = q.Candidates.Count() + 1;
+            c.QuestionId = q.QuestionId;
+            q.Candidates.Add(c);
+            this.questions.Add(q);
+            
+            Button btn = new Button();
+            Point btnLocation = new Point(3, 3 * this.questions.Count() + 23 * (this.questions.Count() - 1));
+            btn.Location = btnLocation;
+            btn.Text = "Question " + (this.questions.Count());
+            btn.Click += (_sender, EventArgs) => { Question_Btn_Click(_sender, EventArgs, q); };
+            
+            this.questionPanel.Controls.Add(btn);
+            btn.PerformClick();
+        }
+
+        /// <summary>
+        /// When user click "Question i" button
+        /// switch tab control to the corresponding Candidates
+        /// </summary>
+        /// <param name="_q">Question binding with the button</param>
+        private void Question_Btn_Click(object _sender, EventArgs _e, Question _q)
+        {
+            pointTxt.Text = _q.Point.ToString();
+
+            candidateControl.TabPages.Clear();
+            currentQuestion = _q;
+
+            Button btn = (Button)_sender;
+            //btn.BackColor = Color.Green;
+            btn.Focus();
+
+            // Show corresponding question's candidates in tab control
+
+            for (int i = 0; i < _q.Candidates.Count(); i++)
+            {
+                Candidate c = _q.Candidates[i];
+
+                TabPage tp = new TabPage("Candidate " + (i + 1));
+                CandidatePanel candidatePanel = new CandidatePanel(c);
+                tp.Controls.Add(candidatePanel);
+                candidateControl.TabPages.Add(tp);
+            }
+        }
+
+        // Export Questions data into .json file
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.Filter = "Json files (*.json)|*.json";
+            saveFileDialog.FilterIndex = 2;
+            saveFileDialog.RestoreDirectory = true;
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string jsonData = JsonConvert.SerializeObject(this.questions);
+
+                string saveFolder = Path.GetDirectoryName(saveFileDialog.FileName);
+                string savePath = Path.Combine(saveFolder, saveFileDialog.FileName);
+
+                WriteToFile(jsonData, savePath);
+            }
+
+        }
+
+        private void WriteToFile(string data, string savePath)
+        {
+            try
+            {
+                File.WriteAllText(savePath, data);
+                MessageBox.Show("Saved to " + savePath, "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to export data", "Error!");
+            }
+        }
+
+        private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

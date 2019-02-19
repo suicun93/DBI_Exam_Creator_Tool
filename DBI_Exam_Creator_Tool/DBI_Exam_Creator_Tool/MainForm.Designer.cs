@@ -29,18 +29,13 @@
         private void InitializeComponent()
         {
             this.questionPanel = new System.Windows.Forms.Panel();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.addQuestionBtn = new System.Windows.Forms.Button();
-            this.question1Btn = new System.Windows.Forms.Button();
             this.importBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.editQuestionPanel = new System.Windows.Forms.Panel();
-            this.candidateControl = new System.Windows.Forms.TabControl();
-            this.candidate1 = new System.Windows.Forms.TabPage();
-            this.pointLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
             this.addCandidateBtn = new System.Windows.Forms.Button();
+            this.pointLabel = new System.Windows.Forms.Label();
+            this.pointTxt = new System.Windows.Forms.TextBox();
             this.candidatePanel = new System.Windows.Forms.Panel();
             this.addRequirementBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -58,11 +53,10 @@
             this.contentLabel = new System.Windows.Forms.Label();
             this.questionTypeComboBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
-            this.questionPanel.SuspendLayout();
+            this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
+            this.candidateControl = new System.Windows.Forms.TabControl();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.editQuestionPanel.SuspendLayout();
-            this.candidateControl.SuspendLayout();
-            this.candidate1.SuspendLayout();
-            this.candidatePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -71,42 +65,23 @@
             // 
             this.questionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.questionPanel.AutoScroll = true;
             this.questionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.questionPanel.Controls.Add(this.vScrollBar1);
-            this.questionPanel.Controls.Add(this.addQuestionBtn);
-            this.questionPanel.Controls.Add(this.question1Btn);
             this.questionPanel.Location = new System.Drawing.Point(12, 52);
             this.questionPanel.Name = "questionPanel";
-            this.questionPanel.Size = new System.Drawing.Size(110, 461);
+            this.questionPanel.Size = new System.Drawing.Size(101, 431);
             this.questionPanel.TabIndex = 0;
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.vScrollBar1.Location = new System.Drawing.Point(88, -1);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 460);
-            this.vScrollBar1.TabIndex = 2;
             // 
             // addQuestionBtn
             // 
-            this.addQuestionBtn.Location = new System.Drawing.Point(3, 32);
+            this.addQuestionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.addQuestionBtn.Location = new System.Drawing.Point(12, 489);
             this.addQuestionBtn.Name = "addQuestionBtn";
-            this.addQuestionBtn.Size = new System.Drawing.Size(75, 23);
+            this.addQuestionBtn.Size = new System.Drawing.Size(101, 23);
             this.addQuestionBtn.TabIndex = 1;
-            this.addQuestionBtn.Text = "+";
+            this.addQuestionBtn.Text = "Add Question";
             this.addQuestionBtn.UseVisualStyleBackColor = true;
-            // 
-            // question1Btn
-            // 
-            this.question1Btn.Location = new System.Drawing.Point(3, 3);
-            this.question1Btn.Name = "question1Btn";
-            this.question1Btn.Size = new System.Drawing.Size(75, 23);
-            this.question1Btn.TabIndex = 0;
-            this.question1Btn.Text = "Question 1";
-            this.question1Btn.UseVisualStyleBackColor = true;
+            this.addQuestionBtn.Click += new System.EventHandler(this.addQuestionBtn_Click);
             // 
             // importBtn
             // 
@@ -125,6 +100,7 @@
             this.exportBtn.TabIndex = 2;
             this.exportBtn.Text = "Export";
             this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // editQuestionPanel
             // 
@@ -134,34 +110,22 @@
             this.editQuestionPanel.Controls.Add(this.addCandidateBtn);
             this.editQuestionPanel.Controls.Add(this.candidateControl);
             this.editQuestionPanel.Controls.Add(this.pointLabel);
-            this.editQuestionPanel.Controls.Add(this.textBox1);
-            this.editQuestionPanel.Location = new System.Drawing.Point(128, 52);
+            this.editQuestionPanel.Controls.Add(this.pointTxt);
+            this.editQuestionPanel.Location = new System.Drawing.Point(119, 52);
             this.editQuestionPanel.Name = "editQuestionPanel";
-            this.editQuestionPanel.Size = new System.Drawing.Size(745, 461);
+            this.editQuestionPanel.Size = new System.Drawing.Size(754, 460);
             this.editQuestionPanel.TabIndex = 3;
             // 
-            // candidateControl
+            // addCandidateBtn
             // 
-            this.candidateControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.candidateControl.Controls.Add(this.candidate1);
-            this.candidateControl.Location = new System.Drawing.Point(0, 33);
-            this.candidateControl.Name = "candidateControl";
-            this.candidateControl.SelectedIndex = 0;
-            this.candidateControl.Size = new System.Drawing.Size(745, 428);
-            this.candidateControl.TabIndex = 2;
-            // 
-            // candidate1
-            // 
-            this.candidate1.Controls.Add(this.candidatePanel);
-            this.candidate1.Location = new System.Drawing.Point(4, 22);
-            this.candidate1.Name = "candidate1";
-            this.candidate1.Padding = new System.Windows.Forms.Padding(3);
-            this.candidate1.Size = new System.Drawing.Size(737, 402);
-            this.candidate1.TabIndex = 0;
-            this.candidate1.Text = "Candidate 1";
-            this.candidate1.UseVisualStyleBackColor = true;
+            this.addCandidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCandidateBtn.Location = new System.Drawing.Point(648, 4);
+            this.addCandidateBtn.Name = "addCandidateBtn";
+            this.addCandidateBtn.Size = new System.Drawing.Size(102, 23);
+            this.addCandidateBtn.TabIndex = 0;
+            this.addCandidateBtn.Text = "Add Candidate";
+            this.addCandidateBtn.UseVisualStyleBackColor = true;
+            this.addCandidateBtn.Click += new System.EventHandler(this.addCandidateBtn_Click);
             // 
             // pointLabel
             // 
@@ -172,46 +136,18 @@
             this.pointLabel.TabIndex = 1;
             this.pointLabel.Text = "Point";
             // 
-            // textBox1
+            // pointTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(99, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // browseImgDialog
-            // 
-            this.browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            // 
-            // addCandidateBtn
-            // 
-            this.addCandidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addCandidateBtn.Location = new System.Drawing.Point(639, 4);
-            this.addCandidateBtn.Name = "addCandidateBtn";
-            this.addCandidateBtn.Size = new System.Drawing.Size(102, 23);
-            this.addCandidateBtn.TabIndex = 0;
-            this.addCandidateBtn.Text = "Add Candidate";
-            this.addCandidateBtn.UseVisualStyleBackColor = true;
-            this.addCandidateBtn.Click += new System.EventHandler(this.addCandidateBtn_Click);
+            this.pointTxt.Location = new System.Drawing.Point(88, 7);
+            this.pointTxt.Name = "pointTxt";
+            this.pointTxt.Size = new System.Drawing.Size(99, 20);
+            this.pointTxt.TabIndex = 0;
             // 
             // candidatePanel
             // 
-            this.candidatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.candidatePanel.Controls.Add(this.addRequirementBtn);
-            this.candidatePanel.Controls.Add(this.dataGridView);
-            this.candidatePanel.Controls.Add(this.requirementsLabel);
-            this.candidatePanel.Controls.Add(this.pictureBox);
-            this.candidatePanel.Controls.Add(this.browseImgBtn);
-            this.candidatePanel.Controls.Add(this.imgLabel);
-            this.candidatePanel.Controls.Add(this.textBox2);
-            this.candidatePanel.Controls.Add(this.contentLabel);
-            this.candidatePanel.Controls.Add(this.questionTypeComboBox);
-            this.candidatePanel.Controls.Add(this.typeLabel);
-            this.candidatePanel.Location = new System.Drawing.Point(1, 1);
+            this.candidatePanel.Location = new System.Drawing.Point(0, 0);
             this.candidatePanel.Name = "candidatePanel";
-            this.candidatePanel.Size = new System.Drawing.Size(739, 400);
+            this.candidatePanel.Size = new System.Drawing.Size(200, 100);
             this.candidatePanel.TabIndex = 0;
             // 
             // addRequirementBtn
@@ -352,24 +288,41 @@
             this.typeLabel.TabIndex = 9;
             this.typeLabel.Text = "Type";
             // 
+            // browseImgDialog
+            // 
+            this.browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            // 
+            // candidateControl
+            // 
+            this.candidateControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.candidateControl.Location = new System.Drawing.Point(0, 33);
+            this.candidateControl.Name = "candidateControl";
+            this.candidateControl.SelectedIndex = 0;
+            this.candidateControl.Size = new System.Drawing.Size(754, 427);
+            this.candidateControl.TabIndex = 0;
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 525);
+            this.ClientSize = new System.Drawing.Size(885, 524);
             this.Controls.Add(this.editQuestionPanel);
+            this.Controls.Add(this.addQuestionBtn);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.importBtn);
             this.Controls.Add(this.questionPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "DBI Exam Creator";
-            this.questionPanel.ResumeLayout(false);
             this.editQuestionPanel.ResumeLayout(false);
             this.editQuestionPanel.PerformLayout();
-            this.candidateControl.ResumeLayout(false);
-            this.candidate1.ResumeLayout(false);
-            this.candidatePanel.ResumeLayout(false);
-            this.candidatePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -379,16 +332,12 @@
         #endregion
 
         private System.Windows.Forms.Panel questionPanel;
-        private System.Windows.Forms.Button question1Btn;
         private System.Windows.Forms.Button addQuestionBtn;
         private System.Windows.Forms.Button importBtn;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button exportBtn;
         private System.Windows.Forms.Panel editQuestionPanel;
         private System.Windows.Forms.Label pointLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TabControl candidateControl;
-        private System.Windows.Forms.TabPage candidate1;
+        private System.Windows.Forms.TextBox pointTxt;
         private System.Windows.Forms.OpenFileDialog browseImgDialog;
         private System.Windows.Forms.Button addCandidateBtn;
         private System.Windows.Forms.Panel candidatePanel;
@@ -408,6 +357,8 @@
         private System.Windows.Forms.Label contentLabel;
         private System.Windows.Forms.ComboBox questionTypeComboBox;
         private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.TabControl candidateControl;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

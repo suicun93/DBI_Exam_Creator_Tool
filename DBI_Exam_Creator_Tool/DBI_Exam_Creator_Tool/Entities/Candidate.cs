@@ -5,26 +5,28 @@ using System.Text;
 
 namespace DBI_Exam_Creator_Tool.Entities
 {
-    class Candidate
+    [Serializable]
+    public class Candidate
     {
-        public string CandidateId { get; set; }
+        public int CandidateId { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
-        public int QuestionType { get; set; }
-        public string ImageURL { get; set; }
+        public string QuestionType { get; set; }
+        public string ImageData { get; set; }
         public List<Requirement> Requirements { get; set; }
 
         public Candidate()
         {
+            Requirements = new List<Requirement>();
         }
 
-        public Candidate(string candidateId, int questionId, string content, int questionType, string imageURL, List<Requirement> requirements)
+        public Candidate(int candidateId, int questionId, string content, string questionType, string iamgedata, List<Requirement> requirements)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
             Content = content;
             QuestionType = questionType;
-            ImageURL = imageURL;
+            ImageData = iamgedata;
             Requirements = requirements;
         }
     }
