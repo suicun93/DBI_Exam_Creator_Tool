@@ -6,15 +6,17 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Helpers;
-using System.IO;
+using DBI_Exam_Creator_Tool.Commons;
 
 namespace DBI_Exam_Creator_Tool
 {
     public partial class CandidatePanel : UserControl
     {
         private Candidate Candidate;
+        private int selectedRowIndex = -1;
 
         public CandidatePanel()
         {
@@ -30,7 +32,7 @@ namespace DBI_Exam_Creator_Tool
 
         private void OnCreate()
         {
-            List<string> questionTypes = Utilities.QuestionTypes();
+            List<string> questionTypes = Constants.QuestionTypes();
             questionTypeComboBox.DataSource = questionTypes;
             //questionTypeComboBox.SelectedItem = Candidate.QuestionType;
             questionTypeComboBox.DataBindings.Add("SelectedItem", Candidate, "QuestionType");
@@ -40,22 +42,13 @@ namespace DBI_Exam_Creator_Tool
             // img
             //
 
-            dataGridView.DataSource = typeof(List<Requirement>);
-            dataGridView.DataSource = Candidate.Requirements;
-        }
-
-        private void addRequirementBtn_Click(object sender, EventArgs e)
-        {
-            Requirement r = new Requirement("1", 1, 1, "hello mother fucker", "haha", "hahahehe");
-            Candidate.Requirements.Add(r);
-
-            dataGridView.DataSource = typeof(List<Requirement>);
-            dataGridView.DataSource = Candidate.Requirements;
+            dataGridView.AutoGenerateColumns = false;
+            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
         }
 
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Image image = Base64StringToImage(Candidate.ImageData);
+            Image image = Utilities.Base64StringToImage(Candidate.ImageData);
             using (Form form = new Form())
             {
                 form.StartPosition = FormStartPosition.CenterScreen;
@@ -77,40 +70,86 @@ namespace DBI_Exam_Creator_Tool
             if (browseImgDialog.ShowDialog() == DialogResult.OK)
             {
                 // Get the path of specified file
-                //string filePath = browseImgDialog.FileName;
+                string filePath = browseImgDialog.FileName;
 
-                //var image = Image.FromFile(filePath);
-
-                // Read the contents of the file into a stream
-                var fileStream = browseImgDialog.OpenFile();
-
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    string fileContent = reader.ReadToEnd();
-                    //Console.WriteLine(fileContent);
-                    var bytes = Encoding.UTF8.GetBytes(fileContent);
-                    Candidate.ImageData = Convert.ToBase64String(bytes);
-                    reader.Close();
-                }
+                var base64Data = Utilities.ImageToBase64(filePath);
+                Candidate.ImageData = base64Data;
             }
         }
 
-        public Image Base64StringToImage(string inputString)
+        private void dataGridView_Click(object sender, EventArgs e)
         {
-            Image img = null;
+            Console.WriteLine("something");
+        }
 
-            byte[] imageBytes = Convert.FromBase64String(inputString);
+        private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.selectedRowIndex = e.RowIndex;
+        }
 
-            using (MemoryStream ms = new MemoryStream())
+        //
+        // Handle Add Requirement button
+        //
+        private void addRequirementBtn_Click(object sender, EventArgs e)
+        {
+            Requirement r = new Requirement();
+            r.CandidateId = Candidate.CandidateId;
+            if (Candidate.Requirements.Count() != 0)
             {
-                
-                ms.Position = 0;
-                img = Image.FromStream(ms, true);
-
-                ms.Close();
-                imageBytes = null;
+                // increase last RequirementId by 1
+                r.RequirementId = Candidate.Requirements[Candidate.Requirements.Count() - 1].RequirementId + 1;
+            } else
+            {
+                r.RequirementId = 1;
             }
-            return img;
+            r.Type = Constants.RequirementType.RESULT_SET;
+
+            RequirementForm rf = new RequirementForm(r);
+            rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, true, rf.discarded); };
+            rf.Show();
+        }
+
+        //
+        // Handle Edit button
+        //
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex != -1)
+            {
+                RequirementForm rf = new RequirementForm(Candidate.Requirements[selectedRowIndex]);
+                rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, false, rf.discarded); };
+                rf.Show();
+            }
+        }
+
+        // Update dataGridView when close Edit form
+        private void Rf_Disposed(object sender, EventArgs e, Requirement editedRequirement, bool isNewReq, bool discarded)
+        {
+            if (discarded)
+                return;
+            if (!isNewReq)
+            {
+                Candidate.Requirements[selectedRowIndex] = editedRequirement;
+                
+            } else
+            {
+                Candidate.Requirements.Add(editedRequirement);
+            }
+            dataGridView.DataSource = typeof(BindingList<Requirement>);
+            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
+        }
+
+        //
+        // Handle Delete button
+        //
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (selectedRowIndex != -1)
+            {
+                Candidate.Requirements.RemoveAt(selectedRowIndex);
+            }
+            dataGridView.DataSource = typeof(BindingList<Requirement>);
+            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
         }
     }
 }

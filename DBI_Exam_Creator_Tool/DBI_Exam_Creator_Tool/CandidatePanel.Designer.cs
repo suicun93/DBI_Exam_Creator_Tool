@@ -30,6 +30,12 @@
         {
             this.addRequirementBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
             this.imgLabel = new System.Windows.Forms.Label();
@@ -39,19 +45,15 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.imgPreview = new System.Windows.Forms.LinkLabel();
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
-            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // addRequirementBtn
             // 
-            this.addRequirementBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.addRequirementBtn.Location = new System.Drawing.Point(83, 122);
+            this.addRequirementBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addRequirementBtn.Location = new System.Drawing.Point(628, 122);
             this.addRequirementBtn.Name = "addRequirementBtn";
             this.addRequirementBtn.Size = new System.Drawing.Size(99, 23);
             this.addRequirementBtn.TabIndex = 28;
@@ -76,6 +78,54 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(644, 193);
             this.dataGridView.TabIndex = 27;
+            this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
+            this.dataGridView.Click += new System.EventHandler(this.dataGridView_Click);
+            // 
+            // RequirementId
+            // 
+            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.RequirementId.DataPropertyName = "requirementId";
+            this.RequirementId.HeaderText = "RequirementId";
+            this.RequirementId.Name = "RequirementId";
+            this.RequirementId.ReadOnly = true;
+            this.RequirementId.Width = 101;
+            // 
+            // CandidateId
+            // 
+            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CandidateId.DataPropertyName = "CandidateId";
+            this.CandidateId.HeaderText = "CandidateId";
+            this.CandidateId.Name = "CandidateId";
+            this.CandidateId.Width = 89;
+            // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.Width = 56;
+            // 
+            // ResultQuery
+            // 
+            this.ResultQuery.DataPropertyName = "ResultQuery";
+            this.ResultQuery.HeaderText = "ResultQuery";
+            this.ResultQuery.Name = "ResultQuery";
+            // 
+            // EffectTable
+            // 
+            this.EffectTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EffectTable.DataPropertyName = "EffectTable";
+            this.EffectTable.HeaderText = "EffectTable";
+            this.EffectTable.Name = "EffectTable";
+            this.EffectTable.Width = 87;
+            // 
+            // CheckEffectQuery
+            // 
+            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
+            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
+            this.CheckEffectQuery.Name = "CheckEffectQuery";
             // 
             // requirementsLabel
             // 
@@ -161,56 +211,33 @@
             // 
             this.browseImgDialog.FileName = "img";
             // 
-            // RequirementId
+            // editBtn
             // 
-            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.RequirementId.DataPropertyName = "requirementId";
-            this.RequirementId.HeaderText = "RequirementId";
-            this.RequirementId.Name = "RequirementId";
-            this.RequirementId.ReadOnly = true;
-            this.RequirementId.Width = 101;
+            this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editBtn.Location = new System.Drawing.Point(547, 122);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(75, 23);
+            this.editBtn.TabIndex = 30;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // CandidateId
+            // deleteBtn
             // 
-            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CandidateId.DataPropertyName = "CandidateId";
-            this.CandidateId.HeaderText = "CandidateId";
-            this.CandidateId.Name = "CandidateId";
-            this.CandidateId.Width = 89;
-            // 
-            // Type
-            // 
-            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.Width = 56;
-            // 
-            // ResultQuery
-            // 
-            this.ResultQuery.DataPropertyName = "ResultQuery";
-            this.ResultQuery.HeaderText = "ResultQuery";
-            this.ResultQuery.Name = "ResultQuery";
-            // 
-            // EffectTable
-            // 
-            this.EffectTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.EffectTable.DataPropertyName = "EffectTable";
-            this.EffectTable.HeaderText = "EffectTable";
-            this.EffectTable.Name = "EffectTable";
-            this.EffectTable.Width = 87;
-            // 
-            // CheckEffectQuery
-            // 
-            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
-            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
-            this.CheckEffectQuery.Name = "CheckEffectQuery";
+            this.deleteBtn.Location = new System.Drawing.Point(466, 122);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteBtn.TabIndex = 31;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // CandidatePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteBtn);
+            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.imgPreview);
             this.Controls.Add(this.addRequirementBtn);
             this.Controls.Add(this.dataGridView);
@@ -248,5 +275,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultQuery;
         private System.Windows.Forms.DataGridViewTextBoxColumn EffectTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckEffectQuery;
+        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button deleteBtn;
     }
 }

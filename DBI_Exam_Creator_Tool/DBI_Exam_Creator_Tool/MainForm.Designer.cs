@@ -56,6 +56,7 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.sqlScriptBtn = new System.Windows.Forms.Button();
             this.editQuestionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
@@ -303,11 +304,21 @@
             // 
             this.browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             // 
+            // sqlScriptBtn
+            // 
+            this.sqlScriptBtn.Location = new System.Drawing.Point(767, 13);
+            this.sqlScriptBtn.Name = "sqlScriptBtn";
+            this.sqlScriptBtn.Size = new System.Drawing.Size(102, 23);
+            this.sqlScriptBtn.TabIndex = 4;
+            this.sqlScriptBtn.Text = "SQL Script";
+            this.sqlScriptBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 524);
+            this.Controls.Add(this.sqlScriptBtn);
             this.Controls.Add(this.editQuestionPanel);
             this.Controls.Add(this.addQuestionBtn);
             this.Controls.Add(this.exportBtn);
@@ -355,6 +366,7 @@
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.TabControl candidateControl;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button sqlScriptBtn;
     }
 }
 

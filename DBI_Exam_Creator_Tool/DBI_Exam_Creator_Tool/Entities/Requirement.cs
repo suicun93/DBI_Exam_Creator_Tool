@@ -8,9 +8,9 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Requirement
     {
-        public string RequirementId { get; set; }
+        public int RequirementId { get; set; }
         public int CandidateId { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         public string ResultQuery { get; set; }
 
@@ -21,7 +21,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         {
         }
 
-        public Requirement(string requirementId, int candidateId, int type, string resultQuery, string effectTable, string checkEffectQuery)
+        public Requirement(int requirementId, int candidateId, string type, string resultQuery, string effectTable, string checkEffectQuery)
         {
             RequirementId = requirementId;
             CandidateId = candidateId;

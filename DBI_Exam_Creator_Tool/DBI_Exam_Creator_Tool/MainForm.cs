@@ -35,9 +35,8 @@ namespace DBI_Exam_Creator_Tool
             }
 
             Candidate c = new Candidate();
-
-            Requirement r = new Requirement("1", 1, 1, "hello mother fucker", "haha", "hahahehe");
-            c.Requirements = new List<Requirement> { r };
+            // increase last CandidateId by 1
+            c.CandidateId = currentQuestion.Candidates[currentQuestion.Candidates.Count() - 1].CandidateId + 1;
             c.QuestionType = Constants.QuestionType.QUERY;
 
             currentQuestion.Candidates.Add(c);
@@ -59,7 +58,7 @@ namespace DBI_Exam_Creator_Tool
         {
             Question q = new Question(this.questionId, 1, new List<Candidate>());
             Candidate c = new Candidate();
-            c.CandidateId = q.Candidates.Count() + 1;
+            c.CandidateId = 1;
             c.QuestionId = q.QuestionId;
             q.Candidates.Add(c);
             this.questions.Add(q);
