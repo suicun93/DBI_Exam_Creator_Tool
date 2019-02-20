@@ -32,9 +32,10 @@ namespace DBI_Exam_Creator_Tool
         {
             List<string> questionTypes = Utilities.QuestionTypes();
             questionTypeComboBox.DataSource = questionTypes;
-            questionTypeComboBox.SelectedItem = Candidate.QuestionType;
+            //questionTypeComboBox.SelectedItem = Candidate.QuestionType;
+            questionTypeComboBox.DataBindings.Add("SelectedItem", Candidate, "QuestionType");
 
-            contentTxt.Text = Candidate.Content;
+            contentTxt.DataBindings.Add("Text", Candidate, "Content");
 
             // img
             //
@@ -54,7 +55,19 @@ namespace DBI_Exam_Creator_Tool
 
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Image image = Base64StringToImage(Candidate.ImageData);
+            using (Form form = new Form())
+            {
+                form.StartPosition = FormStartPosition.CenterScreen;
+                form.Size = image.Size;
 
+                PictureBox pb = new PictureBox();
+                pb.Dock = DockStyle.Fill;
+                pb.Image = image;
+
+                form.Controls.Add(pb);
+                form.ShowDialog();
+            }
         }
 
         private void browseImgBtn_Click(object sender, EventArgs e)
@@ -64,9 +77,9 @@ namespace DBI_Exam_Creator_Tool
             if (browseImgDialog.ShowDialog() == DialogResult.OK)
             {
                 // Get the path of specified file
-                string filePath = browseImgDialog.FileName;
+                //string filePath = browseImgDialog.FileName;
 
-                var image = Image.FromFile(filePath);
+                //var image = Image.FromFile(filePath);
 
                 // Read the contents of the file into a stream
                 var fileStream = browseImgDialog.OpenFile();
@@ -75,9 +88,29 @@ namespace DBI_Exam_Creator_Tool
                 {
                     string fileContent = reader.ReadToEnd();
                     //Console.WriteLine(fileContent);
-                    Candidate.ImageData = fileContent;
+                    var bytes = Encoding.UTF8.GetBytes(fileContent);
+                    Candidate.ImageData = Convert.ToBase64String(bytes);
+                    reader.Close();
                 }
             }
+        }
+
+        public Image Base64StringToImage(string inputString)
+        {
+            Image img = null;
+
+            byte[] imageBytes = Convert.FromBase64String(inputString);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                
+                ms.Position = 0;
+                img = Image.FromStream(ms, true);
+
+                ms.Close();
+                imageBytes = null;
+            }
+            return img;
         }
     }
 }

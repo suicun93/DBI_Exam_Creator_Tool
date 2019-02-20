@@ -10,9 +10,9 @@ namespace DBI_Exam_Creator_Tool.Helpers
     {
         public static List<string> QuestionTypes()
         {
-            return new List<string> { Constants.QUESTIONTYPE_QUERY,
-                Constants.QUESTIONTYPE_PROCEDURE,
-                Constants.QUESTIONTYPE_TRIGGER };
+            return new List<string> { Constants.QuestionType.QUERY,
+                Constants.QuestionType.PROCUDURE,
+                Constants.QuestionType.TRIGGER };
         }
     }
 }

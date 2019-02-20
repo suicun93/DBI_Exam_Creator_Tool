@@ -34,6 +34,7 @@
             this.exportBtn = new System.Windows.Forms.Button();
             this.editQuestionPanel = new System.Windows.Forms.Panel();
             this.addCandidateBtn = new System.Windows.Forms.Button();
+            this.candidateControl = new System.Windows.Forms.TabControl();
             this.pointLabel = new System.Windows.Forms.Label();
             this.pointTxt = new System.Windows.Forms.TextBox();
             this.candidatePanel = new System.Windows.Forms.Panel();
@@ -54,7 +55,6 @@
             this.questionTypeComboBox = new System.Windows.Forms.ComboBox();
             this.typeLabel = new System.Windows.Forms.Label();
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
-            this.candidateControl = new System.Windows.Forms.TabControl();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.editQuestionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -126,6 +126,17 @@
             this.addCandidateBtn.Text = "Add Candidate";
             this.addCandidateBtn.UseVisualStyleBackColor = true;
             this.addCandidateBtn.Click += new System.EventHandler(this.addCandidateBtn_Click);
+            // 
+            // candidateControl
+            // 
+            this.candidateControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.candidateControl.Location = new System.Drawing.Point(0, 33);
+            this.candidateControl.Name = "candidateControl";
+            this.candidateControl.SelectedIndex = 0;
+            this.candidateControl.Size = new System.Drawing.Size(754, 427);
+            this.candidateControl.TabIndex = 0;
             // 
             // pointLabel
             // 
@@ -291,21 +302,6 @@
             // browseImgDialog
             // 
             this.browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            // 
-            // candidateControl
-            // 
-            this.candidateControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.candidateControl.Location = new System.Drawing.Point(0, 33);
-            this.candidateControl.Name = "candidateControl";
-            this.candidateControl.SelectedIndex = 0;
-            this.candidateControl.Size = new System.Drawing.Size(754, 427);
-            this.candidateControl.TabIndex = 0;
-            // 
-            // saveFileDialog
-            // 
-            this.saveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog_FileOk);
             // 
             // MainForm
             // 

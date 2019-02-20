@@ -7,8 +7,12 @@ namespace DBI_Exam_Creator_Tool.Commons
 {
     public static class Constants
     {
-        public const string QUESTIONTYPE_QUERY = "Query";
-        public const string QUESTIONTYPE_PROCEDURE = "Procedure";
-        public const string QUESTIONTYPE_TRIGGER = "Trigger";
+
+        public class QuestionType
+        {
+            public const string QUERY = "Query";
+            public const string PROCUDURE = "Procedure";
+            public const string TRIGGER = "Trigger";
+        }
     }
 }

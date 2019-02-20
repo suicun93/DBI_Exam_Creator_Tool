@@ -38,7 +38,7 @@ namespace DBI_Exam_Creator_Tool
 
             Requirement r = new Requirement("1", 1, 1, "hello mother fucker", "haha", "hahahehe");
             c.Requirements = new List<Requirement> { r };
-            c.QuestionType = Constants.QUESTIONTYPE_PROCEDURE;
+            c.QuestionType = Constants.QuestionType.QUERY;
 
             currentQuestion.Candidates.Add(c);
             TabPage tp = new TabPage("Candidate " + currentQuestion.Candidates.Count());
@@ -81,7 +81,10 @@ namespace DBI_Exam_Creator_Tool
         /// <param name="_q">Question binding with the button</param>
         private void Question_Btn_Click(object _sender, EventArgs _e, Question _q)
         {
-            pointTxt.Text = _q.Point.ToString();
+            // Clear binding with the previous Question Point
+            pointTxt.DataBindings.Clear();
+            // Bind with current Question Point
+            pointTxt.DataBindings.Add("Text", _q, "Point");
 
             candidateControl.TabPages.Clear();
             currentQuestion = _q;
@@ -118,7 +121,6 @@ namespace DBI_Exam_Creator_Tool
 
                 WriteToFile(jsonData, savePath);
             }
-
         }
 
         private void WriteToFile(string data, string savePath)
@@ -132,11 +134,6 @@ namespace DBI_Exam_Creator_Tool
             {
                 MessageBox.Show("Failed to export data", "Error!");
             }
-        }
-
-        private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
-        {
-
         }
     }
 }
