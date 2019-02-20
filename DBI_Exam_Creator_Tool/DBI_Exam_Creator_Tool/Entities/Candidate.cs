@@ -29,5 +29,13 @@ namespace DBI_Exam_Creator_Tool.Entities
             ImageData = iamgedata;
             Requirements = requirements;
         }
+
+        public override bool Equals(object obj)
+        {
+            var candidate = obj as Candidate;
+            return candidate != null &&
+                   CandidateId == candidate.CandidateId &&
+                   QuestionId == candidate.QuestionId;
+        }
     }
 }

@@ -41,7 +41,7 @@
             this.effectTableTxt = new System.Windows.Forms.TextBox();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.separator1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.separator2 = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -150,20 +150,20 @@
             // separator1
             // 
             this.separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator1.Location = new System.Drawing.Point(-5, 103);
-            this.separator1.MaximumSize = new System.Drawing.Size(0, 2);
+            this.separator1.Location = new System.Drawing.Point(-5, 104);
+            this.separator1.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(0, 2);
+            this.separator1.Size = new System.Drawing.Size(802, 2);
             this.separator1.TabIndex = 12;
             // 
-            // label7
+            // separator2
             // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Location = new System.Drawing.Point(-3, 226);
-            this.label7.MaximumSize = new System.Drawing.Size(0, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 2);
-            this.label7.TabIndex = 13;
+            this.separator2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.separator2.Location = new System.Drawing.Point(-3, 227);
+            this.separator2.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.separator2.Name = "separator2";
+            this.separator2.Size = new System.Drawing.Size(800, 2);
+            this.separator2.TabIndex = 13;
             // 
             // saveBtn
             // 
@@ -182,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 383);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.separator2);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.effectTableTxt);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.TextBox effectTableTxt;
         private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.Label separator1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label separator2;
         private System.Windows.Forms.Button saveBtn;
     }
 }

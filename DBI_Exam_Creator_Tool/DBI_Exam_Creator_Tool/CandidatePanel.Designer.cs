@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button deleteCandidateBtn;
             this.addRequirementBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,13 +48,24 @@
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
             this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            deleteCandidateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // deleteCandidateBtn
+            // 
+            deleteCandidateBtn.Location = new System.Drawing.Point(628, 4);
+            deleteCandidateBtn.Name = "deleteCandidateBtn";
+            deleteCandidateBtn.Size = new System.Drawing.Size(99, 23);
+            deleteCandidateBtn.TabIndex = 32;
+            deleteCandidateBtn.Text = "Delete Candidate";
+            deleteCandidateBtn.UseVisualStyleBackColor = true;
+            deleteCandidateBtn.Click += new System.EventHandler(this.deleteCandidateBtn_Click);
             // 
             // addRequirementBtn
             // 
             this.addRequirementBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRequirementBtn.Location = new System.Drawing.Point(628, 122);
+            this.addRequirementBtn.Location = new System.Drawing.Point(628, 137);
             this.addRequirementBtn.Name = "addRequirementBtn";
             this.addRequirementBtn.Size = new System.Drawing.Size(99, 23);
             this.addRequirementBtn.TabIndex = 28;
@@ -74,9 +86,9 @@
             this.ResultQuery,
             this.EffectTable,
             this.CheckEffectQuery});
-            this.dataGridView.Location = new System.Drawing.Point(83, 151);
+            this.dataGridView.Location = new System.Drawing.Point(83, 166);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(644, 193);
+            this.dataGridView.Size = new System.Drawing.Size(644, 236);
             this.dataGridView.TabIndex = 27;
             this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
             this.dataGridView.Click += new System.EventHandler(this.dataGridView_Click);
@@ -131,7 +143,7 @@
             // 
             this.requirementsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.requirementsLabel.AutoSize = true;
-            this.requirementsLabel.Location = new System.Drawing.Point(3, 127);
+            this.requirementsLabel.Location = new System.Drawing.Point(3, 142);
             this.requirementsLabel.Name = "requirementsLabel";
             this.requirementsLabel.Size = new System.Drawing.Size(72, 13);
             this.requirementsLabel.TabIndex = 26;
@@ -201,10 +213,8 @@
             this.imgPreview.AutoSize = true;
             this.imgPreview.Location = new System.Drawing.Point(189, 98);
             this.imgPreview.Name = "imgPreview";
-            this.imgPreview.Size = new System.Drawing.Size(45, 13);
+            this.imgPreview.Size = new System.Drawing.Size(0, 13);
             this.imgPreview.TabIndex = 29;
-            this.imgPreview.TabStop = true;
-            this.imgPreview.Text = "Preview";
             this.imgPreview.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.imgPreview_LinkClicked);
             // 
             // browseImgDialog
@@ -214,7 +224,7 @@
             // editBtn
             // 
             this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editBtn.Location = new System.Drawing.Point(547, 122);
+            this.editBtn.Location = new System.Drawing.Point(547, 137);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
             this.editBtn.TabIndex = 30;
@@ -224,7 +234,7 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(466, 122);
+            this.deleteBtn.Location = new System.Drawing.Point(466, 137);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(75, 23);
             this.deleteBtn.TabIndex = 31;
@@ -236,6 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(deleteCandidateBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.imgPreview);
@@ -249,7 +260,7 @@
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(730, 347);
+            this.Size = new System.Drawing.Size(730, 405);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

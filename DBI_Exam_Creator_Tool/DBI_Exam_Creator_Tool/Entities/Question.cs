@@ -23,5 +23,12 @@ namespace DBI_Exam_Creator_Tool.Entities
             Point = point;
             Candidates = candidates;
         }
+
+        public override bool Equals(object obj)
+        {
+            var question = obj as Question;
+            return question != null &&
+                   QuestionId == question.QuestionId;
+        }
     }
 }

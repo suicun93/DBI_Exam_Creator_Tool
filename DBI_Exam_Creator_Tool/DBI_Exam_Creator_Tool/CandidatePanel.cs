@@ -15,21 +15,26 @@ namespace DBI_Exam_Creator_Tool
 {
     public partial class CandidatePanel : UserControl
     {
-        private Candidate Candidate;
+        public Candidate Candidate { get; set; }
         private int selectedRowIndex = -1;
+
+        private delegate bool HandleDelete(Candidate c, TabPage tp);
+        private HandleDelete handleDelete;
 
         public CandidatePanel()
         {
             InitializeComponent();
         }
 
-        public CandidatePanel(Candidate candidate)
+        public CandidatePanel(Candidate candidate, Func<Candidate, TabPage, bool> _handleDelete)
         {
             InitializeComponent();
             this.Candidate = candidate;
             this.OnCreate();
+            handleDelete = new HandleDelete(_handleDelete);
         }
 
+        // Bind Candidate data to controls
         private void OnCreate()
         {
             List<string> questionTypes = Constants.QuestionTypes();
@@ -74,6 +79,9 @@ namespace DBI_Exam_Creator_Tool
 
                 var base64Data = Utilities.ImageToBase64(filePath);
                 Candidate.ImageData = base64Data;
+                imgPreview.Text = Path.GetFileName(filePath);
+                ToolTip tt = new ToolTip();
+                tt.SetToolTip(imgPreview, "Click to preview");
             }
         }
 
@@ -150,6 +158,13 @@ namespace DBI_Exam_Creator_Tool
             }
             dataGridView.DataSource = typeof(BindingList<Requirement>);
             dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
+        }
+
+        // Delete current Candidate from Question
+        // Close current Tab
+        private void deleteCandidateBtn_Click(object sender, EventArgs e)
+        {
+            handleDelete(this.Candidate, (TabPage) this.Parent);
         }
     }
 }

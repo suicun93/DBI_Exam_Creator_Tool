@@ -15,9 +15,10 @@ namespace DBI_Exam_Creator_Tool
 {
     public partial class MainForm : Form
     {
-        private int questionId = 1;
         private List<Question> questions = new List<Question>();
         private Question currentQuestion;
+        //private List<Button> questionButtons = new List<Button>();
+        private Button currentQuestionBtn;
 
         public MainForm()
         {
@@ -30,19 +31,26 @@ namespace DBI_Exam_Creator_Tool
         {
             if (currentQuestion == null)
             {
-                Console.WriteLine("no question selected");
+                MessageBox.Show("You need to choose a question.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             Candidate c = new Candidate();
-            // increase last CandidateId by 1
-            c.CandidateId = currentQuestion.Candidates[currentQuestion.Candidates.Count() - 1].CandidateId + 1;
+            if (currentQuestion.Candidates.Count() == 0)
+            {
+                c.CandidateId = 1;
+            }
+            else
+            {
+                // increase last CandidateId by 1
+                c.CandidateId = currentQuestion.Candidates[currentQuestion.Candidates.Count() - 1].CandidateId + 1;
+            }
             c.QuestionType = Constants.QuestionType.QUERY;
 
             currentQuestion.Candidates.Add(c);
             TabPage tp = new TabPage("Candidate " + currentQuestion.Candidates.Count());
 
-            CandidatePanel candidatePanel = new CandidatePanel(c);
+            CandidatePanel candidatePanel = new CandidatePanel(c, this.HandleDeleteCandidate);
             tp.Controls.Add(candidatePanel);
             candidateControl.TabPages.Add(tp);
 
@@ -56,7 +64,13 @@ namespace DBI_Exam_Creator_Tool
         // add new Question to list
         private void addQuestionBtn_Click(object sender, EventArgs e)
         {
-            Question q = new Question(this.questionId, 1, new List<Candidate>());
+            int questionId;
+            if (questions.Count() == 0)
+                questionId = 1;
+            else
+                questionId = questions[questions.Count() - 1].QuestionId + 1;
+
+            Question q = new Question(questionId, 1, new List<Candidate>());
             Candidate c = new Candidate();
             c.CandidateId = 1;
             c.QuestionId = q.QuestionId;
@@ -64,45 +78,62 @@ namespace DBI_Exam_Creator_Tool
             this.questions.Add(q);
             
             Button btn = new Button();
-            Point btnLocation = new Point(3, 3 * this.questions.Count() + 23 * (this.questions.Count() - 1));
+            // Some hardcode styles
+            btn.Font = new FontConverter().ConvertFromString("Microsoft Sans Serif, 8pt, style=Bold") as Font;
+            btn.Size = new Size(90, 25);
+            btn.Padding = new Padding(0);
+            // Makes the buttons display as a vertical list
+            Point btnLocation = new Point(3, 3 * this.questions.Count() + 25 * (this.questions.Count() - 1));
             btn.Location = btnLocation;
             btn.Text = "Question " + (this.questions.Count());
             btn.Click += (_sender, EventArgs) => { Question_Btn_Click(_sender, EventArgs, q); };
+
+            // Highlight the button when it gains focus
+            btn.GotFocus += (_sender, EventArgs) => { btn.BackColor = Color.LightBlue; };
+            btn.LostFocus += (_sender, EventArgs) => { btn.BackColor = Color.FromKnownColor(KnownColor.Control); };
             
             this.questionPanel.Controls.Add(btn);
             btn.PerformClick();
         }
 
-        /// <summary>
-        /// When user click "Question i" button
-        /// switch tab control to the corresponding Candidates
-        /// </summary>
-        /// <param name="_q">Question binding with the button</param>
+        
+        // When user click "Question i" button
+        // switch tab control to the corresponding Question's Candidates
         private void Question_Btn_Click(object _sender, EventArgs _e, Question _q)
         {
+            currentQuestionBtn = (Button)_sender;
             // Clear binding with the previous Question Point
             pointTxt.DataBindings.Clear();
             // Bind with current Question Point
             pointTxt.DataBindings.Add("Text", _q, "Point");
+            questionIdTxt.Text = _q.QuestionId.ToString();
 
             candidateControl.TabPages.Clear();
             currentQuestion = _q;
 
             Button btn = (Button)_sender;
-            //btn.BackColor = Color.Green;
             btn.Focus();
 
             // Show corresponding question's candidates in tab control
-
             for (int i = 0; i < _q.Candidates.Count(); i++)
             {
                 Candidate c = _q.Candidates[i];
 
                 TabPage tp = new TabPage("Candidate " + (i + 1));
-                CandidatePanel candidatePanel = new CandidatePanel(c);
+                CandidatePanel candidatePanel = new CandidatePanel(c, this.HandleDeleteCandidate);
                 tp.Controls.Add(candidatePanel);
                 candidateControl.TabPages.Add(tp);
             }
+        }
+
+        public bool HandleDeleteCandidate(Candidate c, TabPage tabToClose)
+        {
+            if (currentQuestion.Candidates.Remove(c))
+            {
+                candidateControl.TabPages.Remove(tabToClose);
+                return true;
+            }
+            return false;
         }
 
         // Export Questions data into .json file
@@ -132,6 +163,15 @@ namespace DBI_Exam_Creator_Tool
             catch (Exception)
             {
                 MessageBox.Show("Failed to export data", "Error!");
+            }
+        }
+
+        private void deleteQuestionBtn_Click(object sender, EventArgs e)
+        {
+            if (questions.Remove(currentQuestion))
+            {
+                this.questionPanel.Controls.Remove(currentQuestionBtn);
+                this.candidateControl.Controls.Clear();
             }
         }
     }

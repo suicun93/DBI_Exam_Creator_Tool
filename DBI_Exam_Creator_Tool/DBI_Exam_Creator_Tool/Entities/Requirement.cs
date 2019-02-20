@@ -30,5 +30,13 @@ namespace DBI_Exam_Creator_Tool.Entities
             EffectTable = effectTable;
             CheckEffectQuery = checkEffectQuery;
         }
+
+        public override bool Equals(object obj)
+        {
+            var requirement = obj as Requirement;
+            return requirement != null &&
+                   RequirementId == requirement.RequirementId &&
+                   CandidateId == requirement.CandidateId;
+        }
     }
 }
