@@ -18,7 +18,6 @@ namespace DBI_Exam_Creator_Tool
         private int questionId = 1;
         private List<Question> questions = new List<Question>();
         private Question currentQuestion;
-        private string dataFileName = "data.json";
 
         public MainForm()
         {

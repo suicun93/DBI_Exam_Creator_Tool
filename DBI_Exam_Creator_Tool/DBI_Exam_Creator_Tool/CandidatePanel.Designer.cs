@@ -30,12 +30,6 @@
         {
             this.addRequirementBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
             this.imgLabel = new System.Windows.Forms.Label();
@@ -45,6 +39,12 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.imgPreview = new System.Windows.Forms.LinkLabel();
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
+            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowDrop = true;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -75,43 +76,6 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(644, 193);
             this.dataGridView.TabIndex = 27;
-            // 
-            // RequirementId
-            // 
-            this.RequirementId.DataPropertyName = "requirementId";
-            this.RequirementId.HeaderText = "RequirementId";
-            this.RequirementId.Name = "RequirementId";
-            this.RequirementId.ReadOnly = true;
-            // 
-            // CandidateId
-            // 
-            this.CandidateId.DataPropertyName = "CandidateId";
-            this.CandidateId.HeaderText = "CandidateId";
-            this.CandidateId.Name = "CandidateId";
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            // 
-            // ResultQuery
-            // 
-            this.ResultQuery.DataPropertyName = "ResultQuery";
-            this.ResultQuery.HeaderText = "ResultQuery";
-            this.ResultQuery.Name = "ResultQuery";
-            // 
-            // EffectTable
-            // 
-            this.EffectTable.DataPropertyName = "EffectTable";
-            this.EffectTable.HeaderText = "EffectTable";
-            this.EffectTable.Name = "EffectTable";
-            // 
-            // CheckEffectQuery
-            // 
-            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
-            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
-            this.CheckEffectQuery.Name = "CheckEffectQuery";
             // 
             // requirementsLabel
             // 
@@ -197,6 +161,52 @@
             // 
             this.browseImgDialog.FileName = "img";
             // 
+            // RequirementId
+            // 
+            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.RequirementId.DataPropertyName = "requirementId";
+            this.RequirementId.HeaderText = "RequirementId";
+            this.RequirementId.Name = "RequirementId";
+            this.RequirementId.ReadOnly = true;
+            this.RequirementId.Width = 101;
+            // 
+            // CandidateId
+            // 
+            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CandidateId.DataPropertyName = "CandidateId";
+            this.CandidateId.HeaderText = "CandidateId";
+            this.CandidateId.Name = "CandidateId";
+            this.CandidateId.Width = 89;
+            // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.Width = 56;
+            // 
+            // ResultQuery
+            // 
+            this.ResultQuery.DataPropertyName = "ResultQuery";
+            this.ResultQuery.HeaderText = "ResultQuery";
+            this.ResultQuery.Name = "ResultQuery";
+            // 
+            // EffectTable
+            // 
+            this.EffectTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EffectTable.DataPropertyName = "EffectTable";
+            this.EffectTable.HeaderText = "EffectTable";
+            this.EffectTable.Name = "EffectTable";
+            this.EffectTable.Width = 87;
+            // 
+            // CheckEffectQuery
+            // 
+            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
+            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
+            this.CheckEffectQuery.Name = "CheckEffectQuery";
+            // 
             // CandidatePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,12 +233,6 @@
 
         private System.Windows.Forms.Button addRequirementBtn;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequirementId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CandidateId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ResultQuery;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EffectTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckEffectQuery;
         private System.Windows.Forms.Label requirementsLabel;
         private System.Windows.Forms.Button browseImgBtn;
         private System.Windows.Forms.Label imgLabel;
@@ -238,5 +242,11 @@
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.LinkLabel imgPreview;
         private System.Windows.Forms.OpenFileDialog browseImgDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequirementId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CandidateId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResultQuery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EffectTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckEffectQuery;
     }
 }
