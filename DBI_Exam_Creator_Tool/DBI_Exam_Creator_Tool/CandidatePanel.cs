@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using DBI_Exam_Creator_Tool.Entities;
-using DBI_Exam_Creator_Tool.Helpers;
+using DBI_Exam_Creator_Tool.Utils;
 using DBI_Exam_Creator_Tool.Commons;
 
 namespace DBI_Exam_Creator_Tool
@@ -53,7 +53,7 @@ namespace DBI_Exam_Creator_Tool
 
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Image image = Utilities.Base64StringToImage(Candidate.ImageData);
+            Image image = ImageUtils.Base64StringToImage(Candidate.ImageData);
             using (Form form = new Form())
             {
                 form.StartPosition = FormStartPosition.CenterScreen;
@@ -77,7 +77,11 @@ namespace DBI_Exam_Creator_Tool
                 // Get the path of specified file
                 string filePath = browseImgDialog.FileName;
 
-                var base64Data = Utilities.ImageToBase64(filePath);
+                Image img = Image.FromFile(filePath);
+                Image resizedImg = ImageUtils.ResizeImage(img, Constants.Size.IMAGE_WIDTH);
+
+                var base64Data = ImageUtils.ImageToBase64(resizedImg);
+
                 Candidate.ImageData = base64Data;
                 imgPreview.Text = Path.GetFileName(filePath);
                 ToolTip tt = new ToolTip();

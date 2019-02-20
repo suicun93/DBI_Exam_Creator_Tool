@@ -6,7 +6,7 @@ using DBI_Exam_Creator_Tool.Commons;
 using System.IO;
 using System.Drawing;
 
-namespace DBI_Exam_Creator_Tool.Helpers
+namespace DBI_Exam_Creator_Tool.Utils
 {
     public class Utilities
     {

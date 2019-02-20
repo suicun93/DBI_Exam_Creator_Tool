@@ -34,5 +34,10 @@ namespace DBI_Exam_Creator_Tool.Commons
             return new List<string> { Constants.RequirementType.RESULT_SET,
                 Constants.RequirementType.EFFECT };
         }
+
+        public class Size
+        {
+            public const int IMAGE_WIDTH = 800;
+        }
     }
 }
