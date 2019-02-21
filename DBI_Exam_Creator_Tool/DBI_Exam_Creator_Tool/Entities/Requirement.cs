@@ -9,15 +9,9 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Requirement
     {
-        public enum Types
-        {
-            ResultSet = 1,
-            Effect = 2
-        }
-
         public int RequirementId { get; set; }
         public int CandidateId { get; set; }
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         public string ResultQuery { get; set; }
         public bool RequireSort { get; set; }
@@ -28,10 +22,10 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public Requirement()
         {
-            Type = (int)Types.ResultSet;
+            Type = Constants.RequirementType.RESULT_SET;
         }
 
-        public Requirement(int requirementId, int candidateId, int type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string triggerTriggerQuery)
+        public Requirement(int requirementId, int candidateId, string type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string triggerTriggerQuery)
         {
             RequirementId = requirementId;
             CandidateId = candidateId;

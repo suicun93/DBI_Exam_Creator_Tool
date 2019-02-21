@@ -45,7 +45,7 @@ namespace DBI_Exam_Creator_Tool
                 // increase last CandidateId by 1
                 c.CandidateId = currentQuestion.Candidates[currentQuestion.Candidates.Count() - 1].CandidateId + 1;
             }
-            c.QuestionType = (int)Candidate.QuestionTypes.Query;
+            c.QuestionType = Constants.QuestionType.QUERY;
 
             currentQuestion.Candidates.Add(c);
             TabPage tp = new TabPage("Candidate " + currentQuestion.Candidates.Count());

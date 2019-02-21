@@ -22,22 +22,17 @@ namespace DBI_Exam_Creator_Tool.Commons
         }
 
 
-        public static Dictionary<string, int> QuestionTypes()
+        public static List<string> QuestionTypes()
         {
-            return new Dictionary<string, int> {
-                { QuestionType.QUERY, 1 },
-                { QuestionType.PROCUDURE, 2 },
-                { QuestionType.TRIGGER, 3 }
-            };
+            return new List<string> { Constants.QuestionType.QUERY,
+                Constants.QuestionType.PROCUDURE,
+                Constants.QuestionType.TRIGGER };
         }
 
-        public static Dictionary<string, int> RequirementTypes()
+        public static List<string> RequirementTypes()
         {
-            return new Dictionary<string, int>
-            {
-                { RequirementType.RESULT_SET, 1 },
-                { RequirementType.EFFECT, 2 }
-            };
+            return new List<string> { Constants.RequirementType.RESULT_SET,
+                Constants.RequirementType.EFFECT };
         }
 
         public class Size
