@@ -117,7 +117,7 @@ namespace DBI_Exam_Creator_Tool
             {
                 r.RequirementId = 1;
             }
-            r.Type = (int)Requirement.Types.ResultSet;
+            r.RequirementType = Requirement.RequirementTypes.ResultSet;
 
             RequirementForm rf = new RequirementForm(r);
             rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, true, rf.discarded); };

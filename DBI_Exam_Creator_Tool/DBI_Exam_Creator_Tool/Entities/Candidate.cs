@@ -18,17 +18,17 @@ namespace DBI_Exam_Creator_Tool.Entities
         public int CandidateId { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
-        public int QuestionType { get; set; }
+        public QuestionTypes QuestionType { get; set; }
         public string ImageData { get; set; }
         public List<Requirement> Requirements { get; set; }
 
         public Candidate()
         {
-            QuestionType = (int)QuestionTypes.Query;
+            QuestionType = QuestionTypes.Query;
             Requirements = new List<Requirement>();
         }
 
-        public Candidate(int candidateId, int questionId, string content, int questionType, string iamgedata, List<Requirement> requirements)
+        public Candidate(int candidateId, int questionId, string content, QuestionTypes questionType, string iamgedata, List<Requirement> requirements)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -45,5 +45,21 @@ namespace DBI_Exam_Creator_Tool.Entities
                    CandidateId == candidate.CandidateId &&
                    QuestionId == candidate.QuestionId;
         }
+        public string TypeToString()
+        {
+            switch (QuestionType)
+            {
+                case QuestionTypes.Query:
+                    return "Query";
+                case QuestionTypes.Procedure:
+                    return "Procedure";
+                case QuestionTypes.Trigger:
+                    return "Trigger";
+                default:
+                    return "";
+            }
+        }
+
+       
     }
 }

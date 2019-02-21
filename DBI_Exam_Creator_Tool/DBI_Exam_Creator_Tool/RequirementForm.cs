@@ -33,7 +33,7 @@ namespace DBI_Exam_Creator_Tool
             requirementIdTxt.Text = draftReq.RequirementId.ToString();
             candidateIdTxt.Text = draftReq.CandidateId.ToString();
 
-            typeComboBox.DataSource = new BindingSource(Constants.RequirementTypes(), null);
+            typeComboBox.DataSource = new BindingSource(draftReq.TypeToString(), null);
             typeComboBox.DisplayMember = "Key";
             typeComboBox.ValueMember = "Value";
 
@@ -61,7 +61,7 @@ namespace DBI_Exam_Creator_Tool
 
         private Requirement CopyRequirement(Requirement req)
         {
-            return new Requirement(req.RequirementId, req.CandidateId, req.Type,
+            return new Requirement(req.RequirementId, req.CandidateId, req.RequirementType,
                 req.ResultQuery, req.RequireSort, req.EffectTable, req.CheckEffectQuery, req.TriggerTriggerQuery);
         }
 

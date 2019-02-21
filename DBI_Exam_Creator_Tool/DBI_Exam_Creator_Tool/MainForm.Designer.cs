@@ -356,6 +356,7 @@
             this.sqlScriptBtn.TabIndex = 4;
             this.sqlScriptBtn.Text = "SQL Script";
             this.sqlScriptBtn.UseVisualStyleBackColor = true;
+            this.sqlScriptBtn.Click += new System.EventHandler(this.sqlScriptBtn_Click);
             // 
             // separator
             // 

@@ -9,7 +9,7 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Requirement
     {
-        public enum Types
+        public enum RequirementTypes
         {
             ResultSet = 1,
             Effect = 2
@@ -17,7 +17,7 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public int RequirementId { get; set; }
         public int CandidateId { get; set; }
-        public int Type { get; set; }
+        public RequirementTypes RequirementType { get; set; }
 
         public string ResultQuery { get; set; }
         public bool RequireSort { get; set; }
@@ -28,14 +28,14 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public Requirement()
         {
-            Type = (int)Types.ResultSet;
+            RequirementType = RequirementTypes.ResultSet;
         }
 
-        public Requirement(int requirementId, int candidateId, int type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string triggerTriggerQuery)
+        public Requirement(int requirementId, int candidateId, RequirementTypes requirementType, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string triggerTriggerQuery)
         {
             RequirementId = requirementId;
             CandidateId = candidateId;
-            Type = type;
+            RequirementType = requirementType;
             ResultQuery = resultQuery;
             RequireSort = requireSort;
             EffectTable = effectTable;
@@ -49,6 +49,19 @@ namespace DBI_Exam_Creator_Tool.Entities
             return requirement != null &&
                    RequirementId == requirement.RequirementId &&
                    CandidateId == requirement.CandidateId;
+        }
+
+        public string TypeToString()
+        {
+            switch (RequirementType)
+            {
+                case RequirementTypes.ResultSet:
+                    return "Result Set";
+                case RequirementTypes.Effect:
+                    return "Effect";
+                default:
+                    return "";
+            }
         }
     }
 }
