@@ -43,6 +43,10 @@
             this.separator1 = new System.Windows.Forms.Label();
             this.separator2 = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.triggerTriggerQueryTxt = new System.Windows.Forms.TextBox();
+            this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +88,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 246);
+            this.label5.Location = new System.Drawing.Point(12, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 4;
@@ -93,7 +97,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 280);
+            this.label6.Location = new System.Drawing.Point(12, 317);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 5;
@@ -101,10 +105,12 @@
             // 
             // checkEffectQueryTxt
             // 
-            this.checkEffectQueryTxt.Location = new System.Drawing.Point(117, 277);
+            this.checkEffectQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkEffectQueryTxt.Location = new System.Drawing.Point(117, 314);
             this.checkEffectQueryTxt.Multiline = true;
             this.checkEffectQueryTxt.Name = "checkEffectQueryTxt";
-            this.checkEffectQueryTxt.Size = new System.Drawing.Size(669, 94);
+            this.checkEffectQueryTxt.Size = new System.Drawing.Size(669, 63);
             this.checkEffectQueryTxt.TabIndex = 6;
             // 
             // resultQueryTxt
@@ -133,7 +139,7 @@
             // 
             // effectTableTxt
             // 
-            this.effectTableTxt.Location = new System.Drawing.Point(118, 243);
+            this.effectTableTxt.Location = new System.Drawing.Point(118, 280);
             this.effectTableTxt.Name = "effectTableTxt";
             this.effectTableTxt.Size = new System.Drawing.Size(135, 20);
             this.effectTableTxt.TabIndex = 10;
@@ -159,7 +165,7 @@
             // separator2
             // 
             this.separator2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator2.Location = new System.Drawing.Point(-3, 227);
+            this.separator2.Location = new System.Drawing.Point(-3, 270);
             this.separator2.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator2.Name = "separator2";
             this.separator2.Size = new System.Drawing.Size(800, 2);
@@ -176,11 +182,52 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 227);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Require Sort";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 401);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Trigger-trigger Query";
+            // 
+            // triggerTriggerQueryTxt
+            // 
+            this.triggerTriggerQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.triggerTriggerQueryTxt.Location = new System.Drawing.Point(117, 398);
+            this.triggerTriggerQueryTxt.Multiline = true;
+            this.triggerTriggerQueryTxt.Name = "triggerTriggerQueryTxt";
+            this.triggerTriggerQueryTxt.Size = new System.Drawing.Size(669, 62);
+            this.triggerTriggerQueryTxt.TabIndex = 17;
+            // 
+            // requireSortCheckBox
+            // 
+            this.requireSortCheckBox.AutoSize = true;
+            this.requireSortCheckBox.Location = new System.Drawing.Point(117, 227);
+            this.requireSortCheckBox.Name = "requireSortCheckBox";
+            this.requireSortCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.requireSortCheckBox.TabIndex = 18;
+            this.requireSortCheckBox.UseVisualStyleBackColor = true;
+            // 
             // RequirementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 383);
+            this.ClientSize = new System.Drawing.Size(798, 472);
+            this.Controls.Add(this.requireSortCheckBox);
+            this.Controls.Add(this.triggerTriggerQueryTxt);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.separator1);
@@ -224,5 +271,9 @@
         private System.Windows.Forms.Label separator1;
         private System.Windows.Forms.Label separator2;
         private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox triggerTriggerQueryTxt;
+        private System.Windows.Forms.CheckBox requireSortCheckBox;
     }
 }

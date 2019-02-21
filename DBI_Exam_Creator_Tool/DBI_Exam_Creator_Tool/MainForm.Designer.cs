@@ -74,7 +74,7 @@
             this.questionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.questionPanel.Location = new System.Drawing.Point(12, 81);
             this.questionPanel.Name = "questionPanel";
-            this.questionPanel.Size = new System.Drawing.Size(112, 431);
+            this.questionPanel.Size = new System.Drawing.Size(112, 467);
             this.questionPanel.TabIndex = 0;
             // 
             // addQuestionBtn
@@ -123,7 +123,7 @@
             this.editQuestionPanel.Controls.Add(this.pointTxt);
             this.editQuestionPanel.Location = new System.Drawing.Point(130, 52);
             this.editQuestionPanel.Name = "editQuestionPanel";
-            this.editQuestionPanel.Size = new System.Drawing.Size(743, 460);
+            this.editQuestionPanel.Size = new System.Drawing.Size(875, 496);
             this.editQuestionPanel.TabIndex = 3;
             // 
             // questionIdTxt
@@ -147,20 +147,21 @@
             // deleteQuestionBtn
             // 
             this.deleteQuestionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteQuestionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.deleteQuestionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteQuestionBtn.Location = new System.Drawing.Point(595, 4);
+            this.deleteQuestionBtn.Location = new System.Drawing.Point(727, 4);
             this.deleteQuestionBtn.Name = "deleteQuestionBtn";
             this.deleteQuestionBtn.Size = new System.Drawing.Size(144, 23);
             this.deleteQuestionBtn.TabIndex = 2;
             this.deleteQuestionBtn.Text = "Delete Question";
-            this.deleteQuestionBtn.UseVisualStyleBackColor = true;
+            this.deleteQuestionBtn.UseVisualStyleBackColor = false;
             this.deleteQuestionBtn.Click += new System.EventHandler(this.deleteQuestionBtn_Click);
             // 
             // addCandidateBtn
             // 
             this.addCandidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCandidateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addCandidateBtn.Location = new System.Drawing.Point(464, 4);
+            this.addCandidateBtn.Location = new System.Drawing.Point(596, 4);
             this.addCandidateBtn.Name = "addCandidateBtn";
             this.addCandidateBtn.Size = new System.Drawing.Size(125, 23);
             this.addCandidateBtn.TabIndex = 0;
@@ -176,7 +177,7 @@
             this.candidateControl.Location = new System.Drawing.Point(0, 33);
             this.candidateControl.Name = "candidateControl";
             this.candidateControl.SelectedIndex = 0;
-            this.candidateControl.Size = new System.Drawing.Size(743, 427);
+            this.candidateControl.Size = new System.Drawing.Size(875, 463);
             this.candidateControl.TabIndex = 0;
             // 
             // pointLabel
@@ -347,8 +348,9 @@
             // 
             // sqlScriptBtn
             // 
+            this.sqlScriptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sqlScriptBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sqlScriptBtn.Location = new System.Drawing.Point(744, 13);
+            this.sqlScriptBtn.Location = new System.Drawing.Point(880, 13);
             this.sqlScriptBtn.Name = "sqlScriptBtn";
             this.sqlScriptBtn.Size = new System.Drawing.Size(125, 23);
             this.sqlScriptBtn.TabIndex = 4;
@@ -358,17 +360,17 @@
             // separator
             // 
             this.separator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator.Location = new System.Drawing.Point(-2, 41);
+            this.separator.Location = new System.Drawing.Point(-2, 42);
             this.separator.MaximumSize = new System.Drawing.Size(2000, 3);
             this.separator.Name = "separator";
-            this.separator.Size = new System.Drawing.Size(888, 3);
+            this.separator.Size = new System.Drawing.Size(1023, 3);
             this.separator.TabIndex = 5;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 524);
+            this.ClientSize = new System.Drawing.Size(1017, 560);
             this.Controls.Add(this.separator);
             this.Controls.Add(this.sqlScriptBtn);
             this.Controls.Add(this.editQuestionPanel);

@@ -36,8 +36,10 @@ namespace DBI_Exam_Creator_Tool
             typeComboBox.DataSource = Constants.RequirementTypes();
             typeComboBox.DataBindings.Add("SelectedItem", draftReq, "Type");
             resultQueryTxt.DataBindings.Add("Text", draftReq, "ResultQuery");
+            requireSortCheckBox.DataBindings.Add("Checked", draftReq, "RequireSort");
             effectTableTxt.DataBindings.Add("Text", draftReq, "EffectTable");
             checkEffectQueryTxt.DataBindings.Add("Text", draftReq, "CheckEffectQuery");
+            triggerTriggerQueryTxt.DataBindings.Add("Text", draftReq, "TriggerTriggerQuery");
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace DBI_Exam_Creator_Tool
         private Requirement CopyRequirement(Requirement req)
         {
             return new Requirement(req.RequirementId, req.CandidateId, req.Type,
-                req.ResultQuery, req.EffectTable, req.CheckEffectQuery);
+                req.ResultQuery, req.RequireSort, req.EffectTable, req.CheckEffectQuery, req.TriggerTriggerQuery);
         }
 
         private void RequirementForm_FormClosing(object sender, FormClosingEventArgs e)

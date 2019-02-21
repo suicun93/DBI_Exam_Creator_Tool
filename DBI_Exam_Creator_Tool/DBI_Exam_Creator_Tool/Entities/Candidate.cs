@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DBI_Exam_Creator_Tool.Commons;
 
 namespace DBI_Exam_Creator_Tool.Entities
 {
@@ -17,6 +18,7 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public Candidate()
         {
+            QuestionType = Constants.QuestionType.QUERY;
             Requirements = new List<Requirement>();
         }
 

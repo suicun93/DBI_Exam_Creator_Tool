@@ -71,10 +71,13 @@ namespace DBI_Exam_Creator_Tool
                 questionId = questions[questions.Count() - 1].QuestionId + 1;
 
             Question q = new Question(questionId, 1, new List<Candidate>());
+
             Candidate c = new Candidate();
             c.CandidateId = 1;
             c.QuestionId = q.QuestionId;
             q.Candidates.Add(c);
+
+
             this.questions.Add(q);
             
             Button btn = new Button();
