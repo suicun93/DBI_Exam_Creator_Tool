@@ -9,26 +9,20 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Candidate
     {
-        public enum QuestionTypes {
-            Query = 1,
-            Procedure = 2,
-            Trigger = 3
-        }
-
         public int CandidateId { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
-        public QuestionTypes QuestionType { get; set; }
+        public string QuestionType { get; set; }
         public string ImageData { get; set; }
         public List<Requirement> Requirements { get; set; }
 
         public Candidate()
         {
-            QuestionType = QuestionTypes.Query;
+            QuestionType = Constants.QuestionType.QUERY;
             Requirements = new List<Requirement>();
         }
 
-        public Candidate(int candidateId, int questionId, string content, QuestionTypes questionType, string iamgedata, List<Requirement> requirements)
+        public Candidate(int candidateId, int questionId, string content, string questionType, string iamgedata, List<Requirement> requirements)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -45,21 +39,5 @@ namespace DBI_Exam_Creator_Tool.Entities
                    CandidateId == candidate.CandidateId &&
                    QuestionId == candidate.QuestionId;
         }
-        public string TypeToString()
-        {
-            switch (QuestionType)
-            {
-                case QuestionTypes.Query:
-                    return "Query";
-                case QuestionTypes.Procedure:
-                    return "Procedure";
-                case QuestionTypes.Trigger:
-                    return "Trigger";
-                default:
-                    return "";
-            }
-        }
-
-       
     }
 }
