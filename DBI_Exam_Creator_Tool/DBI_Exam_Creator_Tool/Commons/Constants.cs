@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DBI_Exam_Creator_Tool.Entities;
 
 namespace DBI_Exam_Creator_Tool.Commons
 {
@@ -22,17 +23,23 @@ namespace DBI_Exam_Creator_Tool.Commons
         }
 
 
-        public static List<string> QuestionTypes()
+        public static Dictionary<string, Candidate.QuestionTypes> QuestionTypes()
         {
-            return new List<string> { Constants.QuestionType.QUERY,
-                Constants.QuestionType.PROCUDURE,
-                Constants.QuestionType.TRIGGER };
+            return new Dictionary<string, Candidate.QuestionTypes>
+            {
+                { QuestionType.QUERY, Candidate.QuestionTypes.Query },
+                { QuestionType.PROCUDURE, Candidate.QuestionTypes.Procedure },
+                { QuestionType.TRIGGER, Candidate.QuestionTypes.Trigger },
+            };
         }
 
-        public static List<string> RequirementTypes()
+        public static Dictionary<string, Requirement.RequirementTypes> RequirementTypes()
         {
-            return new List<string> { Constants.RequirementType.RESULT_SET,
-                Constants.RequirementType.EFFECT };
+            return new Dictionary<string, Requirement.RequirementTypes>
+            {
+                { RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet },
+                { RequirementType.EFFECT, Requirement.RequirementTypes.Effect },
+            };
         }
 
         public class Size
