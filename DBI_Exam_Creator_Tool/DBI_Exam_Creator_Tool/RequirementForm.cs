@@ -33,7 +33,10 @@ namespace DBI_Exam_Creator_Tool
             requirementIdTxt.Text = draftReq.RequirementId.ToString();
             candidateIdTxt.Text = draftReq.CandidateId.ToString();
 
-            typeComboBox.DataSource = Constants.RequirementTypes();
+            typeComboBox.DataSource = new BindingSource(Constants.RequirementTypes(), null);
+            typeComboBox.DisplayMember = "Key";
+            typeComboBox.ValueMember = "Value";
+
             typeComboBox.DataBindings.Add("SelectedItem", draftReq, "Type");
             resultQueryTxt.DataBindings.Add("Text", draftReq, "ResultQuery");
             requireSortCheckBox.DataBindings.Add("Checked", draftReq, "RequireSort");

@@ -37,8 +37,11 @@ namespace DBI_Exam_Creator_Tool
         // Bind Candidate data to controls
         private void OnCreate()
         {
-            List<string> questionTypes = Constants.QuestionTypes();
-            questionTypeComboBox.DataSource = questionTypes;
+            //List<string> questionTypes = Constants.QuestionTypes();
+            Dictionary<string, int> questionTypes = Constants.QuestionTypes();
+            questionTypeComboBox.DataSource = new BindingSource(questionTypes, null);
+            questionTypeComboBox.DisplayMember = "Key";
+            questionTypeComboBox.ValueMember = "Value";
             //questionTypeComboBox.SelectedItem = Candidate.QuestionType;
             questionTypeComboBox.DataBindings.Add("SelectedItem", Candidate, "QuestionType");
 
@@ -114,7 +117,7 @@ namespace DBI_Exam_Creator_Tool
             {
                 r.RequirementId = 1;
             }
-            r.Type = Constants.RequirementType.RESULT_SET;
+            r.Type = (int)Requirement.Types.ResultSet;
 
             RequirementForm rf = new RequirementForm(r);
             rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, true, rf.discarded); };
