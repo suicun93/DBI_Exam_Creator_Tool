@@ -33,7 +33,7 @@ namespace DBI_Exam_Creator_Tool
             requirementIdTxt.Text = draftReq.RequirementId.ToString();
             candidateIdTxt.Text = draftReq.CandidateId.ToString();
 
-            typeComboBox.DataSource = new BindingSource(draftReq.TypeToString(), null);
+            typeComboBox.DataSource = new BindingSource(Constants.RequirementTypes(), null);
             typeComboBox.DisplayMember = "Key";
             typeComboBox.ValueMember = "Value";
 

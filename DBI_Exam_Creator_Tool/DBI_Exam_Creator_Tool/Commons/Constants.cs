@@ -23,6 +23,19 @@ namespace DBI_Exam_Creator_Tool.Commons
             }
         }
 
+        public static string TypeToString(Requirement.RequirementTypes requirement)
+        {
+            switch (requirement)
+            {
+                case Requirement.RequirementTypes.Effect:
+                    return "Effect";
+                case Requirement.RequirementTypes.ResultSet:
+                    return "Result_Set";
+                default:
+                    return "";
+            }
+        }
+
         public static Dictionary<string, int> QuestionTypes()
         {
             return new Dictionary<string, int> {
@@ -31,6 +44,15 @@ namespace DBI_Exam_Creator_Tool.Commons
                 { TypeToString(Candidate.QuestionTypes.Trigger), 3 }
             };
         }
+
+        public static Dictionary<string, int> RequirementTypes()
+        {
+            return new Dictionary<string, int> {
+                { TypeToString(Requirement.RequirementTypes.ResultSet), 1 },
+                { TypeToString(Requirement.RequirementTypes.Effect), 2 },
+            };
+        }
+
         public class Size
         {
             public const int IMAGE_WIDTH = 680;
