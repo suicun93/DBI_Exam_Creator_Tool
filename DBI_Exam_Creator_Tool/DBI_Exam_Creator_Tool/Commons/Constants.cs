@@ -37,7 +37,7 @@ namespace DBI_Exam_Creator_Tool.Commons
 
         public class Size
         {
-            public const int IMAGE_WIDTH = 800;
+            public const int IMAGE_WIDTH = 680;
         }
     }
 }
