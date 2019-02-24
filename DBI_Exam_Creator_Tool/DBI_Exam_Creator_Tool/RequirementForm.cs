@@ -42,7 +42,8 @@ namespace DBI_Exam_Creator_Tool
             requireSortCheckBox.DataBindings.Add("Checked", draftReq, "RequireSort");
             effectTableTxt.DataBindings.Add("Text", draftReq, "EffectTable");
             checkEffectQueryTxt.DataBindings.Add("Text", draftReq, "CheckEffectQuery");
-            triggerTriggerQueryTxt.DataBindings.Add("Text", draftReq, "TriggerTriggerQuery");
+            activateTriggerQueryTxt.DataBindings.Add("Text", draftReq, "ActivateTriggerQuery");
+            outputParameterTxt.DataBindings.Add("Text", draftReq, "OutputParameter");
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace DBI_Exam_Creator_Tool
         private Requirement CopyRequirement(Requirement req)
         {
             return new Requirement(req.RequirementId, req.CandidateId, req.Type,
-                req.ResultQuery, req.RequireSort, req.EffectTable, req.CheckEffectQuery, req.TriggerTriggerQuery);
+                req.ResultQuery, req.RequireSort, req.EffectTable, req.CheckEffectQuery, req.ActivateTriggerQuery, req.OutputParameter);
         }
 
         private void RequirementForm_FormClosing(object sender, FormClosingEventArgs e)

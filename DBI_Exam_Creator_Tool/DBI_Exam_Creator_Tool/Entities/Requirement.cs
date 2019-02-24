@@ -12,7 +12,8 @@ namespace DBI_Exam_Creator_Tool.Entities
         public enum RequirementTypes
         {
             ResultSet = 1,
-            Effect = 2
+            Effect = 2,
+            Calculation = 3
         }
 
         public int RequirementId { get; set; }
@@ -24,14 +25,16 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public string EffectTable { get; set; }
         public string CheckEffectQuery { get; set; }
-        public string TriggerTriggerQuery { get; set; }
+        public string ActivateTriggerQuery { get; set; }
+
+        public string OutputParameter { get; set; }
 
         public Requirement()
         {
             Type = RequirementTypes.ResultSet;
         }
 
-        public Requirement(int requirementId, int candidateId, RequirementTypes type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string triggerTriggerQuery)
+        public Requirement(int requirementId, int candidateId, RequirementTypes type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string activateTriggerQuery, string outputParameter)
         {
             RequirementId = requirementId;
             CandidateId = candidateId;
@@ -40,7 +43,8 @@ namespace DBI_Exam_Creator_Tool.Entities
             RequireSort = requireSort;
             EffectTable = effectTable;
             CheckEffectQuery = checkEffectQuery;
-            TriggerTriggerQuery = triggerTriggerQuery;
+            ActivateTriggerQuery = activateTriggerQuery;
+            OutputParameter = outputParameter;
         }
 
         public override bool Equals(object obj)

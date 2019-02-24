@@ -12,7 +12,8 @@ namespace DBI_Exam_Creator_Tool.Entities
         public enum QuestionTypes {
             Query = 1,
             Procedure = 2,
-            Trigger = 3
+            Trigger = 3,
+            Schema = 4
         }
 
         public int CandidateId { get; set; }

@@ -45,8 +45,11 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.triggerTriggerQueryTxt = new System.Windows.Forms.TextBox();
+            this.activateTriggerQueryTxt = new System.Windows.Forms.TextBox();
             this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.outputParameterTxt = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -107,15 +110,15 @@
             // 
             this.checkEffectQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEffectQueryTxt.Location = new System.Drawing.Point(117, 314);
+            this.checkEffectQueryTxt.Location = new System.Drawing.Point(131, 314);
             this.checkEffectQueryTxt.Multiline = true;
             this.checkEffectQueryTxt.Name = "checkEffectQueryTxt";
-            this.checkEffectQueryTxt.Size = new System.Drawing.Size(669, 63);
+            this.checkEffectQueryTxt.Size = new System.Drawing.Size(670, 63);
             this.checkEffectQueryTxt.TabIndex = 6;
             // 
             // resultQueryTxt
             // 
-            this.resultQueryTxt.Location = new System.Drawing.Point(118, 120);
+            this.resultQueryTxt.Location = new System.Drawing.Point(132, 120);
             this.resultQueryTxt.Multiline = true;
             this.resultQueryTxt.Name = "resultQueryTxt";
             this.resultQueryTxt.Size = new System.Drawing.Size(669, 91);
@@ -123,7 +126,7 @@
             // 
             // requirementIdTxt
             // 
-            this.requirementIdTxt.Location = new System.Drawing.Point(118, 6);
+            this.requirementIdTxt.Location = new System.Drawing.Point(132, 6);
             this.requirementIdTxt.Name = "requirementIdTxt";
             this.requirementIdTxt.ReadOnly = true;
             this.requirementIdTxt.Size = new System.Drawing.Size(135, 20);
@@ -131,7 +134,7 @@
             // 
             // candidateIdTxt
             // 
-            this.candidateIdTxt.Location = new System.Drawing.Point(118, 37);
+            this.candidateIdTxt.Location = new System.Drawing.Point(132, 37);
             this.candidateIdTxt.Name = "candidateIdTxt";
             this.candidateIdTxt.ReadOnly = true;
             this.candidateIdTxt.Size = new System.Drawing.Size(135, 20);
@@ -139,7 +142,7 @@
             // 
             // effectTableTxt
             // 
-            this.effectTableTxt.Location = new System.Drawing.Point(118, 280);
+            this.effectTableTxt.Location = new System.Drawing.Point(132, 280);
             this.effectTableTxt.Name = "effectTableTxt";
             this.effectTableTxt.Size = new System.Drawing.Size(135, 20);
             this.effectTableTxt.TabIndex = 10;
@@ -148,7 +151,7 @@
             // 
             this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(118, 68);
+            this.typeComboBox.Location = new System.Drawing.Point(132, 68);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(135, 21);
             this.typeComboBox.TabIndex = 11;
@@ -156,25 +159,25 @@
             // separator1
             // 
             this.separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator1.Location = new System.Drawing.Point(-5, 104);
+            this.separator1.Location = new System.Drawing.Point(-7, 104);
             this.separator1.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(802, 2);
+            this.separator1.Size = new System.Drawing.Size(818, 2);
             this.separator1.TabIndex = 12;
             // 
             // separator2
             // 
             this.separator2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator2.Location = new System.Drawing.Point(-3, 270);
+            this.separator2.Location = new System.Drawing.Point(-7, 262);
             this.separator2.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(800, 2);
+            this.separator2.Size = new System.Drawing.Size(818, 2);
             this.separator2.TabIndex = 13;
             // 
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Location = new System.Drawing.Point(678, 22);
+            this.saveBtn.Location = new System.Drawing.Point(692, 22);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(108, 48);
             this.saveBtn.TabIndex = 14;
@@ -196,36 +199,63 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 401);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.Size = new System.Drawing.Size(113, 13);
             this.label8.TabIndex = 16;
-            this.label8.Text = "Trigger-trigger Query";
+            this.label8.Text = "Activate Trigger Query";
             // 
-            // triggerTriggerQueryTxt
+            // activateTriggerQueryTxt
             // 
-            this.triggerTriggerQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.triggerTriggerQueryTxt.Location = new System.Drawing.Point(117, 398);
-            this.triggerTriggerQueryTxt.Multiline = true;
-            this.triggerTriggerQueryTxt.Name = "triggerTriggerQueryTxt";
-            this.triggerTriggerQueryTxt.Size = new System.Drawing.Size(669, 62);
-            this.triggerTriggerQueryTxt.TabIndex = 17;
+            this.activateTriggerQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.activateTriggerQueryTxt.Location = new System.Drawing.Point(131, 398);
+            this.activateTriggerQueryTxt.Multiline = true;
+            this.activateTriggerQueryTxt.Name = "activateTriggerQueryTxt";
+            this.activateTriggerQueryTxt.Size = new System.Drawing.Size(670, 62);
+            this.activateTriggerQueryTxt.TabIndex = 17;
             // 
             // requireSortCheckBox
             // 
             this.requireSortCheckBox.AutoSize = true;
-            this.requireSortCheckBox.Location = new System.Drawing.Point(117, 227);
+            this.requireSortCheckBox.Location = new System.Drawing.Point(131, 227);
             this.requireSortCheckBox.Name = "requireSortCheckBox";
             this.requireSortCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireSortCheckBox.TabIndex = 18;
             this.requireSortCheckBox.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 496);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Output Parameter";
+            // 
+            // outputParameterTxt
+            // 
+            this.outputParameterTxt.Location = new System.Drawing.Point(132, 493);
+            this.outputParameterTxt.Name = "outputParameterTxt";
+            this.outputParameterTxt.Size = new System.Drawing.Size(135, 20);
+            this.outputParameterTxt.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Location = new System.Drawing.Point(-7, 475);
+            this.label10.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(818, 2);
+            this.label10.TabIndex = 21;
+            // 
             // RequirementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 472);
+            this.ClientSize = new System.Drawing.Size(812, 525);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.outputParameterTxt);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.requireSortCheckBox);
-            this.Controls.Add(this.triggerTriggerQueryTxt);
+            this.Controls.Add(this.activateTriggerQueryTxt);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.saveBtn);
@@ -273,7 +303,10 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox triggerTriggerQueryTxt;
+        private System.Windows.Forms.TextBox activateTriggerQueryTxt;
         private System.Windows.Forms.CheckBox requireSortCheckBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox outputParameterTxt;
+        private System.Windows.Forms.Label label10;
     }
 }

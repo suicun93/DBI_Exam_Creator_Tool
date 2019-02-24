@@ -49,7 +49,8 @@
             this.RequireSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TriggerTriggerQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActivateTriggerQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OutputParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +92,8 @@
             this.RequireSort,
             this.EffectTable,
             this.CheckEffectQuery,
-            this.TriggerTriggerQuery});
+            this.ActivateTriggerQuery,
+            this.OutputParameter});
             this.dataGridView.Location = new System.Drawing.Point(83, 166);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(765, 236);
@@ -256,11 +258,16 @@
             this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
             this.CheckEffectQuery.Name = "CheckEffectQuery";
             // 
-            // TriggerTriggerQuery
+            // ActivateTriggerQuery
             // 
-            this.TriggerTriggerQuery.DataPropertyName = "TriggerTriggerQuery";
-            this.TriggerTriggerQuery.HeaderText = "Trigger-Trigger Query";
-            this.TriggerTriggerQuery.Name = "TriggerTriggerQuery";
+            this.ActivateTriggerQuery.DataPropertyName = "ActivateTriggerQuery";
+            this.ActivateTriggerQuery.HeaderText = "Activate Trigger Query";
+            this.ActivateTriggerQuery.Name = "ActivateTriggerQuery";
+            // 
+            // OutputParameter
+            // 
+            this.OutputParameter.HeaderText = "Output Parameter";
+            this.OutputParameter.Name = "OutputParameter";
             // 
             // CandidatePanel
             // 
@@ -309,6 +316,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RequireSort;
         private System.Windows.Forms.DataGridViewTextBoxColumn EffectTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckEffectQuery;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TriggerTriggerQuery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActivateTriggerQuery;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OutputParameter;
     }
 }
