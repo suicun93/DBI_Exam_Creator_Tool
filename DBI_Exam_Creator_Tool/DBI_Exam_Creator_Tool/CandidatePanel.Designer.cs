@@ -31,6 +31,15 @@
             System.Windows.Forms.Button deleteCandidateBtn;
             this.addRequirementBtn = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequireSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActivateTriggerQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OutputParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
             this.imgLabel = new System.Windows.Forms.Label();
@@ -42,15 +51,6 @@
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
             this.editBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ResultQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequireSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EffectTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActivateTriggerQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OutputParameter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -100,6 +100,71 @@
             this.dataGridView.TabIndex = 27;
             this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
             this.dataGridView.Click += new System.EventHandler(this.dataGridView_Click);
+            // 
+            // RequirementId
+            // 
+            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.RequirementId.DataPropertyName = "requirementId";
+            this.RequirementId.HeaderText = "RequirementId";
+            this.RequirementId.Name = "RequirementId";
+            this.RequirementId.ReadOnly = true;
+            this.RequirementId.Width = 21;
+            // 
+            // CandidateId
+            // 
+            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.CandidateId.DataPropertyName = "CandidateId";
+            this.CandidateId.HeaderText = "CandidateId";
+            this.CandidateId.Name = "CandidateId";
+            this.CandidateId.Width = 21;
+            // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.Width = 56;
+            // 
+            // ResultQuery
+            // 
+            this.ResultQuery.DataPropertyName = "ResultQuery";
+            this.ResultQuery.HeaderText = "ResultQuery";
+            this.ResultQuery.Name = "ResultQuery";
+            // 
+            // RequireSort
+            // 
+            this.RequireSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.RequireSort.DataPropertyName = "RequireSort";
+            this.RequireSort.HeaderText = "Require Sort";
+            this.RequireSort.Name = "RequireSort";
+            this.RequireSort.Width = 84;
+            // 
+            // EffectTable
+            // 
+            this.EffectTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EffectTable.DataPropertyName = "EffectTable";
+            this.EffectTable.HeaderText = "EffectTable";
+            this.EffectTable.Name = "EffectTable";
+            this.EffectTable.Width = 87;
+            // 
+            // CheckEffectQuery
+            // 
+            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
+            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
+            this.CheckEffectQuery.Name = "CheckEffectQuery";
+            // 
+            // ActivateTriggerQuery
+            // 
+            this.ActivateTriggerQuery.DataPropertyName = "ActivateTriggerQuery";
+            this.ActivateTriggerQuery.HeaderText = "Activate Trigger Query";
+            this.ActivateTriggerQuery.Name = "ActivateTriggerQuery";
+            // 
+            // OutputParameter
+            // 
+            this.OutputParameter.HeaderText = "Output Parameter";
+            this.OutputParameter.Name = "OutputParameter";
             // 
             // requirementsLabel
             // 
@@ -158,7 +223,7 @@
             "3"});
             this.questionTypeComboBox.Location = new System.Drawing.Point(83, 6);
             this.questionTypeComboBox.Name = "questionTypeComboBox";
-            this.questionTypeComboBox.Size = new System.Drawing.Size(99, 21);
+            this.questionTypeComboBox.Size = new System.Drawing.Size(136, 21);
             this.questionTypeComboBox.TabIndex = 20;
             // 
             // typeLabel
@@ -203,71 +268,6 @@
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
-            // RequirementId
-            // 
-            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.RequirementId.DataPropertyName = "requirementId";
-            this.RequirementId.HeaderText = "RequirementId";
-            this.RequirementId.Name = "RequirementId";
-            this.RequirementId.ReadOnly = true;
-            this.RequirementId.Width = 21;
-            // 
-            // CandidateId
-            // 
-            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.CandidateId.DataPropertyName = "CandidateId";
-            this.CandidateId.HeaderText = "CandidateId";
-            this.CandidateId.Name = "CandidateId";
-            this.CandidateId.Width = 21;
-            // 
-            // Type
-            // 
-            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.Width = 56;
-            // 
-            // ResultQuery
-            // 
-            this.ResultQuery.DataPropertyName = "ResultQuery";
-            this.ResultQuery.HeaderText = "ResultQuery";
-            this.ResultQuery.Name = "ResultQuery";
-            // 
-            // RequireSort
-            // 
-            this.RequireSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.RequireSort.DataPropertyName = "RequireSort";
-            this.RequireSort.HeaderText = "Require Sort";
-            this.RequireSort.Name = "RequireSort";
-            this.RequireSort.Width = 91;
-            // 
-            // EffectTable
-            // 
-            this.EffectTable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.EffectTable.DataPropertyName = "EffectTable";
-            this.EffectTable.HeaderText = "EffectTable";
-            this.EffectTable.Name = "EffectTable";
-            this.EffectTable.Width = 87;
-            // 
-            // CheckEffectQuery
-            // 
-            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
-            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
-            this.CheckEffectQuery.Name = "CheckEffectQuery";
-            // 
-            // ActivateTriggerQuery
-            // 
-            this.ActivateTriggerQuery.DataPropertyName = "ActivateTriggerQuery";
-            this.ActivateTriggerQuery.HeaderText = "Activate Trigger Query";
-            this.ActivateTriggerQuery.Name = "ActivateTriggerQuery";
-            // 
-            // OutputParameter
-            // 
-            this.OutputParameter.HeaderText = "Output Parameter";
-            this.OutputParameter.Name = "OutputParameter";
             // 
             // CandidatePanel
             // 

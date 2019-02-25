@@ -15,6 +15,7 @@ namespace DBI_Exam_Creator_Tool.Commons
             public const string PROCUDURE = "Procedure";
             public const string TRIGGER = "Trigger";
             public const string SCHEMA = "Schema";
+            public const string UPDATE = "Insert Delete Update";
         }
 
         public class RequirementType
@@ -32,7 +33,8 @@ namespace DBI_Exam_Creator_Tool.Commons
                 { QuestionType.QUERY, Candidate.QuestionTypes.Query },
                 { QuestionType.PROCUDURE, Candidate.QuestionTypes.Procedure },
                 { QuestionType.TRIGGER, Candidate.QuestionTypes.Trigger },
-                { QuestionType.SCHEMA, Candidate.QuestionTypes.Schema }
+                { QuestionType.SCHEMA, Candidate.QuestionTypes.Schema },
+                { QuestionType.UPDATE, Candidate.QuestionTypes.InsDelUpdate }
             };
         }
 

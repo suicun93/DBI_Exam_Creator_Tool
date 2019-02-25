@@ -13,7 +13,8 @@ namespace DBI_Exam_Creator_Tool.Entities
             Query = 1,
             Procedure = 2,
             Trigger = 3,
-            Schema = 4
+            Schema = 4,
+            InsDelUpdate = 5
         }
 
         public int CandidateId { get; set; }
