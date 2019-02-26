@@ -17,7 +17,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         }
 
         public int RequirementId { get; set; }
-        public int CandidateId { get; set; }
+        public string CandidateId { get; set; }
         public RequirementTypes Type { get; set; }
 
         public string ResultQuery { get; set; }
@@ -34,7 +34,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Type = RequirementTypes.ResultSet;
         }
 
-        public Requirement(int requirementId, int candidateId, RequirementTypes type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string activateTriggerQuery, string outputParameter)
+        public Requirement(int requirementId, string candidateId, RequirementTypes type, string resultQuery, bool requireSort, string effectTable, string checkEffectQuery, string activateTriggerQuery, string outputParameter)
         {
             RequirementId = requirementId;
             CandidateId = candidateId;

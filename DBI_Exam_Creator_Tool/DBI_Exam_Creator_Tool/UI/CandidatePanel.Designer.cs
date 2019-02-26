@@ -1,4 +1,4 @@
-﻿namespace DBI_Exam_Creator_Tool
+﻿namespace DBI_Exam_Creator_Tool.UI
 {
     partial class CandidatePanel
     {
@@ -57,9 +57,10 @@
             // 
             // deleteCandidateBtn
             // 
+            deleteCandidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             deleteCandidateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             deleteCandidateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            deleteCandidateBtn.Location = new System.Drawing.Point(733, 8);
+            deleteCandidateBtn.Location = new System.Drawing.Point(809, 9);
             deleteCandidateBtn.Name = "deleteCandidateBtn";
             deleteCandidateBtn.Size = new System.Drawing.Size(115, 23);
             deleteCandidateBtn.TabIndex = 32;
@@ -70,11 +71,11 @@
             // addRequirementBtn
             // 
             this.addRequirementBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRequirementBtn.Location = new System.Drawing.Point(749, 137);
+            this.addRequirementBtn.Location = new System.Drawing.Point(81, 137);
             this.addRequirementBtn.Name = "addRequirementBtn";
-            this.addRequirementBtn.Size = new System.Drawing.Size(99, 23);
+            this.addRequirementBtn.Size = new System.Drawing.Size(75, 23);
             this.addRequirementBtn.TabIndex = 28;
-            this.addRequirementBtn.Text = "Add Requirement";
+            this.addRequirementBtn.Text = "Add";
             this.addRequirementBtn.UseVisualStyleBackColor = true;
             this.addRequirementBtn.Click += new System.EventHandler(this.addRequirementBtn_Click);
             // 
@@ -96,10 +97,9 @@
             this.OutputParameter});
             this.dataGridView.Location = new System.Drawing.Point(83, 166);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(765, 236);
+            this.dataGridView.Size = new System.Drawing.Size(841, 334);
             this.dataGridView.TabIndex = 27;
             this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
-            this.dataGridView.Click += new System.EventHandler(this.dataGridView_Click);
             // 
             // RequirementId
             // 
@@ -202,7 +202,7 @@
             this.contentTxt.Location = new System.Drawing.Point(83, 37);
             this.contentTxt.Multiline = true;
             this.contentTxt.Name = "contentTxt";
-            this.contentTxt.Size = new System.Drawing.Size(765, 46);
+            this.contentTxt.Size = new System.Drawing.Size(841, 46);
             this.contentTxt.TabIndex = 22;
             // 
             // contentLabel
@@ -251,7 +251,7 @@
             // editBtn
             // 
             this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editBtn.Location = new System.Drawing.Point(668, 137);
+            this.editBtn.Location = new System.Drawing.Point(171, 137);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
             this.editBtn.TabIndex = 30;
@@ -261,7 +261,7 @@
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(587, 137);
+            this.deleteBtn.Location = new System.Drawing.Point(261, 137);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(75, 23);
             this.deleteBtn.TabIndex = 31;
@@ -287,7 +287,7 @@
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(851, 405);
+            this.Size = new System.Drawing.Size(927, 503);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

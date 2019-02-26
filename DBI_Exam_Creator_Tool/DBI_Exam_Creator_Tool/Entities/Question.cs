@@ -8,7 +8,7 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Question
     {
-        public int QuestionId { get; set; }
+        public string QuestionId { get; set; }
         public double Point { get; set; }
         public List<Candidate> Candidates { get; set; }
 
@@ -17,7 +17,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Candidates = new List<Candidate>();
         }
 
-        public Question(int questionId, double point, List<Candidate> candidates)
+        public Question(string questionId, double point, List<Candidate> candidates)
         {
             QuestionId = questionId;
             Point = point;

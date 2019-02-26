@@ -30,11 +30,11 @@ namespace DBI_Exam_Creator_Tool.Commons
         {
             return new Dictionary<string, Candidate.QuestionTypes>
             {
-                { QuestionType.QUERY, Candidate.QuestionTypes.Query },
+                { QuestionType.QUERY, Candidate.QuestionTypes.Select },
                 { QuestionType.PROCUDURE, Candidate.QuestionTypes.Procedure },
                 { QuestionType.TRIGGER, Candidate.QuestionTypes.Trigger },
                 { QuestionType.SCHEMA, Candidate.QuestionTypes.Schema },
-                { QuestionType.UPDATE, Candidate.QuestionTypes.InsDelUpdate }
+                { QuestionType.UPDATE, Candidate.QuestionTypes.DML }
             };
         }
 

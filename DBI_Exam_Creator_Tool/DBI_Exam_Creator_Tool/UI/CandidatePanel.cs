@@ -11,7 +11,7 @@ using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Utils;
 using DBI_Exam_Creator_Tool.Commons;
 
-namespace DBI_Exam_Creator_Tool
+namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class CandidatePanel : UserControl
     {
@@ -52,6 +52,7 @@ namespace DBI_Exam_Creator_Tool
             dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
         }
 
+        // Preview Images
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Image image = ImageUtils.Base64StringToImage(Candidate.ImageData);
@@ -69,6 +70,7 @@ namespace DBI_Exam_Creator_Tool
             }
         }
 
+        // Browse Images
         private void browseImgBtn_Click(object sender, EventArgs e)
         {
             browseImgDialog.InitialDirectory = "C:\\";

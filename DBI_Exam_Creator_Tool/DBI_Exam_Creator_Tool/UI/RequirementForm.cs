@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Commons;
 
-namespace DBI_Exam_Creator_Tool
+namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class RequirementForm : Form
     {
