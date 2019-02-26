@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pointTxt = new System.Windows.Forms.TextBox();
             this.pointLabel = new System.Windows.Forms.Label();
             this.candidateTabControl = new System.Windows.Forms.TabControl();
             this.addCandidateBtn = new System.Windows.Forms.Button();
@@ -37,15 +36,10 @@
             this.questionIdTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.editQuestionPanel = new System.Windows.Forms.Panel();
+            this.pointNumeric = new System.Windows.Forms.NumericUpDown();
             this.editQuestionPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pointNumeric)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pointTxt
-            // 
-            this.pointTxt.Location = new System.Drawing.Point(414, 7);
-            this.pointTxt.Name = "pointTxt";
-            this.pointTxt.Size = new System.Drawing.Size(99, 20);
-            this.pointTxt.TabIndex = 0;
             // 
             // pointLabel
             // 
@@ -128,6 +122,7 @@
             this.editQuestionPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.editQuestionPanel.Controls.Add(this.pointNumeric);
             this.editQuestionPanel.Controls.Add(this.label2);
             this.editQuestionPanel.Controls.Add(this.questionIdTxt);
             this.editQuestionPanel.Controls.Add(this.label1);
@@ -135,11 +130,23 @@
             this.editQuestionPanel.Controls.Add(this.addCandidateBtn);
             this.editQuestionPanel.Controls.Add(this.candidateTabControl);
             this.editQuestionPanel.Controls.Add(this.pointLabel);
-            this.editQuestionPanel.Controls.Add(this.pointTxt);
             this.editQuestionPanel.Location = new System.Drawing.Point(3, 3);
             this.editQuestionPanel.Name = "editQuestionPanel";
             this.editQuestionPanel.Size = new System.Drawing.Size(943, 600);
             this.editQuestionPanel.TabIndex = 4;
+            // 
+            // pointNumeric
+            // 
+            this.pointNumeric.DecimalPlaces = 1;
+            this.pointNumeric.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.pointNumeric.Location = new System.Drawing.Point(414, 8);
+            this.pointNumeric.Name = "pointNumeric";
+            this.pointNumeric.Size = new System.Drawing.Size(66, 20);
+            this.pointNumeric.TabIndex = 6;
             // 
             // QuestionPanel
             // 
@@ -150,13 +157,12 @@
             this.Size = new System.Drawing.Size(949, 606);
             this.editQuestionPanel.ResumeLayout(false);
             this.editQuestionPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pointNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox pointTxt;
         private System.Windows.Forms.Label pointLabel;
         private System.Windows.Forms.TabControl candidateTabControl;
         private System.Windows.Forms.Button addCandidateBtn;
@@ -165,5 +171,6 @@
         private System.Windows.Forms.TextBox questionIdTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel editQuestionPanel;
+        private System.Windows.Forms.NumericUpDown pointNumeric;
     }
 }

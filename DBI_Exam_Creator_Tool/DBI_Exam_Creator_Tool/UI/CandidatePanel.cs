@@ -101,62 +101,48 @@ namespace DBI_Exam_Creator_Tool.UI
         {
             this.selectedRowIndex = e.RowIndex;
         }
-
-        //
-        // Handle Add Requirement button
-        //
+        
+        // Handle Add Requirement button.
         private void addRequirementBtn_Click(object sender, EventArgs e)
         {
             Requirement r = new Requirement();
             r.CandidateId = Candidate.CandidateId;
-            if (Candidate.Requirements.Count() != 0)
-            {
-                // increase last RequirementId by 1
-                r.RequirementId = Candidate.Requirements[Candidate.Requirements.Count() - 1].RequirementId + 1;
-            } else
-            {
-                r.RequirementId = 1;
-            }
+            r.RequirementId = Guid.NewGuid().ToString();
             r.Type = Requirement.RequirementTypes.ResultSet;
 
-            RequirementForm rf = new RequirementForm(r);
-            rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, true, rf.discarded); };
+            RequirementForm rf = new RequirementForm(r, true, this.Rf_Disposed);
             rf.Show();
         }
-
-        //
-        // Handle Edit button
-        //
+        
+        // Handle Edit button.
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (selectedRowIndex != -1)
             {
-                RequirementForm rf = new RequirementForm(Candidate.Requirements[selectedRowIndex]);
-                rf.Disposed += (_sender, _e) => { Rf_Disposed(_sender, _e, rf.Requirement, false, rf.discarded); };
+                RequirementForm rf = new RequirementForm(Candidate.Requirements[selectedRowIndex], false, this.Rf_Disposed);
                 rf.Show();
             }
         }
 
-        // Update dataGridView when close Edit form
-        private void Rf_Disposed(object sender, EventArgs e, Requirement editedRequirement, bool isNewReq, bool discarded)
+        // Update dataGridView when close Edit form.
+        private bool Rf_Disposed(Requirement req, bool isNewReq, bool saved)
         {
-            if (discarded)
-                return;
+            if (!saved)
+                return false;
+
             if (!isNewReq)
             {
-                Candidate.Requirements[selectedRowIndex] = editedRequirement;
-                
+                Candidate.Requirements[selectedRowIndex] = req;
             } else
             {
-                Candidate.Requirements.Add(editedRequirement);
+                Candidate.Requirements.Add(req);
             }
             dataGridView.DataSource = typeof(BindingList<Requirement>);
             dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
+            return false;
         }
-
-        //
-        // Handle Delete button
-        //
+        
+        // Handle Delete button.
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (selectedRowIndex != -1)
@@ -168,7 +154,7 @@ namespace DBI_Exam_Creator_Tool.UI
         }
 
         // Delete current Candidate from Question
-        // Close current Tab
+        // Close current Tab.
         private void deleteCandidateBtn_Click(object sender, EventArgs e)
         {
             handleDelete(this.Candidate, (TabPage) this.Parent);

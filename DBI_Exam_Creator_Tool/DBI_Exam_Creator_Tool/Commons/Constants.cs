@@ -15,14 +15,14 @@ namespace DBI_Exam_Creator_Tool.Commons
             public const string PROCUDURE = "Procedure";
             public const string TRIGGER = "Trigger";
             public const string SCHEMA = "Schema";
-            public const string UPDATE = "Insert Delete Update";
+            public const string DML = "DML";
         }
 
         public class RequirementType
         {
             public const string RESULT_SET = "Result Set";
             public const string EFFECT = "Effect";
-            public const string CALCULATION = "Calculation";
+            public const string PARAMETER = "Parameter";
         }
 
 
@@ -34,7 +34,7 @@ namespace DBI_Exam_Creator_Tool.Commons
                 { QuestionType.PROCUDURE, Candidate.QuestionTypes.Procedure },
                 { QuestionType.TRIGGER, Candidate.QuestionTypes.Trigger },
                 { QuestionType.SCHEMA, Candidate.QuestionTypes.Schema },
-                { QuestionType.UPDATE, Candidate.QuestionTypes.DML }
+                { QuestionType.DML, Candidate.QuestionTypes.DML }
             };
         }
 
@@ -44,7 +44,7 @@ namespace DBI_Exam_Creator_Tool.Commons
             {
                 { RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet },
                 { RequirementType.EFFECT, Requirement.RequirementTypes.Effect },
-                { RequirementType.CALCULATION, Requirement.RequirementTypes.Calculation }
+                { RequirementType.PARAMETER, Requirement.RequirementTypes.Parameter }
             };
         }
 

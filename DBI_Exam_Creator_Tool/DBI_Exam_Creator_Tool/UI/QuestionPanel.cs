@@ -35,7 +35,7 @@ namespace DBI_Exam_Creator_Tool.UI
         private void OnCreate()
         {
             questionIdTxt.Text = question.QuestionId;
-            pointTxt.DataBindings.Add("Text", question, "Point");
+            pointNumeric.DataBindings.Add("Value", question, "Point");
         }
 
         private void removeQuestionBtn_Click(object sender, EventArgs e)

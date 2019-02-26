@@ -73,17 +73,16 @@
     <Compile Include="UI\QuestionTabPage.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utils\ImageUtils.cs" />
-    <Compile Include="Utils\Utilities.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\RequirementForm.cs">
       <SubType>Form</SubType>
-      <CustomToolNamespace>UI</CustomToolNamespace>
     </Compile>
     <Compile Include="UI\RequirementForm.Designer.cs">
       <DependentUpon>RequirementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\Utilities.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreatorForm.resx">
       <DependentUpon>CreatorForm.cs</DependentUpon>
     </EmbeddedResource>

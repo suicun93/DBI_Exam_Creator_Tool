@@ -41,6 +41,7 @@
             this.previewBtn = new System.Windows.Forms.Button();
             this.questionTabControl = new System.Windows.Forms.TabControl();
             this.exportBtn = new System.Windows.Forms.Button();
+            this.exportDialog = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,15 +68,17 @@
             // 
             // importToolStripMenuItem
             // 
+            this.importToolStripMenuItem.Enabled = false;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // questionToolStripMenuItem
             // 
@@ -89,14 +92,15 @@
             // addQuestionToolStripMenuItem
             // 
             this.addQuestionToolStripMenuItem.Name = "addQuestionToolStripMenuItem";
-            this.addQuestionToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.addQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addQuestionToolStripMenuItem.Text = "Add";
             this.addQuestionToolStripMenuItem.Click += new System.EventHandler(this.addQuestionToolStripMenuItem_Click);
             // 
             // removeQuestionToolStripMenuItem
             // 
+            this.removeQuestionToolStripMenuItem.Enabled = false;
             this.removeQuestionToolStripMenuItem.Name = "removeQuestionToolStripMenuItem";
-            this.removeQuestionToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.removeQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeQuestionToolStripMenuItem.Text = "Remove";
             // 
             // candidateToolStripMenuItem
@@ -104,6 +108,7 @@
             this.candidateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addCandidateToolStripMenuItem1,
             this.removeCandidateToolStripMenuItem1});
+            this.candidateToolStripMenuItem.Enabled = false;
             this.candidateToolStripMenuItem.Name = "candidateToolStripMenuItem";
             this.candidateToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.candidateToolStripMenuItem.Text = "Candidate";
@@ -111,13 +116,13 @@
             // addCandidateToolStripMenuItem1
             // 
             this.addCandidateToolStripMenuItem1.Name = "addCandidateToolStripMenuItem1";
-            this.addCandidateToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.addCandidateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.addCandidateToolStripMenuItem1.Text = "Add";
             // 
             // removeCandidateToolStripMenuItem1
             // 
             this.removeCandidateToolStripMenuItem1.Name = "removeCandidateToolStripMenuItem1";
-            this.removeCandidateToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
+            this.removeCandidateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.removeCandidateToolStripMenuItem1.Text = "Remove";
             // 
             // previewBtn
@@ -154,6 +159,7 @@
             this.exportBtn.TabIndex = 3;
             this.exportBtn.Text = "Export";
             this.exportBtn.UseVisualStyleBackColor = true;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // CreatorForm
             // 
@@ -189,5 +195,6 @@
         private System.Windows.Forms.Button previewBtn;
         private System.Windows.Forms.TabControl questionTabControl;
         private System.Windows.Forms.Button exportBtn;
+        private System.Windows.Forms.SaveFileDialog exportDialog;
     }
 }

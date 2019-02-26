@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Commons;
 
@@ -13,65 +14,83 @@ namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class RequirementForm : Form
     {
-        public bool discarded = false;
         public Requirement Requirement { get; set; }
-        private Requirement draftReq;
+        private bool isNewReq = false;
+        private delegate bool HandleDispose(Requirement req, bool isNewReq, bool saved);
+        private HandleDispose handleDispose;
 
         public RequirementForm()
         {
             InitializeComponent();
         }
 
-        public RequirementForm(Requirement requirement)
+        public RequirementForm(Requirement requirement, bool _isNewReq, Func<Requirement, bool, bool, bool> _handleDispose)
         {
             InitializeComponent();
-            Requirement = requirement;
+            Requirement = copyRequirement(requirement);
+            this.isNewReq = _isNewReq;
+            this.handleDispose = new HandleDispose(_handleDispose);
 
-            draftReq = CopyRequirement(requirement);
+            // Default state.
+            requireSortCheckBox.Enabled = true;
+            checkEffectQueryTxt.Enabled = false;
 
-            // Bind data with controls
-            requirementIdTxt.Text = draftReq.RequirementId.ToString();
-            candidateIdTxt.Text = draftReq.CandidateId.ToString();
-
+            // Data Bindings.
             typeComboBox.DataSource = new BindingSource(Constants.RequirementTypes(), null);
             typeComboBox.DisplayMember = "Key";
             typeComboBox.ValueMember = "Value";
+            typeComboBox.DataBindings.Add("SelectedValue", Requirement, "Type");
 
-            typeComboBox.DataBindings.Add("SelectedItem", draftReq, "Type");
-            resultQueryTxt.DataBindings.Add("Text", draftReq, "ResultQuery");
-            requireSortCheckBox.DataBindings.Add("Checked", draftReq, "RequireSort");
-            effectTableTxt.DataBindings.Add("Text", draftReq, "EffectTable");
-            checkEffectQueryTxt.DataBindings.Add("Text", draftReq, "CheckEffectQuery");
-            activateTriggerQueryTxt.DataBindings.Add("Text", draftReq, "ActivateTriggerQuery");
-            outputParameterTxt.DataBindings.Add("Text", draftReq, "OutputParameter");
+            requireSortCheckBox.DataBindings.Add("Checked", Requirement, "RequireSort");
+
+            checkEffectQueryTxt.DataBindings.Add("Text", Requirement, "CheckEffectQuery");
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Are you sure?", "Save confirm", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm Save", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                Requirement = draftReq;
-                Dispose();
+                // Save.
+                handleDispose(Requirement, isNewReq, true);
+                this.Dispose();
             }
-            else if (dialogResult == DialogResult.No)
+            else
             {
-                // do nothing
+                // Do nothing.
             }
         }
 
-        private Requirement CopyRequirement(Requirement req)
+        private Requirement copyRequirement(Requirement req)
         {
-            return new Requirement(req.RequirementId, req.CandidateId, req.Type,
-                req.ResultQuery, req.RequireSort, req.EffectTable, req.CheckEffectQuery, req.ActivateTriggerQuery, req.OutputParameter);
+            return new Requirement(req.RequirementId, req.CandidateId, req.Type, req.RequireSort, req.CheckEffectQuery);
         }
 
         private void RequirementForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var dialogResult = MessageBox.Show("Discard change?", "", MessageBoxButtons.YesNo);
-            discarded = (dialogResult == DialogResult.Yes);
-            e.Cancel = (dialogResult == DialogResult.No);
+            // Do not save changes.
+            handleDispose(Requirement, isNewReq, false);
         }
-        
+
+        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (typeComboBox.SelectedValue)
+            {
+                case (Requirement.RequirementTypes.ResultSet):
+                    requireSortCheckBox.Enabled = true;
+                    checkEffectQueryTxt.Enabled = false;
+                    break;
+                case (Requirement.RequirementTypes.Effect):
+                    requireSortCheckBox.Enabled = false;
+                    checkEffectQueryTxt.Enabled = true;
+                    break;
+                case (Requirement.RequirementTypes.Parameter):
+                    requireSortCheckBox.Enabled = false;
+                    checkEffectQueryTxt.Enabled = false;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

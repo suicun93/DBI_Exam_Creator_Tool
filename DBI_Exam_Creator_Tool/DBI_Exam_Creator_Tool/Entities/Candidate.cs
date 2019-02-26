@@ -47,8 +47,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         {
             var candidate = obj as Candidate;
             return candidate != null &&
-                   CandidateId == candidate.CandidateId &&
-                   QuestionId == candidate.QuestionId;
+                   CandidateId == candidate.CandidateId;
         }
     }
 }

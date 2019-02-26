@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.UI;
+using System.IO;
 
 namespace DBI_Exam_Creator_Tool
 {
@@ -56,6 +58,46 @@ namespace DBI_Exam_Creator_Tool
         private void previewBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(questions.Count().ToString());
+        }
+
+        // Export to .jon file.
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            export();
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            export();
+        }
+
+        private void export()
+        {
+            exportDialog.Filter = "Json files (*.json)|*.json";
+            exportDialog.FilterIndex = 2;
+            exportDialog.RestoreDirectory = true;
+            if (exportDialog.ShowDialog() == DialogResult.OK)
+            {
+                string jsonData = JsonConvert.SerializeObject(this.questions);
+
+                string saveFolder = Path.GetDirectoryName(exportDialog.FileName);
+                string savePath = Path.Combine(saveFolder, exportDialog.FileName);
+
+                WriteToFile(jsonData, savePath);
+            }
+        }
+
+        private void WriteToFile(string data, string savePath)
+        {
+            try
+            {
+                File.WriteAllText(savePath, data);
+                MessageBox.Show("Saved to " + savePath, "Success");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Failed to export data", "Error!");
+            }
         }
 
         // DrawItem for Vertical TabControl - Question Tabs.
