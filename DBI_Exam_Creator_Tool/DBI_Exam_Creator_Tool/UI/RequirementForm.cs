@@ -15,7 +15,10 @@ namespace DBI_Exam_Creator_Tool.UI
     public partial class RequirementForm : Form
     {
         public Requirement Requirement { get; set; }
+
+        private Candidate.QuestionTypes QuestionType = Candidate.QuestionTypes.Select;
         private bool isNewReq = false;
+
         private delegate bool HandleDispose(Requirement req, bool isNewReq, bool saved);
         private HandleDispose handleDispose;
 
@@ -24,10 +27,11 @@ namespace DBI_Exam_Creator_Tool.UI
             InitializeComponent();
         }
 
-        public RequirementForm(Requirement requirement, bool _isNewReq, Func<Requirement, bool, bool, bool> _handleDispose)
+        public RequirementForm(Requirement requirement, Candidate.QuestionTypes questionType, bool _isNewReq, Func<Requirement, bool, bool, bool> _handleDispose)
         {
             InitializeComponent();
             Requirement = copyRequirement(requirement);
+            this.QuestionType = questionType;
             this.isNewReq = _isNewReq;
             this.handleDispose = new HandleDispose(_handleDispose);
 
@@ -36,7 +40,8 @@ namespace DBI_Exam_Creator_Tool.UI
             checkEffectQueryTxt.Enabled = false;
 
             // Data Bindings.
-            typeComboBox.DataSource = new BindingSource(Constants.RequirementTypes(), null);
+            Dictionary<string, Requirement.RequirementTypes> dict = Constants.GetRequirementTypes(QuestionType);
+            typeComboBox.DataSource = new BindingSource(dict, null);
             typeComboBox.DisplayMember = "Key";
             typeComboBox.ValueMember = "Value";
             typeComboBox.DataBindings.Add("SelectedValue", Requirement, "Type");
@@ -44,6 +49,9 @@ namespace DBI_Exam_Creator_Tool.UI
             requireSortCheckBox.DataBindings.Add("Checked", Requirement, "RequireSort");
 
             checkEffectQueryTxt.DataBindings.Add("Text", Requirement, "CheckEffectQuery");
+
+            // Trigger comboBox SelectedvalueChanged event
+            typeComboBox_SelectedValueChanged(typeComboBox, null);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -71,8 +79,8 @@ namespace DBI_Exam_Creator_Tool.UI
             // Do not save changes.
             handleDispose(Requirement, isNewReq, false);
         }
-
-        private void typeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void typeComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             switch (typeComboBox.SelectedValue)
             {

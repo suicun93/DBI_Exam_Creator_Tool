@@ -21,7 +21,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         public string QuestionId { get; set; }
         public string Content { get; set; }
         public QuestionTypes QuestionType { get; set; }
-        public string ImageData { get; set; }
+        public List<string> Images { get; set; }
 
         public string Solution { get; set; }
         public string ActivateQuery { get; set; }
@@ -31,15 +31,16 @@ namespace DBI_Exam_Creator_Tool.Entities
         {
             QuestionType = QuestionTypes.Select;
             Requirements = new List<Requirement>();
+            Images = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, string iamgedata, List<Requirement> requirements)
+        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> iamgedata, List<Requirement> requirements)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
             Content = content;
             QuestionType = questionType;
-            ImageData = iamgedata;
+            Images = iamgedata;
             Requirements = requirements;
         }
 

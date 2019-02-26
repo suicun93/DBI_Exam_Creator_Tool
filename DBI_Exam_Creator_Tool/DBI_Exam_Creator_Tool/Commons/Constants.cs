@@ -11,7 +11,7 @@ namespace DBI_Exam_Creator_Tool.Commons
 
         public class QuestionType
         {
-            public const string QUERY = "Query";
+            public const string SELECT = "Select Query";
             public const string PROCUDURE = "Procedure";
             public const string TRIGGER = "Trigger";
             public const string SCHEMA = "Schema";
@@ -30,7 +30,7 @@ namespace DBI_Exam_Creator_Tool.Commons
         {
             return new Dictionary<string, Candidate.QuestionTypes>
             {
-                { QuestionType.QUERY, Candidate.QuestionTypes.Select },
+                { QuestionType.SELECT, Candidate.QuestionTypes.Select },
                 { QuestionType.PROCUDURE, Candidate.QuestionTypes.Procedure },
                 { QuestionType.TRIGGER, Candidate.QuestionTypes.Trigger },
                 { QuestionType.SCHEMA, Candidate.QuestionTypes.Schema },
@@ -38,14 +38,34 @@ namespace DBI_Exam_Creator_Tool.Commons
             };
         }
 
-        public static Dictionary<string, Requirement.RequirementTypes> RequirementTypes()
+        public static Dictionary<string, Requirement.RequirementTypes> GetRequirementTypes(Candidate.QuestionTypes questionType)
         {
-            return new Dictionary<string, Requirement.RequirementTypes>
+            Dictionary<string, Requirement.RequirementTypes> dictionary = new Dictionary<string, Requirement.RequirementTypes>();
+
+            switch (questionType)
             {
-                { RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet },
-                { RequirementType.EFFECT, Requirement.RequirementTypes.Effect },
-                { RequirementType.PARAMETER, Requirement.RequirementTypes.Parameter }
-            };
+                case Candidate.QuestionTypes.Select:
+                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+                    break;
+                case Candidate.QuestionTypes.Procedure:
+                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+                    dictionary.Add(RequirementType.PARAMETER, Requirement.RequirementTypes.Parameter);
+                    break;
+                case Candidate.QuestionTypes.Trigger:
+                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+                    break;
+                case Candidate.QuestionTypes.Schema:
+                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+                    break;
+                case Candidate.QuestionTypes.DML:
+                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+                    break;
+                default:
+                    break;
+            }
+            return dictionary;
         }
 
         public class Size
