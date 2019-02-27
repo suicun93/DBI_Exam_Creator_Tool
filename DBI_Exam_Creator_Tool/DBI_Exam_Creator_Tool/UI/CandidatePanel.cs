@@ -47,7 +47,9 @@ namespace DBI_Exam_Creator_Tool.UI
 
             resultSetCheckBox.DataBindings.Add("Checked", Candidate, "ResultSet");
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
+
             effectCheckBox.DataBindings.Add("Checked", Candidate, "Effect");
+            checkEffectQueryTxt.DataBindings.Add("Text", Candidate, "CheckEffectQuery");
 
             // img
             //

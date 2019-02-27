@@ -80,11 +80,11 @@
             this.removeQuestionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.removeQuestionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.removeQuestionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeQuestionBtn.Location = new System.Drawing.Point(910, 5);
+            this.removeQuestionBtn.Image = global::DBI_Exam_Creator_Tool.Properties.Resources.delete;
+            this.removeQuestionBtn.Location = new System.Drawing.Point(905, 0);
             this.removeQuestionBtn.Name = "removeQuestionBtn";
-            this.removeQuestionBtn.Size = new System.Drawing.Size(29, 23);
+            this.removeQuestionBtn.Size = new System.Drawing.Size(38, 36);
             this.removeQuestionBtn.TabIndex = 2;
-            this.removeQuestionBtn.Text = "X";
             this.removeQuestionBtn.UseVisualStyleBackColor = false;
             this.removeQuestionBtn.Click += new System.EventHandler(this.removeQuestionBtn_Click);
             // 
