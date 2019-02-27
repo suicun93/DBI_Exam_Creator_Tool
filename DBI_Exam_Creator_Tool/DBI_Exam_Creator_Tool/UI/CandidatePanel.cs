@@ -51,6 +51,8 @@ namespace DBI_Exam_Creator_Tool.UI
             effectCheckBox.DataBindings.Add("Checked", Candidate, "Effect");
             checkEffectQueryTxt.DataBindings.Add("Text", Candidate, "CheckEffectQuery");
 
+            DBNameTxt.DataBindings.Add("Text", Candidate, "DBName");
+
             // img
             //
 
@@ -161,6 +163,8 @@ namespace DBI_Exam_Creator_Tool.UI
 
             requireSortCheckBox.Enabled = true;
             resultSetCheckBox.Enabled = effectCheckBox.Enabled = false;
+
+            dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void procedureState()
@@ -168,6 +172,8 @@ namespace DBI_Exam_Creator_Tool.UI
             activateQueryTxt.Enabled = true;
 
             resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+
+            dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void triggerState()
@@ -175,6 +181,8 @@ namespace DBI_Exam_Creator_Tool.UI
             activateQueryTxt.Enabled = true;
 
             resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+
+            dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void dmlState()
@@ -185,6 +193,8 @@ namespace DBI_Exam_Creator_Tool.UI
             effectCheckBox.Checked = true;
 
             resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
+
+            dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void schemaState()
@@ -194,6 +204,8 @@ namespace DBI_Exam_Creator_Tool.UI
             resultSetCheckBox.Checked = requireSortCheckBox.Checked = effectCheckBox.Checked = false;
 
             resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
+
+            dbNameLabel.Visible = DBNameTxt.Visible = true;
         }
     }
 }

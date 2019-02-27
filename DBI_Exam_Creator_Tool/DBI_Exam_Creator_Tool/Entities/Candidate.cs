@@ -32,6 +32,8 @@ namespace DBI_Exam_Creator_Tool.Entities
         public bool Effect { get; set; }
         public string CheckEffectQuery { get; set; }
 
+        public string DBName { get; set; }
+
         //public List<Requirement> Requirements { get; set; }
 
         public Candidate()
@@ -40,7 +42,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Images = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string activateQuery, bool resultSet, bool requireSort, bool effect, string checkEffectQuery)
+        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string activateQuery, bool resultSet, bool requireSort, bool effect, string checkEffectQuery, string _DBName)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -53,6 +55,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             RequireSort = requireSort;
             Effect = effect;
             CheckEffectQuery = checkEffectQuery;
+            DBName = _DBName;
         }
 
         public override bool Equals(object obj)

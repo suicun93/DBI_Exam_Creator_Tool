@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button deleteCandidateBtn;
             this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
@@ -48,6 +49,9 @@
             this.effectCheckBox = new System.Windows.Forms.CheckBox();
             this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
             this.checkEffectQueryTxt = new System.Windows.Forms.TextBox();
+            this.dbNameLabel = new System.Windows.Forms.Label();
+            this.DBNameTxt = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             deleteCandidateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -255,11 +259,36 @@
             this.checkEffectQueryTxt.Size = new System.Drawing.Size(841, 84);
             this.checkEffectQueryTxt.TabIndex = 42;
             // 
+            // dbNameLabel
+            // 
+            this.dbNameLabel.AutoSize = true;
+            this.dbNameLabel.Location = new System.Drawing.Point(296, 23);
+            this.dbNameLabel.Name = "dbNameLabel";
+            this.dbNameLabel.Size = new System.Drawing.Size(84, 13);
+            this.dbNameLabel.TabIndex = 43;
+            this.dbNameLabel.Text = "Database Name";
+            this.dbNameLabel.Visible = false;
+            // 
+            // DBNameTxt
+            // 
+            this.DBNameTxt.Location = new System.Drawing.Point(386, 20);
+            this.DBNameTxt.Name = "DBNameTxt";
+            this.DBNameTxt.Size = new System.Drawing.Size(189, 20);
+            this.DBNameTxt.TabIndex = 44;
+            this.DBNameTxt.Visible = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // CandidatePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.DBNameTxt);
+            this.Controls.Add(this.dbNameLabel);
             this.Controls.Add(this.checkEffectQueryTxt);
             this.Controls.Add(this.requireSortCheckBox);
             this.Controls.Add(this.effectCheckBox);
@@ -306,5 +335,8 @@
         private System.Windows.Forms.CheckBox effectCheckBox;
         private System.Windows.Forms.CheckBox requireSortCheckBox;
         private System.Windows.Forms.TextBox checkEffectQueryTxt;
+        private System.Windows.Forms.Label dbNameLabel;
+        private System.Windows.Forms.TextBox DBNameTxt;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
