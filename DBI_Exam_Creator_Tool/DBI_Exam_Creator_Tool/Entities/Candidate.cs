@@ -25,23 +25,31 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public string Solution { get; set; }
         public string ActivateQuery { get; set; }
-        public List<Requirement> Requirements { get; set; }
+
+        public bool ResultSet { get; set; }
+        public bool RequireSort { get; set; }
+        public bool Effect { get; set; }
+
+        //public List<Requirement> Requirements { get; set; }
 
         public Candidate()
         {
             QuestionType = QuestionTypes.Select;
-            Requirements = new List<Requirement>();
             Images = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> iamgedata, List<Requirement> requirements)
+        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string activateQuery, bool resultSet, bool requireSort, bool effect)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
             Content = content;
             QuestionType = questionType;
-            Images = iamgedata;
-            Requirements = requirements;
+            Images = images;
+            Solution = solution;
+            ActivateQuery = activateQuery;
+            ResultSet = resultSet;
+            RequireSort = requireSort;
+            Effect = effect;
         }
 
         public override bool Equals(object obj)

@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Button deleteCandidateBtn;
-            this.addRequirementBtn = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.RequirementId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CandidateId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RequireSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckEffectQuery = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
             this.imgLabel = new System.Windows.Forms.Label();
@@ -45,16 +38,17 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.imgPreview = new System.Windows.Forms.LinkLabel();
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.deleteBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.solutionTxt = new System.Windows.Forms.TextBox();
             this.activateQueryTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.separator1 = new System.Windows.Forms.Label();
             this.separator2 = new System.Windows.Forms.Label();
+            this.resultSetCheckBox = new System.Windows.Forms.CheckBox();
+            this.effectCheckBox = new System.Windows.Forms.CheckBox();
+            this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
+            this.checkEffectQueryTxt = new System.Windows.Forms.TextBox();
             deleteCandidateBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteCandidateBtn
@@ -63,7 +57,7 @@
             deleteCandidateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             deleteCandidateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             deleteCandidateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            deleteCandidateBtn.Location = new System.Drawing.Point(809, 4);
+            deleteCandidateBtn.Location = new System.Drawing.Point(809, 18);
             deleteCandidateBtn.Name = "deleteCandidateBtn";
             deleteCandidateBtn.Size = new System.Drawing.Size(115, 23);
             deleteCandidateBtn.TabIndex = 32;
@@ -71,80 +65,11 @@
             deleteCandidateBtn.UseVisualStyleBackColor = false;
             deleteCandidateBtn.Click += new System.EventHandler(this.deleteCandidateBtn_Click);
             // 
-            // addRequirementBtn
-            // 
-            this.addRequirementBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addRequirementBtn.Location = new System.Drawing.Point(81, 285);
-            this.addRequirementBtn.Name = "addRequirementBtn";
-            this.addRequirementBtn.Size = new System.Drawing.Size(75, 23);
-            this.addRequirementBtn.TabIndex = 28;
-            this.addRequirementBtn.Text = "Add";
-            this.addRequirementBtn.UseVisualStyleBackColor = true;
-            this.addRequirementBtn.Click += new System.EventHandler(this.addRequirementBtn_Click);
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowDrop = true;
-            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RequirementId,
-            this.CandidateId,
-            this.Type,
-            this.RequireSort,
-            this.CheckEffectQuery});
-            this.dataGridView.Location = new System.Drawing.Point(83, 314);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(841, 186);
-            this.dataGridView.TabIndex = 27;
-            this.dataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_RowEnter);
-            // 
-            // RequirementId
-            // 
-            this.RequirementId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.RequirementId.DataPropertyName = "requirementId";
-            this.RequirementId.HeaderText = "RequirementId";
-            this.RequirementId.Name = "RequirementId";
-            this.RequirementId.ReadOnly = true;
-            this.RequirementId.Width = 101;
-            // 
-            // CandidateId
-            // 
-            this.CandidateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CandidateId.DataPropertyName = "CandidateId";
-            this.CandidateId.HeaderText = "CandidateId";
-            this.CandidateId.Name = "CandidateId";
-            this.CandidateId.Width = 89;
-            // 
-            // Type
-            // 
-            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.Width = 56;
-            // 
-            // RequireSort
-            // 
-            this.RequireSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.RequireSort.DataPropertyName = "RequireSort";
-            this.RequireSort.HeaderText = "Require Sort";
-            this.RequireSort.Name = "RequireSort";
-            this.RequireSort.Width = 91;
-            // 
-            // CheckEffectQuery
-            // 
-            this.CheckEffectQuery.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CheckEffectQuery.DataPropertyName = "CheckEffectQuery";
-            this.CheckEffectQuery.HeaderText = "CheckEffectQuery";
-            this.CheckEffectQuery.Name = "CheckEffectQuery";
-            // 
             // requirementsLabel
             // 
             this.requirementsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.requirementsLabel.AutoSize = true;
-            this.requirementsLabel.Location = new System.Drawing.Point(3, 290);
+            this.requirementsLabel.Location = new System.Drawing.Point(3, 374);
             this.requirementsLabel.Name = "requirementsLabel";
             this.requirementsLabel.Size = new System.Drawing.Size(72, 13);
             this.requirementsLabel.TabIndex = 26;
@@ -152,7 +77,7 @@
             // 
             // browseImgBtn
             // 
-            this.browseImgBtn.Location = new System.Drawing.Point(83, 93);
+            this.browseImgBtn.Location = new System.Drawing.Point(83, 107);
             this.browseImgBtn.Name = "browseImgBtn";
             this.browseImgBtn.Size = new System.Drawing.Size(99, 23);
             this.browseImgBtn.TabIndex = 23;
@@ -163,7 +88,7 @@
             // imgLabel
             // 
             this.imgLabel.AutoSize = true;
-            this.imgLabel.Location = new System.Drawing.Point(3, 98);
+            this.imgLabel.Location = new System.Drawing.Point(3, 112);
             this.imgLabel.Name = "imgLabel";
             this.imgLabel.Size = new System.Drawing.Size(36, 13);
             this.imgLabel.TabIndex = 24;
@@ -173,7 +98,7 @@
             // 
             this.contentTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.contentTxt.Location = new System.Drawing.Point(83, 37);
+            this.contentTxt.Location = new System.Drawing.Point(83, 51);
             this.contentTxt.Multiline = true;
             this.contentTxt.Name = "contentTxt";
             this.contentTxt.Size = new System.Drawing.Size(841, 46);
@@ -182,7 +107,7 @@
             // contentLabel
             // 
             this.contentLabel.AutoSize = true;
-            this.contentLabel.Location = new System.Drawing.Point(3, 40);
+            this.contentLabel.Location = new System.Drawing.Point(3, 54);
             this.contentLabel.Name = "contentLabel";
             this.contentLabel.Size = new System.Drawing.Size(44, 13);
             this.contentLabel.TabIndex = 21;
@@ -195,7 +120,7 @@
             "1",
             "2",
             "3"});
-            this.questionTypeComboBox.Location = new System.Drawing.Point(83, 6);
+            this.questionTypeComboBox.Location = new System.Drawing.Point(83, 20);
             this.questionTypeComboBox.Name = "questionTypeComboBox";
             this.questionTypeComboBox.Size = new System.Drawing.Size(99, 21);
             this.questionTypeComboBox.TabIndex = 20;
@@ -204,7 +129,7 @@
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(3, 9);
+            this.typeLabel.Location = new System.Drawing.Point(3, 23);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(31, 13);
             this.typeLabel.TabIndex = 19;
@@ -213,7 +138,7 @@
             // imgPreview
             // 
             this.imgPreview.AutoSize = true;
-            this.imgPreview.Location = new System.Drawing.Point(189, 98);
+            this.imgPreview.Location = new System.Drawing.Point(189, 112);
             this.imgPreview.Name = "imgPreview";
             this.imgPreview.Size = new System.Drawing.Size(0, 13);
             this.imgPreview.TabIndex = 29;
@@ -223,31 +148,10 @@
             // 
             this.browseImgDialog.FileName = "img";
             // 
-            // editBtn
-            // 
-            this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editBtn.Location = new System.Drawing.Point(171, 285);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(75, 23);
-            this.editBtn.TabIndex = 30;
-            this.editBtn.Text = "Edit";
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // deleteBtn
-            // 
-            this.deleteBtn.Location = new System.Drawing.Point(261, 285);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(75, 23);
-            this.deleteBtn.TabIndex = 31;
-            this.deleteBtn.Text = "Delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 150);
+            this.label1.Location = new System.Drawing.Point(3, 164);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 33;
@@ -257,10 +161,10 @@
             // 
             this.solutionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.solutionTxt.Location = new System.Drawing.Point(83, 147);
+            this.solutionTxt.Location = new System.Drawing.Point(83, 161);
             this.solutionTxt.Multiline = true;
             this.solutionTxt.Name = "solutionTxt";
-            this.solutionTxt.Size = new System.Drawing.Size(841, 46);
+            this.solutionTxt.Size = new System.Drawing.Size(841, 84);
             this.solutionTxt.TabIndex = 34;
             // 
             // activateQueryTxt
@@ -268,16 +172,16 @@
             this.activateQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.activateQueryTxt.Enabled = false;
-            this.activateQueryTxt.Location = new System.Drawing.Point(83, 210);
+            this.activateQueryTxt.Location = new System.Drawing.Point(83, 261);
             this.activateQueryTxt.Multiline = true;
             this.activateQueryTxt.Name = "activateQueryTxt";
-            this.activateQueryTxt.Size = new System.Drawing.Size(841, 46);
+            this.activateQueryTxt.Size = new System.Drawing.Size(841, 84);
             this.activateQueryTxt.TabIndex = 35;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 213);
+            this.label2.Location = new System.Drawing.Point(3, 264);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 36;
@@ -287,7 +191,7 @@
             // 
             this.separator1.AutoSize = true;
             this.separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator1.Location = new System.Drawing.Point(-16, 130);
+            this.separator1.Location = new System.Drawing.Point(-16, 144);
             this.separator1.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator1.MinimumSize = new System.Drawing.Size(1000, 0);
             this.separator1.Name = "separator1";
@@ -299,7 +203,7 @@
             // 
             this.separator2.AutoSize = true;
             this.separator2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator2.Location = new System.Drawing.Point(-37, 270);
+            this.separator2.Location = new System.Drawing.Point(-47, 359);
             this.separator2.MaximumSize = new System.Drawing.Size(2000, 2);
             this.separator2.MinimumSize = new System.Drawing.Size(1000, 0);
             this.separator2.Name = "separator2";
@@ -307,10 +211,59 @@
             this.separator2.TabIndex = 38;
             this.separator2.Text = "label3";
             // 
+            // resultSetCheckBox
+            // 
+            this.resultSetCheckBox.AutoSize = true;
+            this.resultSetCheckBox.Checked = true;
+            this.resultSetCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.resultSetCheckBox.Location = new System.Drawing.Point(83, 373);
+            this.resultSetCheckBox.Name = "resultSetCheckBox";
+            this.resultSetCheckBox.Size = new System.Drawing.Size(75, 17);
+            this.resultSetCheckBox.TabIndex = 39;
+            this.resultSetCheckBox.Text = "Result Set";
+            this.resultSetCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // effectCheckBox
+            // 
+            this.effectCheckBox.AutoSize = true;
+            this.effectCheckBox.Location = new System.Drawing.Point(273, 373);
+            this.effectCheckBox.Name = "effectCheckBox";
+            this.effectCheckBox.Size = new System.Drawing.Size(54, 17);
+            this.effectCheckBox.TabIndex = 40;
+            this.effectCheckBox.Text = "Effect";
+            this.effectCheckBox.UseVisualStyleBackColor = true;
+            this.effectCheckBox.CheckedChanged += new System.EventHandler(this.effectCheckBox_CheckedChanged);
+            // 
+            // requireSortCheckBox
+            // 
+            this.requireSortCheckBox.AutoSize = true;
+            this.requireSortCheckBox.Location = new System.Drawing.Point(167, 373);
+            this.requireSortCheckBox.Name = "requireSortCheckBox";
+            this.requireSortCheckBox.Size = new System.Drawing.Size(85, 17);
+            this.requireSortCheckBox.TabIndex = 41;
+            this.requireSortCheckBox.Text = "Require Sort";
+            this.requireSortCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // checkEffectQueryTxt
+            // 
+            this.checkEffectQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkEffectQueryTxt.Enabled = false;
+            this.checkEffectQueryTxt.Location = new System.Drawing.Point(83, 396);
+            this.checkEffectQueryTxt.Multiline = true;
+            this.checkEffectQueryTxt.Name = "checkEffectQueryTxt";
+            this.checkEffectQueryTxt.Size = new System.Drawing.Size(841, 84);
+            this.checkEffectQueryTxt.TabIndex = 42;
+            // 
             // CandidatePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.checkEffectQueryTxt);
+            this.Controls.Add(this.requireSortCheckBox);
+            this.Controls.Add(this.effectCheckBox);
+            this.Controls.Add(this.resultSetCheckBox);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.label2);
@@ -318,11 +271,7 @@
             this.Controls.Add(this.solutionTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(deleteCandidateBtn);
-            this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.imgPreview);
-            this.Controls.Add(this.addRequirementBtn);
-            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.requirementsLabel);
             this.Controls.Add(this.browseImgBtn);
             this.Controls.Add(this.imgLabel);
@@ -331,17 +280,13 @@
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(927, 503);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.Size = new System.Drawing.Size(927, 493);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button addRequirementBtn;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label requirementsLabel;
         private System.Windows.Forms.Button browseImgBtn;
         private System.Windows.Forms.Label imgLabel;
@@ -351,18 +296,15 @@
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.LinkLabel imgPreview;
         private System.Windows.Forms.OpenFileDialog browseImgDialog;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequirementId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CandidateId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RequireSort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckEffectQuery;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox solutionTxt;
         private System.Windows.Forms.TextBox activateQueryTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label separator1;
         private System.Windows.Forms.Label separator2;
+        private System.Windows.Forms.CheckBox resultSetCheckBox;
+        private System.Windows.Forms.CheckBox effectCheckBox;
+        private System.Windows.Forms.CheckBox requireSortCheckBox;
+        private System.Windows.Forms.TextBox checkEffectQueryTxt;
     }
 }

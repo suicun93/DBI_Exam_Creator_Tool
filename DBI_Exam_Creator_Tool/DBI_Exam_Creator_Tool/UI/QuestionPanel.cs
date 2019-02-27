@@ -49,11 +49,14 @@ namespace DBI_Exam_Creator_Tool.UI
             c.QuestionId = question.QuestionId;
             c.CandidateId = Guid.NewGuid().ToString();
             c.QuestionType = Candidate.QuestionTypes.Select;
+            c.ResultSet = true;
 
             question.Candidates.Add(c);
             TabPage tp = new TabPage("Candidate " + question.Candidates.Count());
+            tp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 
             CandidatePanel candidatePanel = new CandidatePanel(c, this.handleDeleteCandidate);
+            candidatePanel.BackColor = Color.Transparent;
             tp.Controls.Add(candidatePanel);
             candidateTabControl.TabPages.Add(tp);
 

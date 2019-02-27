@@ -34,7 +34,7 @@ namespace DBI_Exam_Creator_Tool.UI
             handleDelete = new HandleDelete(_handleDelete);
         }
 
-        // Bind Candidate data to controls
+        // Bind Candidate data to controls.
         private void OnCreate()
         {
             questionTypeComboBox.DataSource = new BindingSource(Constants.QuestionTypes(), null);
@@ -45,17 +45,18 @@ namespace DBI_Exam_Creator_Tool.UI
 
             contentTxt.DataBindings.Add("Text", Candidate, "Content");
 
+            resultSetCheckBox.DataBindings.Add("Checked", Candidate, "ResultSet");
+            requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
+            effectCheckBox.DataBindings.Add("Checked", Candidate, "Effect");
+
             // img
             //
-
-            dataGridView.AutoGenerateColumns = false;
-            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
 
             // Trigger questionTypeComboBox SelectedValueChanged event
             questionTypeComboBox_SelectedValueChanged(questionTypeComboBox, null);
         }
 
-        // Browse Images
+        // Browse Images.
         private void browseImgBtn_Click(object sender, EventArgs e)
         {
             Candidate.Images.Clear();
@@ -86,29 +87,6 @@ namespace DBI_Exam_Creator_Tool.UI
         // Preview Images.
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //using (Form form = new Form())
-            //{
-            //    form.StartPosition = FormStartPosition.CenterScreen;
-            //    form.AutoScroll = true;
-            //    form.Width = 680;
-
-            //    int yPosition = 0;
-            //    foreach (string imgData in Candidate.Images)
-            //    {
-            //        Image image = ImageUtils.Base64StringToImage(imgData);
-
-            //        PictureBox pb = new PictureBox();
-            //        pb.Dock = DockStyle.Fill;
-            //        pb.Image = image;
-            //        pb.Location = new Point(0, yPosition);
-
-            //        yPosition += image.Height;
-
-            //        form.Controls.Add(pb);
-            //    }
-            //    form.ShowDialog();
-            //}
-
             foreach (string imgData in Candidate.Images)
             {
                 Image image = ImageUtils.Base64StringToImage(imgData);
@@ -136,63 +114,6 @@ namespace DBI_Exam_Creator_Tool.UI
             Console.WriteLine("something");
         }
 
-        // Used for Edit, Delete Requirement
-        private void dataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            this.selectedRowIndex = e.RowIndex;
-        }
-        
-        // Handle Add Requirement button.
-        private void addRequirementBtn_Click(object sender, EventArgs e)
-        {
-            Requirement r = new Requirement();
-            r.CandidateId = Candidate.CandidateId;
-            r.RequirementId = Guid.NewGuid().ToString();
-            r.Type = Constants.GetRequirementTypes(Candidate.QuestionType).First().Value;
-
-            RequirementForm rf = new RequirementForm(r, Candidate.QuestionType , true, this.Rf_Disposed);
-            rf.Show();
-        }
-        
-        // Handle Edit button.
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            if (selectedRowIndex != -1)
-            {
-                RequirementForm rf = new RequirementForm(Candidate.Requirements[selectedRowIndex], Candidate.QuestionType, false, this.Rf_Disposed);
-                rf.Show();
-            }
-        }
-
-        // Update dataGridView when close Edit form.
-        private bool Rf_Disposed(Requirement req, bool isNewReq, bool saved)
-        {
-            if (!saved)
-                return false;
-
-            if (!isNewReq)
-            {
-                Candidate.Requirements[selectedRowIndex] = req;
-            } else
-            {
-                Candidate.Requirements.Add(req);
-            }
-            dataGridView.DataSource = typeof(BindingList<Requirement>);
-            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
-            return false;
-        }
-        
-        // Handle Delete button.
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            if (selectedRowIndex != -1)
-            {
-                Candidate.Requirements.RemoveAt(selectedRowIndex);
-            }
-            dataGridView.DataSource = typeof(BindingList<Requirement>);
-            dataGridView.DataSource = new BindingList<Requirement>(Candidate.Requirements);
-        }
-
         // Delete current Candidate from Question
         // Close current Tab.
         private void deleteCandidateBtn_Click(object sender, EventArgs e)
@@ -205,23 +126,72 @@ namespace DBI_Exam_Creator_Tool.UI
             switch (questionTypeComboBox.SelectedValue)
             {
                 case Candidate.QuestionTypes.Select:
-                    activateQueryTxt.Enabled = false;
+                    selectState();
                     break;
                 case Candidate.QuestionTypes.Procedure:
-                    activateQueryTxt.Enabled = true;
+                    procedureState();
                     break;
                 case Candidate.QuestionTypes.Trigger:
-                    activateQueryTxt.Enabled = true;
+                    triggerState();
                     break;
                 case Candidate.QuestionTypes.Schema:
-                    activateQueryTxt.Enabled = false;
+                    schemaState();
                     break;
                 case Candidate.QuestionTypes.DML:
-                    activateQueryTxt.Enabled = false;
+                    dmlState();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void effectCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            checkEffectQueryTxt.Enabled = effectCheckBox.Checked;
+        }
+
+        private void selectState()
+        {
+            activateQueryTxt.Enabled = false;
+            // ResultSet checkbox enabled & always checked.
+            resultSetCheckBox.Checked = true;
+            effectCheckBox.Checked = false;
+
+            requireSortCheckBox.Enabled = true;
+            resultSetCheckBox.Enabled = effectCheckBox.Enabled = false;
+        }
+
+        private void procedureState()
+        {
+            activateQueryTxt.Enabled = true;
+
+            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+        }
+
+        private void triggerState()
+        {
+            activateQueryTxt.Enabled = true;
+
+            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+        }
+
+        private void dmlState()
+        {
+            activateQueryTxt.Enabled = false;
+
+            resultSetCheckBox.Checked = requireSortCheckBox.Checked = false;
+            effectCheckBox.Checked = true;
+
+            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
+        }
+
+        private void schemaState()
+        {
+            activateQueryTxt.Enabled = false;
+
+            resultSetCheckBox.Checked = requireSortCheckBox.Checked = effectCheckBox.Checked = false;
+
+            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
         }
     }
 }
