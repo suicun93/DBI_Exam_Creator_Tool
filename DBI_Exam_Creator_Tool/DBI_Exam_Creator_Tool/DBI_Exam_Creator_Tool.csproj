@@ -70,15 +70,6 @@
     <Compile Include="UI\QuestionPanel.Designer.cs">
       <DependentUpon>QuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\QuestionTabPage.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\RequirementForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\RequirementForm.Designer.cs">
-      <DependentUpon>RequirementForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\ImageUtils.cs" />
     <Compile Include="Utils\Utilities.cs" />
     <Compile Include="Program.cs" />
@@ -101,9 +92,6 @@
     </Compile>
     <EmbeddedResource Include="UI\QuestionPanel.resx">
       <DependentUpon>QuestionPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\RequirementForm.resx">
-      <DependentUpon>RequirementForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
