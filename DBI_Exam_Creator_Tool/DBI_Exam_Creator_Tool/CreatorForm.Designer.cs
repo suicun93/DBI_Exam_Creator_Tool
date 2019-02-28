@@ -44,6 +44,7 @@
             this.exportDialog = new System.Windows.Forms.SaveFileDialog();
             this.removeQuestionBtn = new System.Windows.Forms.Button();
             this.addQuestionBtn = new System.Windows.Forms.Button();
+            this.importDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,10 +71,10 @@
             // 
             // importToolStripMenuItem
             // 
-            this.importToolStripMenuItem.Enabled = false;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
@@ -183,6 +184,10 @@
             this.addQuestionBtn.UseVisualStyleBackColor = true;
             this.addQuestionBtn.Click += new System.EventHandler(this.addQuestionBtn_Click);
             // 
+            // importDialog
+            // 
+            this.importDialog.FileName = "openFileDialog";
+            // 
             // CreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,5 +227,6 @@
         private System.Windows.Forms.SaveFileDialog exportDialog;
         private System.Windows.Forms.Button addQuestionBtn;
         private System.Windows.Forms.Button removeQuestionBtn;
+        private System.Windows.Forms.OpenFileDialog importDialog;
     }
 }

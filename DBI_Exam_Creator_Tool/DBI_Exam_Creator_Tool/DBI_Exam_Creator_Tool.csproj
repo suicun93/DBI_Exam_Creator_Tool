@@ -70,6 +70,7 @@
       <DependentUpon>QuestionPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ImageUtils.cs" />
+    <Compile Include="Utils\JsonUtils.cs" />
     <Compile Include="Utils\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

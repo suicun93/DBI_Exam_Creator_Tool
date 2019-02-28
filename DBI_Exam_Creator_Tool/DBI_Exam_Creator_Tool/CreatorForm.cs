@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.IO;
 
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.UI;
-using System.IO;
+using DBI_Exam_Creator_Tool.Utils;
 
 namespace DBI_Exam_Creator_Tool
 {
@@ -28,12 +29,20 @@ namespace DBI_Exam_Creator_Tool
         // Add Question - New Tab.
         private void addQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addQuestion();
+            Question q = new Question();
+            q.QuestionId = Guid.NewGuid().ToString();
+            q.Point = 1;
+            this.questions.Add(q);
+            addQuestionTab(q);
         }
 
         private void addQuestionBtn_Click(object sender, EventArgs e)
         {
-            addQuestion();
+            Question q = new Question();
+            q.QuestionId = Guid.NewGuid().ToString();
+            q.Point = 1;
+            this.questions.Add(q);
+            addQuestionTab(q);
         }
 
         private void questionTabControl_Selected(object sender, TabControlEventArgs e)
@@ -76,14 +85,14 @@ namespace DBI_Exam_Creator_Tool
             export();
         }
 
-        // Add question.
-        private void addQuestion()
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Question q = new Question();
-            q.QuestionId = Guid.NewGuid().ToString();
-            q.Point = 1;
-            this.questions.Add(q);
+            import();
+        }
 
+        // Add question.
+        private void addQuestionTab(Question q)
+        {
             QuestionPanel questionPanel = new QuestionPanel(q, this.handleRemoveQuestion);
             questionPanel.Dock = DockStyle.Fill;
             questionPanel.Name = "questionPanel";
@@ -92,7 +101,32 @@ namespace DBI_Exam_Creator_Tool
             tab.Controls.Add(questionPanel);
 
             questionTabControl.TabPages.Add(tab);
+
             printQuestionNo();
+        }
+
+        private void import()
+        {
+            importDialog.Filter = "Json files (*.json)|*.json";
+            importDialog.FilterIndex = 2;
+            importDialog.RestoreDirectory = true;
+            if (importDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Clear.
+                this.questions.Clear();
+                this.questionTabControl.TabPages.Clear();
+
+                // Load data.
+                string localPath = importDialog.FileName;
+                List<Question> questionList = JsonUtils.DeserializeJson(localPath);
+                this.questions = questionList;
+
+                // Visualization.
+                foreach (Question q in questions)
+                {
+                    addQuestionTab(q);
+                }
+            }
         }
 
         // Export to .jon file.

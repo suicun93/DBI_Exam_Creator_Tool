@@ -36,6 +36,11 @@ namespace DBI_Exam_Creator_Tool.UI
         {
             questionIdTxt.Text = question.QuestionId;
             pointNumeric.DataBindings.Add("Value", question, "Point");
+
+            for (var i = 0; i < question.Candidates.Count; i++)
+            {
+                addCandidateTab(question.Candidates[i], "Candidate " + (i + 1));
+            }
         }
 
         private void removeQuestionBtn_Click(object sender, EventArgs e)
@@ -51,7 +56,15 @@ namespace DBI_Exam_Creator_Tool.UI
             c.QuestionType = Candidate.QuestionTypes.Select;
 
             question.Candidates.Add(c);
-            TabPage tp = new TabPage("Candidate " + question.Candidates.Count());
+
+            string tabTitle = "Candidate " + question.Candidates.Count();
+
+            addCandidateTab(c, tabTitle);
+        }
+
+        public void addCandidateTab(Candidate c, string tabTitle)
+        {
+            TabPage tp = new TabPage(tabTitle);
             tp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 
             CandidatePanel candidatePanel = new CandidatePanel(c, this.handleDeleteCandidate);

@@ -52,8 +52,12 @@ namespace DBI_Exam_Creator_Tool.UI
 
             DBNameTxt.DataBindings.Add("Text", Candidate, "DBName");
 
-            // img
-            //
+            // Images.
+            if (Candidate.Illustration.Count != 0)
+            {
+                imgPreview.Text = "Preview";
+                imgPreview.Visible = true;
+            }
 
             // Trigger questionTypeComboBox SelectedValueChanged event
             questionTypeComboBox_SelectedValueChanged(questionTypeComboBox, null);
