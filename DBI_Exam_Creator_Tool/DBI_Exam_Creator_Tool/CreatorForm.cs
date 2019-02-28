@@ -107,7 +107,7 @@ namespace DBI_Exam_Creator_Tool
 
         private void import()
         {
-            importDialog.Filter = "Json files (*.json)|*.json";
+            importDialog.Filter = "Data (*.dat)|*.dat";
             importDialog.FilterIndex = 2;
             importDialog.RestoreDirectory = true;
             if (importDialog.ShowDialog() == DialogResult.OK)
@@ -132,7 +132,7 @@ namespace DBI_Exam_Creator_Tool
         // Export to .jon file.
         private void export()
         {
-            exportDialog.Filter = "Json files (*.json)|*.json";
+            exportDialog.Filter = "Data (*.dat)|*.dat";
             exportDialog.FilterIndex = 2;
             exportDialog.RestoreDirectory = true;
             if (exportDialog.ShowDialog() == DialogResult.OK)
