@@ -15,7 +15,7 @@ namespace DBI_Exam_Creator_Tool.Commons
             public const string PROCUDURE = "Procedure";
             public const string TRIGGER = "Trigger";
             public const string SCHEMA = "Schema";
-            public const string DML = "DML";
+            public const string DML = "Insert Delete Update";
         }
 
         public class RequirementType
