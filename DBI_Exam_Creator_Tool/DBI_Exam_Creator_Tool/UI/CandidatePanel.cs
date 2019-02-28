@@ -45,6 +45,9 @@ namespace DBI_Exam_Creator_Tool.UI
 
             contentTxt.DataBindings.Add("Text", Candidate, "Content");
 
+            solutionTxt.DataBindings.Add("Text", Candidate, "Solution");
+            activateQueryTxt.DataBindings.Add("Text", Candidate, "ActivateQuery");
+
             resultSetCheckBox.DataBindings.Add("Checked", Candidate, "ResultSet");
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
 
@@ -206,6 +209,12 @@ namespace DBI_Exam_Creator_Tool.UI
             resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = true;
+        }
+
+        // Hide Require Sort when Result Set not checked
+        private void resultSetCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            requireSortCheckBox.Visible = resultSetCheckBox.Checked;
         }
     }
 }

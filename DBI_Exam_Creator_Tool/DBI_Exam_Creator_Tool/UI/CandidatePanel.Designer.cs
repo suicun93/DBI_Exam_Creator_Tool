@@ -225,6 +225,7 @@
             this.resultSetCheckBox.TabIndex = 39;
             this.resultSetCheckBox.Text = "Result Set";
             this.resultSetCheckBox.UseVisualStyleBackColor = true;
+            this.resultSetCheckBox.CheckedChanged += new System.EventHandler(this.resultSetCheckBox_CheckedChanged);
             // 
             // effectCheckBox
             // 
