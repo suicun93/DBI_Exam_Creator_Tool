@@ -70,13 +70,13 @@
             // 
             this.importToolStripMenuItem.Enabled = false;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importToolStripMenuItem.Text = "Import";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
@@ -92,7 +92,7 @@
             // addQuestionToolStripMenuItem
             // 
             this.addQuestionToolStripMenuItem.Name = "addQuestionToolStripMenuItem";
-            this.addQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addQuestionToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.addQuestionToolStripMenuItem.Text = "Add";
             this.addQuestionToolStripMenuItem.Click += new System.EventHandler(this.addQuestionToolStripMenuItem_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.removeQuestionToolStripMenuItem.Enabled = false;
             this.removeQuestionToolStripMenuItem.Name = "removeQuestionToolStripMenuItem";
-            this.removeQuestionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeQuestionToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeQuestionToolStripMenuItem.Text = "Remove";
             // 
             // candidateToolStripMenuItem
@@ -116,13 +116,13 @@
             // addCandidateToolStripMenuItem1
             // 
             this.addCandidateToolStripMenuItem1.Name = "addCandidateToolStripMenuItem1";
-            this.addCandidateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.addCandidateToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.addCandidateToolStripMenuItem1.Text = "Add";
             // 
             // removeCandidateToolStripMenuItem1
             // 
             this.removeCandidateToolStripMenuItem1.Name = "removeCandidateToolStripMenuItem1";
-            this.removeCandidateToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.removeCandidateToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.removeCandidateToolStripMenuItem1.Text = "Remove";
             // 
             // previewBtn
@@ -145,7 +145,7 @@
             this.questionTabControl.Multiline = true;
             this.questionTabControl.Name = "questionTabControl";
             this.questionTabControl.SelectedIndex = 0;
-            this.questionTabControl.Size = new System.Drawing.Size(1059, 614);
+            this.questionTabControl.Size = new System.Drawing.Size(1059, 638);
             this.questionTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.questionTabControl.TabIndex = 0;
             this.questionTabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.questionTabControl_DrawItem);
@@ -165,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 675);
+            this.ClientSize = new System.Drawing.Size(1079, 706);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.previewBtn);
             this.Controls.Add(this.questionTabControl);

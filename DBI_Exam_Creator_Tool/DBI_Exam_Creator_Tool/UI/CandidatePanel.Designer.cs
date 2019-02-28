@@ -71,7 +71,6 @@
             // 
             // requirementsLabel
             // 
-            this.requirementsLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.requirementsLabel.AutoSize = true;
             this.requirementsLabel.Location = new System.Drawing.Point(3, 374);
             this.requirementsLabel.Name = "requirementsLabel";
@@ -241,7 +240,7 @@
             // requireSortCheckBox
             // 
             this.requireSortCheckBox.AutoSize = true;
-            this.requireSortCheckBox.Location = new System.Drawing.Point(167, 373);
+            this.requireSortCheckBox.Location = new System.Drawing.Point(83, 396);
             this.requireSortCheckBox.Name = "requireSortCheckBox";
             this.requireSortCheckBox.Size = new System.Drawing.Size(85, 17);
             this.requireSortCheckBox.TabIndex = 41;
@@ -253,7 +252,7 @@
             this.checkEffectQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkEffectQueryTxt.Enabled = false;
-            this.checkEffectQueryTxt.Location = new System.Drawing.Point(83, 396);
+            this.checkEffectQueryTxt.Location = new System.Drawing.Point(83, 419);
             this.checkEffectQueryTxt.Multiline = true;
             this.checkEffectQueryTxt.Name = "checkEffectQueryTxt";
             this.checkEffectQueryTxt.Size = new System.Drawing.Size(841, 84);
@@ -309,7 +308,7 @@
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(927, 493);
+            this.Size = new System.Drawing.Size(927, 510);
             this.ResumeLayout(false);
             this.PerformLayout();
 
