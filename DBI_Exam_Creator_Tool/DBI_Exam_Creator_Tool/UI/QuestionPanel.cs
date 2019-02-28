@@ -13,7 +13,7 @@ namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class QuestionPanel : UserControl
     {
-        private Question question;
+        public Question question { get; set; }
 
         private delegate bool HandleRemove(Question q, TabPage tab);
         private HandleRemove handleRemove;
@@ -49,7 +49,6 @@ namespace DBI_Exam_Creator_Tool.UI
             c.QuestionId = question.QuestionId;
             c.CandidateId = Guid.NewGuid().ToString();
             c.QuestionType = Candidate.QuestionTypes.Select;
-            c.ResultSet = true;
 
             question.Candidates.Add(c);
             TabPage tp = new TabPage("Candidate " + question.Candidates.Count());

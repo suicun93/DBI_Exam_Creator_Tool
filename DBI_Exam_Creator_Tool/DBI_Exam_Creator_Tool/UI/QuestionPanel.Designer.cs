@@ -59,7 +59,7 @@
             this.candidateTabControl.Location = new System.Drawing.Point(0, 69);
             this.candidateTabControl.Name = "candidateTabControl";
             this.candidateTabControl.SelectedIndex = 0;
-            this.candidateTabControl.Size = new System.Drawing.Size(943, 555);
+            this.candidateTabControl.Size = new System.Drawing.Size(943, 472);
             this.candidateTabControl.TabIndex = 0;
             // 
             // addCandidateBtn
@@ -132,7 +132,7 @@
             this.editQuestionPanel.Controls.Add(this.pointLabel);
             this.editQuestionPanel.Location = new System.Drawing.Point(3, 3);
             this.editQuestionPanel.Name = "editQuestionPanel";
-            this.editQuestionPanel.Size = new System.Drawing.Size(943, 627);
+            this.editQuestionPanel.Size = new System.Drawing.Size(943, 544);
             this.editQuestionPanel.TabIndex = 4;
             // 
             // pointNumeric
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.editQuestionPanel);
             this.Name = "QuestionPanel";
-            this.Size = new System.Drawing.Size(949, 633);
+            this.Size = new System.Drawing.Size(949, 550);
             this.editQuestionPanel.ResumeLayout(false);
             this.editQuestionPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pointNumeric)).EndInit();

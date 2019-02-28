@@ -28,18 +28,12 @@ namespace DBI_Exam_Creator_Tool
         // Add Question - New Tab.
         private void addQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Question q = new Question();
-            q.QuestionId = Guid.NewGuid().ToString();
-            q.Point = 1;
-            this.questions.Add(q);
-            
-            QuestionPanel questionPanel = new QuestionPanel(q, this.handleRemoveQuestion);
-            questionPanel.Dock = DockStyle.Fill;
+            addQuestion();
+        }
 
-            TabPage tab = new TabPage(q.QuestionId);
-            tab.Controls.Add(questionPanel);
-            
-            questionTabControl.TabPages.Add(tab);
+        private void addQuestionBtn_Click(object sender, EventArgs e)
+        {
+            addQuestion();
         }
 
         private void questionTabControl_Selected(object sender, TabControlEventArgs e)
@@ -51,6 +45,7 @@ namespace DBI_Exam_Creator_Tool
         {
             this.questions.Remove(q);
             questionTabControl.TabPages.Remove(tab);
+            printQuestionNo();
             return false;
         }
 
@@ -60,7 +55,17 @@ namespace DBI_Exam_Creator_Tool
             MessageBox.Show(questions.Count().ToString());
         }
 
-        // Export to .jon file.
+        private void removeQuestionBtn_Click(object sender, EventArgs e)
+        {
+            TabPage tab = questionTabControl.TabPages[questionTabControl.SelectedIndex];
+            QuestionPanel qp = (QuestionPanel)tab.Controls["questionPanel"];
+
+            questions.Remove(qp.question);
+            questionTabControl.TabPages.Remove(tab);
+
+            printQuestionNo();
+        }
+        
         private void exportBtn_Click(object sender, EventArgs e)
         {
             export();
@@ -71,6 +76,26 @@ namespace DBI_Exam_Creator_Tool
             export();
         }
 
+        // Add question.
+        private void addQuestion()
+        {
+            Question q = new Question();
+            q.QuestionId = Guid.NewGuid().ToString();
+            q.Point = 1;
+            this.questions.Add(q);
+
+            QuestionPanel questionPanel = new QuestionPanel(q, this.handleRemoveQuestion);
+            questionPanel.Dock = DockStyle.Fill;
+            questionPanel.Name = "questionPanel";
+
+            TabPage tab = new TabPage(q.QuestionId);
+            tab.Controls.Add(questionPanel);
+
+            questionTabControl.TabPages.Add(tab);
+            printQuestionNo();
+        }
+
+        // Export to .jon file.
         private void export()
         {
             exportDialog.Filter = "Json files (*.json)|*.json";
@@ -97,6 +122,14 @@ namespace DBI_Exam_Creator_Tool
             catch (Exception)
             {
                 MessageBox.Show("Failed to export data", "Error!");
+            }
+        }
+
+        private void printQuestionNo()
+        {
+            for (var i = 0; i < questionTabControl.TabPages.Count; i++)
+            {
+                questionTabControl.TabPages[i].Text = "Question " + (i + 1);
             }
         }
 

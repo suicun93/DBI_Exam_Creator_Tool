@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button deleteCandidateBtn;
-            this.requirementsLabel = new System.Windows.Forms.Label();
             this.browseImgBtn = new System.Windows.Forms.Button();
             this.imgLabel = new System.Windows.Forms.Label();
             this.contentTxt = new System.Windows.Forms.TextBox();
@@ -41,14 +40,10 @@
             this.browseImgDialog = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.solutionTxt = new System.Windows.Forms.TextBox();
-            this.activateQueryTxt = new System.Windows.Forms.TextBox();
+            this.testQueryTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.separator1 = new System.Windows.Forms.Label();
-            this.separator2 = new System.Windows.Forms.Label();
-            this.resultSetCheckBox = new System.Windows.Forms.CheckBox();
-            this.effectCheckBox = new System.Windows.Forms.CheckBox();
             this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
-            this.checkEffectQueryTxt = new System.Windows.Forms.TextBox();
             this.dbNameLabel = new System.Windows.Forms.Label();
             this.DBNameTxt = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -68,15 +63,6 @@
             deleteCandidateBtn.Text = "Remove Candidate";
             deleteCandidateBtn.UseVisualStyleBackColor = false;
             deleteCandidateBtn.Click += new System.EventHandler(this.deleteCandidateBtn_Click);
-            // 
-            // requirementsLabel
-            // 
-            this.requirementsLabel.AutoSize = true;
-            this.requirementsLabel.Location = new System.Drawing.Point(3, 374);
-            this.requirementsLabel.Name = "requirementsLabel";
-            this.requirementsLabel.Size = new System.Drawing.Size(72, 13);
-            this.requirementsLabel.TabIndex = 26;
-            this.requirementsLabel.Text = "Requirements";
             // 
             // browseImgBtn
             // 
@@ -125,7 +111,7 @@
             "3"});
             this.questionTypeComboBox.Location = new System.Drawing.Point(83, 20);
             this.questionTypeComboBox.Name = "questionTypeComboBox";
-            this.questionTypeComboBox.Size = new System.Drawing.Size(99, 21);
+            this.questionTypeComboBox.Size = new System.Drawing.Size(118, 21);
             this.questionTypeComboBox.TabIndex = 20;
             this.questionTypeComboBox.SelectedValueChanged += new System.EventHandler(this.questionTypeComboBox_SelectedValueChanged);
             // 
@@ -170,25 +156,25 @@
             this.solutionTxt.Size = new System.Drawing.Size(841, 84);
             this.solutionTxt.TabIndex = 34;
             // 
-            // activateQueryTxt
+            // testQueryTxt
             // 
-            this.activateQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.testQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.activateQueryTxt.Enabled = false;
-            this.activateQueryTxt.Location = new System.Drawing.Point(83, 261);
-            this.activateQueryTxt.Multiline = true;
-            this.activateQueryTxt.Name = "activateQueryTxt";
-            this.activateQueryTxt.Size = new System.Drawing.Size(841, 84);
-            this.activateQueryTxt.TabIndex = 35;
+            this.testQueryTxt.Enabled = false;
+            this.testQueryTxt.Location = new System.Drawing.Point(83, 261);
+            this.testQueryTxt.Multiline = true;
+            this.testQueryTxt.Name = "testQueryTxt";
+            this.testQueryTxt.Size = new System.Drawing.Size(841, 147);
+            this.testQueryTxt.TabIndex = 35;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 264);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 36;
-            this.label2.Text = "Activate Query";
+            this.label2.Text = "Test Queries";
             // 
             // separator1
             // 
@@ -202,67 +188,20 @@
             this.separator1.TabIndex = 37;
             this.separator1.Text = "label3";
             // 
-            // separator2
-            // 
-            this.separator2.AutoSize = true;
-            this.separator2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator2.Location = new System.Drawing.Point(-47, 359);
-            this.separator2.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.separator2.MinimumSize = new System.Drawing.Size(1000, 0);
-            this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(1000, 2);
-            this.separator2.TabIndex = 38;
-            this.separator2.Text = "label3";
-            // 
-            // resultSetCheckBox
-            // 
-            this.resultSetCheckBox.AutoSize = true;
-            this.resultSetCheckBox.Checked = true;
-            this.resultSetCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.resultSetCheckBox.Location = new System.Drawing.Point(83, 373);
-            this.resultSetCheckBox.Name = "resultSetCheckBox";
-            this.resultSetCheckBox.Size = new System.Drawing.Size(75, 17);
-            this.resultSetCheckBox.TabIndex = 39;
-            this.resultSetCheckBox.Text = "Result Set";
-            this.resultSetCheckBox.UseVisualStyleBackColor = true;
-            this.resultSetCheckBox.CheckedChanged += new System.EventHandler(this.resultSetCheckBox_CheckedChanged);
-            // 
-            // effectCheckBox
-            // 
-            this.effectCheckBox.AutoSize = true;
-            this.effectCheckBox.Location = new System.Drawing.Point(273, 373);
-            this.effectCheckBox.Name = "effectCheckBox";
-            this.effectCheckBox.Size = new System.Drawing.Size(54, 17);
-            this.effectCheckBox.TabIndex = 40;
-            this.effectCheckBox.Text = "Effect";
-            this.effectCheckBox.UseVisualStyleBackColor = true;
-            this.effectCheckBox.CheckedChanged += new System.EventHandler(this.effectCheckBox_CheckedChanged);
-            // 
             // requireSortCheckBox
             // 
             this.requireSortCheckBox.AutoSize = true;
-            this.requireSortCheckBox.Location = new System.Drawing.Point(83, 396);
+            this.requireSortCheckBox.Location = new System.Drawing.Point(246, 22);
             this.requireSortCheckBox.Name = "requireSortCheckBox";
             this.requireSortCheckBox.Size = new System.Drawing.Size(85, 17);
             this.requireSortCheckBox.TabIndex = 41;
             this.requireSortCheckBox.Text = "Require Sort";
             this.requireSortCheckBox.UseVisualStyleBackColor = true;
             // 
-            // checkEffectQueryTxt
-            // 
-            this.checkEffectQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkEffectQueryTxt.Enabled = false;
-            this.checkEffectQueryTxt.Location = new System.Drawing.Point(83, 419);
-            this.checkEffectQueryTxt.Multiline = true;
-            this.checkEffectQueryTxt.Name = "checkEffectQueryTxt";
-            this.checkEffectQueryTxt.Size = new System.Drawing.Size(841, 84);
-            this.checkEffectQueryTxt.TabIndex = 42;
-            // 
             // dbNameLabel
             // 
             this.dbNameLabel.AutoSize = true;
-            this.dbNameLabel.Location = new System.Drawing.Point(296, 23);
+            this.dbNameLabel.Location = new System.Drawing.Point(362, 23);
             this.dbNameLabel.Name = "dbNameLabel";
             this.dbNameLabel.Size = new System.Drawing.Size(84, 13);
             this.dbNameLabel.TabIndex = 43;
@@ -271,7 +210,7 @@
             // 
             // DBNameTxt
             // 
-            this.DBNameTxt.Location = new System.Drawing.Point(386, 20);
+            this.DBNameTxt.Location = new System.Drawing.Point(452, 20);
             this.DBNameTxt.Name = "DBNameTxt";
             this.DBNameTxt.Size = new System.Drawing.Size(189, 20);
             this.DBNameTxt.TabIndex = 44;
@@ -289,19 +228,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.DBNameTxt);
             this.Controls.Add(this.dbNameLabel);
-            this.Controls.Add(this.checkEffectQueryTxt);
             this.Controls.Add(this.requireSortCheckBox);
-            this.Controls.Add(this.effectCheckBox);
-            this.Controls.Add(this.resultSetCheckBox);
-            this.Controls.Add(this.separator2);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.activateQueryTxt);
+            this.Controls.Add(this.testQueryTxt);
             this.Controls.Add(this.solutionTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(deleteCandidateBtn);
             this.Controls.Add(this.imgPreview);
-            this.Controls.Add(this.requirementsLabel);
             this.Controls.Add(this.browseImgBtn);
             this.Controls.Add(this.imgLabel);
             this.Controls.Add(this.contentTxt);
@@ -309,14 +243,13 @@
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(927, 510);
+            this.Size = new System.Drawing.Size(927, 411);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label requirementsLabel;
         private System.Windows.Forms.Button browseImgBtn;
         private System.Windows.Forms.Label imgLabel;
         private System.Windows.Forms.TextBox contentTxt;
@@ -327,14 +260,10 @@
         private System.Windows.Forms.OpenFileDialog browseImgDialog;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox solutionTxt;
-        private System.Windows.Forms.TextBox activateQueryTxt;
+        private System.Windows.Forms.TextBox testQueryTxt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label separator1;
-        private System.Windows.Forms.Label separator2;
-        private System.Windows.Forms.CheckBox resultSetCheckBox;
-        private System.Windows.Forms.CheckBox effectCheckBox;
         private System.Windows.Forms.CheckBox requireSortCheckBox;
-        private System.Windows.Forms.TextBox checkEffectQueryTxt;
         private System.Windows.Forms.Label dbNameLabel;
         private System.Windows.Forms.TextBox DBNameTxt;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

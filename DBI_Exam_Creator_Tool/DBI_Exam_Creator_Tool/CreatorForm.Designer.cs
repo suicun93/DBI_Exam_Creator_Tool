@@ -42,6 +42,8 @@
             this.questionTabControl = new System.Windows.Forms.TabControl();
             this.exportBtn = new System.Windows.Forms.Button();
             this.exportDialog = new System.Windows.Forms.SaveFileDialog();
+            this.removeQuestionBtn = new System.Windows.Forms.Button();
+            this.addQuestionBtn = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,7 +147,7 @@
             this.questionTabControl.Multiline = true;
             this.questionTabControl.Name = "questionTabControl";
             this.questionTabControl.SelectedIndex = 0;
-            this.questionTabControl.Size = new System.Drawing.Size(1059, 638);
+            this.questionTabControl.Size = new System.Drawing.Size(1059, 564);
             this.questionTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.questionTabControl.TabIndex = 0;
             this.questionTabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.questionTabControl_DrawItem);
@@ -161,11 +163,33 @@
             this.exportBtn.UseVisualStyleBackColor = true;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
+            // removeQuestionBtn
+            // 
+            this.removeQuestionBtn.Image = global::DBI_Exam_Creator_Tool.Properties.Resources.minus1;
+            this.removeQuestionBtn.Location = new System.Drawing.Point(59, 21);
+            this.removeQuestionBtn.Name = "removeQuestionBtn";
+            this.removeQuestionBtn.Size = new System.Drawing.Size(31, 31);
+            this.removeQuestionBtn.TabIndex = 5;
+            this.removeQuestionBtn.UseVisualStyleBackColor = true;
+            this.removeQuestionBtn.Click += new System.EventHandler(this.removeQuestionBtn_Click);
+            // 
+            // addQuestionBtn
+            // 
+            this.addQuestionBtn.Image = global::DBI_Exam_Creator_Tool.Properties.Resources.add;
+            this.addQuestionBtn.Location = new System.Drawing.Point(15, 21);
+            this.addQuestionBtn.Name = "addQuestionBtn";
+            this.addQuestionBtn.Size = new System.Drawing.Size(31, 31);
+            this.addQuestionBtn.TabIndex = 4;
+            this.addQuestionBtn.UseVisualStyleBackColor = true;
+            this.addQuestionBtn.Click += new System.EventHandler(this.addQuestionBtn_Click);
+            // 
             // CreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 706);
+            this.ClientSize = new System.Drawing.Size(1079, 632);
+            this.Controls.Add(this.removeQuestionBtn);
+            this.Controls.Add(this.addQuestionBtn);
             this.Controls.Add(this.exportBtn);
             this.Controls.Add(this.previewBtn);
             this.Controls.Add(this.questionTabControl);
@@ -196,5 +220,7 @@
         private System.Windows.Forms.TabControl questionTabControl;
         private System.Windows.Forms.Button exportBtn;
         private System.Windows.Forms.SaveFileDialog exportDialog;
+        private System.Windows.Forms.Button addQuestionBtn;
+        private System.Windows.Forms.Button removeQuestionBtn;
     }
 }

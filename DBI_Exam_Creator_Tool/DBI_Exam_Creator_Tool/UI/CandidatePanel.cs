@@ -46,13 +46,9 @@ namespace DBI_Exam_Creator_Tool.UI
             contentTxt.DataBindings.Add("Text", Candidate, "Content");
 
             solutionTxt.DataBindings.Add("Text", Candidate, "Solution");
-            activateQueryTxt.DataBindings.Add("Text", Candidate, "ActivateQuery");
+            testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery");
 
-            resultSetCheckBox.DataBindings.Add("Checked", Candidate, "ResultSet");
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
-
-            effectCheckBox.DataBindings.Add("Checked", Candidate, "Effect");
-            checkEffectQueryTxt.DataBindings.Add("Text", Candidate, "CheckEffectQuery");
 
             DBNameTxt.DataBindings.Add("Text", Candidate, "DBName");
 
@@ -152,69 +148,50 @@ namespace DBI_Exam_Creator_Tool.UI
             }
         }
 
-        private void effectCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            checkEffectQueryTxt.Enabled = effectCheckBox.Checked;
-        }
-
         private void selectState()
         {
-            activateQueryTxt.Enabled = false;
-            // ResultSet checkbox enabled & always checked.
-            resultSetCheckBox.Checked = true;
-            effectCheckBox.Checked = false;
+            testQueryTxt.Enabled = false;
 
-            requireSortCheckBox.Enabled = true;
-            resultSetCheckBox.Enabled = effectCheckBox.Enabled = false;
+            requireSortCheckBox.Visible = true;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void procedureState()
         {
-            activateQueryTxt.Enabled = true;
-
-            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+            testQueryTxt.Enabled = true;
+            
+            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void triggerState()
         {
-            activateQueryTxt.Enabled = true;
+            testQueryTxt.Enabled = true;
 
-            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = true;
+            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void dmlState()
         {
-            activateQueryTxt.Enabled = false;
+            testQueryTxt.Enabled = false;
 
-            resultSetCheckBox.Checked = requireSortCheckBox.Checked = false;
-            effectCheckBox.Checked = true;
 
-            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
+            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void schemaState()
         {
-            activateQueryTxt.Enabled = false;
-
-            resultSetCheckBox.Checked = requireSortCheckBox.Checked = effectCheckBox.Checked = false;
-
-            resultSetCheckBox.Enabled = requireSortCheckBox.Enabled = effectCheckBox.Enabled = false;
+            testQueryTxt.Enabled = false;
+            
+            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = true;
-        }
-
-        // Hide Require Sort when Result Set not checked
-        private void resultSetCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            requireSortCheckBox.Visible = resultSetCheckBox.Checked;
         }
     }
 }

@@ -21,18 +21,15 @@ namespace DBI_Exam_Creator_Tool.Entities
         public string QuestionId { get; set; }
         public string Content { get; set; }
         public QuestionTypes QuestionType { get; set; }
-        public List<string> Images { get; set; }
 
         public string Solution { get; set; }
-        public string ActivateQuery { get; set; }
-
-        public bool ResultSet { get; set; }
+        public string TestQuery { get; set; }
+        
         public bool RequireSort { get; set; }
 
-        public bool Effect { get; set; }
-        public string CheckEffectQuery { get; set; }
-
         public string DBName { get; set; }
+
+        public List<string> Images { get; set; }
 
         //public List<Requirement> Requirements { get; set; }
 
@@ -42,7 +39,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Images = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string activateQuery, bool resultSet, bool requireSort, bool effect, string checkEffectQuery, string _DBName)
+        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string testQuery, bool requireSort, string _DBName)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -50,11 +47,8 @@ namespace DBI_Exam_Creator_Tool.Entities
             QuestionType = questionType;
             Images = images;
             Solution = solution;
-            ActivateQuery = activateQuery;
-            ResultSet = resultSet;
+            TestQuery = testQuery;
             RequireSort = requireSort;
-            Effect = effect;
-            CheckEffectQuery = checkEffectQuery;
             DBName = _DBName;
         }
 
