@@ -38,35 +38,35 @@ namespace DBI_Exam_Creator_Tool.Commons
             };
         }
 
-        public static Dictionary<string, Requirement.RequirementTypes> GetRequirementTypes(Candidate.QuestionTypes questionType)
-        {
-            Dictionary<string, Requirement.RequirementTypes> dictionary = new Dictionary<string, Requirement.RequirementTypes>();
+        //public static Dictionary<string, Requirement.RequirementTypes> GetRequirementTypes(Candidate.QuestionTypes questionType)
+        //{
+        //    Dictionary<string, Requirement.RequirementTypes> dictionary = new Dictionary<string, Requirement.RequirementTypes>();
 
-            switch (questionType)
-            {
-                case Candidate.QuestionTypes.Select:
-                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
-                    break;
-                case Candidate.QuestionTypes.Procedure:
-                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
-                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
-                    dictionary.Add(RequirementType.PARAMETER, Requirement.RequirementTypes.Parameter);
-                    break;
-                case Candidate.QuestionTypes.Trigger:
-                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
-                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
-                    break;
-                case Candidate.QuestionTypes.Schema:
-                    dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
-                    break;
-                case Candidate.QuestionTypes.DML:
-                    dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
-                    break;
-                default:
-                    break;
-            }
-            return dictionary;
-        }
+        //    switch (questionType)
+        //    {
+        //        case Candidate.QuestionTypes.Select:
+        //            dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+        //            break;
+        //        case Candidate.QuestionTypes.Procedure:
+        //            dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+        //            dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+        //            dictionary.Add(RequirementType.PARAMETER, Requirement.RequirementTypes.Parameter);
+        //            break;
+        //        case Candidate.QuestionTypes.Trigger:
+        //            dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+        //            dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+        //            break;
+        //        case Candidate.QuestionTypes.Schema:
+        //            dictionary.Add(RequirementType.RESULT_SET, Requirement.RequirementTypes.ResultSet);
+        //            break;
+        //        case Candidate.QuestionTypes.DML:
+        //            dictionary.Add(RequirementType.EFFECT, Requirement.RequirementTypes.Effect);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    return dictionary;
+        //}
 
         public class Size
         {

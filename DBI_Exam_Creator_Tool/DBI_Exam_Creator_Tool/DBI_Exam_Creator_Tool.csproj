@@ -63,7 +63,6 @@
     <Compile Include="Commons\Constants.cs" />
     <Compile Include="Entities\Candidate.cs" />
     <Compile Include="Entities\Question.cs" />
-    <Compile Include="Entities\Requirement.cs" />
     <Compile Include="UI\QuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
