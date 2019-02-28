@@ -29,14 +29,14 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public string DBName { get; set; }
 
-        public List<string> Images { get; set; }
+        public List<string> Illustration { get; set; }
 
         //public List<Requirement> Requirements { get; set; }
 
         public Candidate()
         {
             QuestionType = QuestionTypes.Select;
-            Images = new List<string>();
+            Illustration = new List<string>();
         }
 
         public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string testQuery, bool requireSort, string _DBName)
@@ -45,7 +45,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             QuestionId = questionId;
             Content = content;
             QuestionType = questionType;
-            Images = images;
+            Illustration = images;
             Solution = solution;
             TestQuery = testQuery;
             RequireSort = requireSort;

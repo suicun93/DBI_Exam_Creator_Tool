@@ -62,7 +62,7 @@ namespace DBI_Exam_Creator_Tool.UI
         // Browse Images.
         private void browseImgBtn_Click(object sender, EventArgs e)
         {
-            Candidate.Images.Clear();
+            Candidate.Illustration.Clear();
             browseImgDialog.InitialDirectory = "C:\\";
             browseImgDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             browseImgDialog.Multiselect = true;
@@ -78,7 +78,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
                     var base64Data = ImageUtils.ImageToBase64(resizedImg);
 
-                    Candidate.Images.Add(base64Data);
+                    Candidate.Illustration.Add(base64Data);
                     //imgPreview.Text = Path.GetFileName(filePath);
                     imgPreview.Text = "Preview";
                     ToolTip tt = new ToolTip();
@@ -90,7 +90,7 @@ namespace DBI_Exam_Creator_Tool.UI
         // Preview Images.
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            foreach (string imgData in Candidate.Images)
+            foreach (string imgData in Candidate.Illustration)
             {
                 Image image = ImageUtils.Base64StringToImage(imgData);
                 using (Form form = new Form())

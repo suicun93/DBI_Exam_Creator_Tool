@@ -77,11 +77,12 @@
             // imgLabel
             // 
             this.imgLabel.AutoSize = true;
+            this.imgLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.imgLabel.Location = new System.Drawing.Point(3, 112);
             this.imgLabel.Name = "imgLabel";
-            this.imgLabel.Size = new System.Drawing.Size(36, 13);
+            this.imgLabel.Size = new System.Drawing.Size(54, 13);
             this.imgLabel.TabIndex = 24;
-            this.imgLabel.Text = "Image";
+            this.imgLabel.Text = "Illustration";
             // 
             // contentTxt
             // 
