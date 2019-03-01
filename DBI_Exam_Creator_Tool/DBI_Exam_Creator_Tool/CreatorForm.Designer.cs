@@ -144,11 +144,11 @@
             this.questionTabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.questionTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionTabControl.ItemSize = new System.Drawing.Size(25, 100);
-            this.questionTabControl.Location = new System.Drawing.Point(12, 56);
+            this.questionTabControl.Location = new System.Drawing.Point(12, 58);
             this.questionTabControl.Multiline = true;
             this.questionTabControl.Name = "questionTabControl";
             this.questionTabControl.SelectedIndex = 0;
-            this.questionTabControl.Size = new System.Drawing.Size(1059, 564);
+            this.questionTabControl.Size = new System.Drawing.Size(1059, 562);
             this.questionTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.questionTabControl.TabIndex = 0;
             this.questionTabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.questionTabControl_DrawItem);
@@ -167,7 +167,7 @@
             // removeQuestionBtn
             // 
             this.removeQuestionBtn.Image = global::DBI_Exam_Creator_Tool.Properties.Resources.minus1;
-            this.removeQuestionBtn.Location = new System.Drawing.Point(59, 21);
+            this.removeQuestionBtn.Location = new System.Drawing.Point(59, 25);
             this.removeQuestionBtn.Name = "removeQuestionBtn";
             this.removeQuestionBtn.Size = new System.Drawing.Size(31, 31);
             this.removeQuestionBtn.TabIndex = 5;
@@ -177,7 +177,7 @@
             // addQuestionBtn
             // 
             this.addQuestionBtn.Image = global::DBI_Exam_Creator_Tool.Properties.Resources.add;
-            this.addQuestionBtn.Location = new System.Drawing.Point(15, 21);
+            this.addQuestionBtn.Location = new System.Drawing.Point(15, 25);
             this.addQuestionBtn.Name = "addQuestionBtn";
             this.addQuestionBtn.Size = new System.Drawing.Size(31, 31);
             this.addQuestionBtn.TabIndex = 4;

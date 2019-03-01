@@ -12,6 +12,7 @@ using System.IO;
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.UI;
 using DBI_Exam_Creator_Tool.Utils;
+using DBI_ShuffleTool.Utils.Doc;
 
 namespace DBI_Exam_Creator_Tool
 {
@@ -62,6 +63,7 @@ namespace DBI_Exam_Creator_Tool
         private void previewBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(questions.Count().ToString());
+            PreviewDocUtils.PreviewCandidatePackage(questions);
         }
 
         private void removeQuestionBtn_Click(object sender, EventArgs e)
