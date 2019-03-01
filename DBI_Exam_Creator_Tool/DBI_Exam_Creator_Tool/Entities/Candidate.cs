@@ -19,7 +19,7 @@ namespace DBI_Exam_Creator_Tool.Entities
 
         public string CandidateId { get; set; }
         public string QuestionId { get; set; }
-        public string Content { get; set; }
+        public string QuestionRequirement { get; set; }
         public QuestionTypes QuestionType { get; set; }
 
         public string Solution { get; set; }
@@ -43,7 +43,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         {
             CandidateId = candidateId;
             QuestionId = questionId;
-            Content = content;
+            QuestionRequirement = content;
             QuestionType = questionType;
             Illustration = images;
             Solution = solution;

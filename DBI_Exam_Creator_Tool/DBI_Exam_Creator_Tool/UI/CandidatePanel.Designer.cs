@@ -99,9 +99,9 @@
             this.contentLabel.AutoSize = true;
             this.contentLabel.Location = new System.Drawing.Point(3, 54);
             this.contentLabel.Name = "contentLabel";
-            this.contentLabel.Size = new System.Drawing.Size(44, 13);
+            this.contentLabel.Size = new System.Drawing.Size(67, 26);
             this.contentLabel.TabIndex = 21;
-            this.contentLabel.Text = "Content";
+            this.contentLabel.Text = " Question\r\nRequirement";
             // 
             // questionTypeComboBox
             // 

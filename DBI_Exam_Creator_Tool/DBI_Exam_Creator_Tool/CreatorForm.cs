@@ -126,6 +126,7 @@ namespace DBI_Exam_Creator_Tool
                 {
                     addQuestionTab(q);
                 }
+                MessageBox.Show("Import data successfully.");
             }
         }
 

@@ -62,7 +62,7 @@ namespace DBI_Exam_Creator_Tool.UI
             addCandidateTab(c, tabTitle);
         }
 
-        public void addCandidateTab(Candidate c, string tabTitle)
+        private void addCandidateTab(Candidate c, string tabTitle)
         {
             TabPage tp = new TabPage(tabTitle);
             tp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;

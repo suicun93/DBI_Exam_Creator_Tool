@@ -16,7 +16,6 @@ namespace DBI_Exam_Creator_Tool.UI
     public partial class CandidatePanel : UserControl
     {
         public Candidate Candidate { get; set; }
-        private int selectedRowIndex = -1;
 
         private delegate bool HandleDelete(Candidate c, TabPage tp);
         private HandleDelete handleDelete;
@@ -43,7 +42,7 @@ namespace DBI_Exam_Creator_Tool.UI
             
             questionTypeComboBox.DataBindings.Add("SelectedValue", Candidate, "QuestionType");
 
-            contentTxt.DataBindings.Add("Text", Candidate, "Content");
+            contentTxt.DataBindings.Add("Text", Candidate, "QuestionRequirement");
 
             solutionTxt.DataBindings.Add("Text", Candidate, "Solution");
             testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery");
@@ -78,9 +77,12 @@ namespace DBI_Exam_Creator_Tool.UI
                     string filePath = fileName;
 
                     Image img = Image.FromFile(filePath);
-                    Image resizedImg = ImageUtils.ResizeImage(img, Constants.Size.IMAGE_WIDTH);
+                    if (img.Width > Constants.Size.IMAGE_WIDTH)
+                    {
+                        img = ImageUtils.ResizeImage(img, Constants.Size.IMAGE_WIDTH);
+                    }
 
-                    var base64Data = ImageUtils.ImageToBase64(resizedImg);
+                    var base64Data = ImageUtils.ImageToBase64(img);
 
                     Candidate.Illustration.Add(base64Data);
                     //imgPreview.Text = Path.GetFileName(filePath);
