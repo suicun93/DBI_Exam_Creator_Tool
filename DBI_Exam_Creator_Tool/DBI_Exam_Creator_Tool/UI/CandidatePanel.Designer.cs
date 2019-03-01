@@ -91,6 +91,7 @@
             this.contentTxt.Location = new System.Drawing.Point(83, 51);
             this.contentTxt.Multiline = true;
             this.contentTxt.Name = "contentTxt";
+            this.contentTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.contentTxt.Size = new System.Drawing.Size(841, 46);
             this.contentTxt.TabIndex = 22;
             // 
@@ -154,6 +155,7 @@
             this.solutionTxt.Location = new System.Drawing.Point(83, 161);
             this.solutionTxt.Multiline = true;
             this.solutionTxt.Name = "solutionTxt";
+            this.solutionTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.solutionTxt.Size = new System.Drawing.Size(841, 84);
             this.solutionTxt.TabIndex = 34;
             // 
@@ -165,6 +167,7 @@
             this.testQueryTxt.Location = new System.Drawing.Point(83, 261);
             this.testQueryTxt.Multiline = true;
             this.testQueryTxt.Name = "testQueryTxt";
+            this.testQueryTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.testQueryTxt.Size = new System.Drawing.Size(841, 147);
             this.testQueryTxt.TabIndex = 35;
             // 
