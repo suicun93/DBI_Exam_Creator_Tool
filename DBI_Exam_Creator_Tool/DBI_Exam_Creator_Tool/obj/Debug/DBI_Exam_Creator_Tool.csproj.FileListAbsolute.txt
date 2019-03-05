@@ -11,3 +11,5 @@ E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\bi
 E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.csproj.CopyComplete
 E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.exe
 E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.pdb
+E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\bin\Debug\Newtonsoft.Json.dll
+E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\bin\Debug\Newtonsoft.Json.xml

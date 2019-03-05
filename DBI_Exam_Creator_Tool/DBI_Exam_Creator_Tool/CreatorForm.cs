@@ -119,7 +119,7 @@ namespace DBI_Exam_Creator_Tool
 
                 // Load data.
                 string localPath = importDialog.FileName;
-                List<Question> questionList = SerializeUtils.Deserialize(localPath);
+                List<Question> questionList = SerializeUtils.DeserializeJson(localPath);
                 this.questions = questionList;
 
                 // Visualization.
@@ -141,8 +141,7 @@ namespace DBI_Exam_Creator_Tool
             {
                 string saveFolder = Path.GetDirectoryName(exportDialog.FileName);
                 string savePath = Path.Combine(saveFolder, exportDialog.FileName);
-                SerializeUtils.Serialize(questions, savePath);
-                //WriteToFile(jsonData, savePath);
+                SerializeUtils.WriteJson(questions, savePath);
             }
         }
 
