@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using System.IO;
 
 using DBI_Exam_Creator_Tool.Entities;
@@ -120,7 +119,7 @@ namespace DBI_Exam_Creator_Tool
 
                 // Load data.
                 string localPath = importDialog.FileName;
-                List<Question> questionList = JsonUtils.DeserializeJson(localPath);
+                List<Question> questionList = SerializeUtils.Deserialize(localPath);
                 this.questions = questionList;
 
                 // Visualization.
@@ -140,12 +139,10 @@ namespace DBI_Exam_Creator_Tool
             exportDialog.RestoreDirectory = true;
             if (exportDialog.ShowDialog() == DialogResult.OK)
             {
-                string jsonData = JsonConvert.SerializeObject(this.questions);
-
                 string saveFolder = Path.GetDirectoryName(exportDialog.FileName);
                 string savePath = Path.Combine(saveFolder, exportDialog.FileName);
-
-                WriteToFile(jsonData, savePath);
+                SerializeUtils.Serialize(questions, savePath);
+                //WriteToFile(jsonData, savePath);
             }
         }
 
