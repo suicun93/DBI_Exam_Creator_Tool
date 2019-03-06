@@ -183,9 +183,8 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void dmlState()
         {
-            testQueryTxt.Enabled = false;
-
-
+            testQueryTxt.Enabled = true;
+            
             requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
