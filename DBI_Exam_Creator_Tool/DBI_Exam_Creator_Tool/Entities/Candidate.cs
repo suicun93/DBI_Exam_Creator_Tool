@@ -26,6 +26,7 @@ namespace DBI_Exam_Creator_Tool.Entities
         public string TestQuery { get; set; }
         
         public bool RequireSort { get; set; }
+        public bool CheckColumnName { get; set; }
 
         public string DBName { get; set; }
 
@@ -39,7 +40,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Illustration = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string testQuery, bool requireSort, string _DBName)
+        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string testQuery, bool requireSort, bool checkColumnName, string _DBName)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -49,6 +50,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Solution = solution;
             TestQuery = testQuery;
             RequireSort = requireSort;
+            CheckColumnName = checkColumnName;
             DBName = _DBName;
         }
 

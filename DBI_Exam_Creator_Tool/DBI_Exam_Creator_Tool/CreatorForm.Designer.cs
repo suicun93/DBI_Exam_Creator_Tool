@@ -45,6 +45,7 @@
             this.removeQuestionBtn = new System.Windows.Forms.Button();
             this.addQuestionBtn = new System.Windows.Forms.Button();
             this.importDialog = new System.Windows.Forms.OpenFileDialog();
+            this.scriptBtn = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,11 +189,22 @@
             // 
             this.importDialog.FileName = "openFileDialog";
             // 
+            // scriptBtn
+            // 
+            this.scriptBtn.Location = new System.Drawing.Point(797, 27);
+            this.scriptBtn.Name = "scriptBtn";
+            this.scriptBtn.Size = new System.Drawing.Size(93, 23);
+            this.scriptBtn.TabIndex = 6;
+            this.scriptBtn.Text = "Database Script";
+            this.scriptBtn.UseVisualStyleBackColor = true;
+            this.scriptBtn.Click += new System.EventHandler(this.scriptBtn_Click);
+            // 
             // CreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 632);
+            this.Controls.Add(this.scriptBtn);
             this.Controls.Add(this.removeQuestionBtn);
             this.Controls.Add(this.addQuestionBtn);
             this.Controls.Add(this.exportBtn);
@@ -228,5 +240,6 @@
         private System.Windows.Forms.Button addQuestionBtn;
         private System.Windows.Forms.Button removeQuestionBtn;
         private System.Windows.Forms.OpenFileDialog importDialog;
+        private System.Windows.Forms.Button scriptBtn;
     }
 }

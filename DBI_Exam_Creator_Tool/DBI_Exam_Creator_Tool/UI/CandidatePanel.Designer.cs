@@ -47,6 +47,7 @@
             this.dbNameLabel = new System.Windows.Forms.Label();
             this.DBNameTxt = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.checkColumnNameCheckbox = new System.Windows.Forms.CheckBox();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -163,7 +164,6 @@
             // 
             this.testQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.testQueryTxt.Enabled = false;
             this.testQueryTxt.Location = new System.Drawing.Point(83, 261);
             this.testQueryTxt.Multiline = true;
             this.testQueryTxt.Name = "testQueryTxt";
@@ -195,7 +195,7 @@
             // requireSortCheckBox
             // 
             this.requireSortCheckBox.AutoSize = true;
-            this.requireSortCheckBox.Location = new System.Drawing.Point(246, 22);
+            this.requireSortCheckBox.Location = new System.Drawing.Point(232, 22);
             this.requireSortCheckBox.Name = "requireSortCheckBox";
             this.requireSortCheckBox.Size = new System.Drawing.Size(85, 17);
             this.requireSortCheckBox.TabIndex = 41;
@@ -205,7 +205,7 @@
             // dbNameLabel
             // 
             this.dbNameLabel.AutoSize = true;
-            this.dbNameLabel.Location = new System.Drawing.Point(362, 23);
+            this.dbNameLabel.Location = new System.Drawing.Point(491, 23);
             this.dbNameLabel.Name = "dbNameLabel";
             this.dbNameLabel.Size = new System.Drawing.Size(84, 13);
             this.dbNameLabel.TabIndex = 43;
@@ -214,7 +214,7 @@
             // 
             // DBNameTxt
             // 
-            this.DBNameTxt.Location = new System.Drawing.Point(452, 20);
+            this.DBNameTxt.Location = new System.Drawing.Point(581, 20);
             this.DBNameTxt.Name = "DBNameTxt";
             this.DBNameTxt.Size = new System.Drawing.Size(189, 20);
             this.DBNameTxt.TabIndex = 44;
@@ -225,11 +225,24 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // checkColumnNameCheckbox
+            // 
+            this.checkColumnNameCheckbox.AutoSize = true;
+            this.checkColumnNameCheckbox.Checked = true;
+            this.checkColumnNameCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkColumnNameCheckbox.Location = new System.Drawing.Point(345, 22);
+            this.checkColumnNameCheckbox.Name = "checkColumnNameCheckbox";
+            this.checkColumnNameCheckbox.Size = new System.Drawing.Size(126, 17);
+            this.checkColumnNameCheckbox.TabIndex = 45;
+            this.checkColumnNameCheckbox.Text = "Check Column Name";
+            this.checkColumnNameCheckbox.UseVisualStyleBackColor = true;
+            // 
             // CandidatePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.checkColumnNameCheckbox);
             this.Controls.Add(this.DBNameTxt);
             this.Controls.Add(this.dbNameLabel);
             this.Controls.Add(this.requireSortCheckBox);
@@ -271,5 +284,6 @@
         private System.Windows.Forms.Label dbNameLabel;
         private System.Windows.Forms.TextBox DBNameTxt;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.CheckBox checkColumnNameCheckbox;
     }
 }

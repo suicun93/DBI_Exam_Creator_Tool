@@ -32,10 +32,10 @@ namespace DBI_Exam_Creator_Tool.Utils
         /// </summary>
         /// <param name="localPath"></param>
         /// <returns></returns>
-        public static List<Question> DeserializeJson(String localPath)
+        public static QuestionSet DeserializeJson(String localPath)
         {
             // read file into a string and deserialize JSON to a type
-            return JsonConvert.DeserializeObject<List<Question>>(File.ReadAllText(localPath));
+            return JsonConvert.DeserializeObject<QuestionSet>(File.ReadAllText(localPath));
         }
     }
 }

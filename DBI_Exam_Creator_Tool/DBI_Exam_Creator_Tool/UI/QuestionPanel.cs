@@ -54,6 +54,7 @@ namespace DBI_Exam_Creator_Tool.UI
             c.QuestionId = question.QuestionId;
             c.CandidateId = Guid.NewGuid().ToString();
             c.QuestionType = Candidate.QuestionTypes.Select;
+            c.CheckColumnName = true;
 
             question.Candidates.Add(c);
 

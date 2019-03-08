@@ -58,6 +58,7 @@
     <Compile Include="CreatorForm.Designer.cs">
       <DependentUpon>CreatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\QuestionSet.cs" />
     <Compile Include="UI\CandidatePanel.cs">
       <SubType>UserControl</SubType>
       <CustomToolNamespace>UI</CustomToolNamespace>
@@ -68,6 +69,12 @@
     <Compile Include="Commons\Constants.cs" />
     <Compile Include="Entities\Candidate.cs" />
     <Compile Include="Entities\Question.cs" />
+    <Compile Include="UI\InputScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InputScriptForm.Designer.cs">
+      <DependentUpon>InputScriptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\QuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +105,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\InputScriptForm.resx">
+      <DependentUpon>InputScriptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\QuestionPanel.resx">
       <DependentUpon>QuestionPanel.cs</DependentUpon>
     </EmbeddedResource>

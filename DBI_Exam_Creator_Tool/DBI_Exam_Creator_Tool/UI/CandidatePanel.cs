@@ -48,6 +48,7 @@ namespace DBI_Exam_Creator_Tool.UI
             testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery");
 
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
+            checkColumnNameCheckbox.DataBindings.Add("Checked", Candidate, "CheckColumnName");
 
             DBNameTxt.DataBindings.Add("Text", Candidate, "DBName");
 
@@ -156,7 +157,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void selectState()
         {
-            testQueryTxt.Enabled = false;
+            //testQueryTxt.Enabled = false;
 
             requireSortCheckBox.Visible = true;
 
@@ -192,7 +193,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void schemaState()
         {
-            testQueryTxt.Enabled = false;
+            //testQueryTxt.Enabled = false;
             
             requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
 

@@ -17,13 +17,14 @@ namespace DBI_Exam_Creator_Tool
 {
     public partial class CreatorForm : Form
     {
-        private List<Question> questions = new List<Question>();
+        private QuestionSet questionSet = new QuestionSet();
+        private List<Question> questions;
 
         public CreatorForm()
         {
             InitializeComponent();
-            //questionTabControl.TabPages.Add(new TabPage("Question 1"));
-            //questionTabControl.TabPages.Add(new TabPage("Question 2"));
+
+            questions = questionSet.QuestionList;
         }
 
         // Add Question - New Tab.
@@ -119,8 +120,9 @@ namespace DBI_Exam_Creator_Tool
 
                 // Load data.
                 string localPath = importDialog.FileName;
-                List<Question> questionList = SerializeUtils.DeserializeJson(localPath);
-                this.questions = questionList;
+                QuestionSet set = SerializeUtils.DeserializeJson(localPath);
+                this.questionSet = set;
+                this.questions = questionSet.QuestionList;
 
                 // Visualization.
                 foreach (Question q in questions)
@@ -141,21 +143,13 @@ namespace DBI_Exam_Creator_Tool
             {
                 string saveFolder = Path.GetDirectoryName(exportDialog.FileName);
                 string savePath = Path.Combine(saveFolder, exportDialog.FileName);
-                SerializeUtils.WriteJson(questions, savePath);
-            }
-        }
-
-        private void WriteToFile(string data, string savePath)
-        {
-            try
+                SerializeUtils.WriteJson(questionSet, savePath);
+                MessageBox.Show("Export data successfully to " + savePath, "Success");
+            } else
             {
-                File.WriteAllText(savePath, data);
-                MessageBox.Show("Saved to " + savePath, "Success");
+                //MessageBox.Show("Failed to export data", "Error!");
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Failed to export data", "Error!");
-            }
+            
         }
 
         private void printQuestionNo()
@@ -196,6 +190,20 @@ namespace DBI_Exam_Creator_Tool
             _stringFlags.Alignment = StringAlignment.Center;
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
+        }
+
+        private void scriptBtn_Click(object sender, EventArgs e)
+        {
+            InputScriptForm scriptForm = new InputScriptForm(this.handleCloseScriptForm);
+            
+            scriptForm.Visible = true;
+            scriptForm.Show();
+        }
+
+        private bool handleCloseScriptForm(List<string> scripts)
+        {
+            questionSet.DBScriptList = scripts;
+            return false;
         }
     }
 }
