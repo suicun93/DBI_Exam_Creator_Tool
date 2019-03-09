@@ -19,17 +19,23 @@ namespace DBI_Exam_Creator_Tool.UI
             InitializeComponent();
         }
 
-        public InputScriptForm(Func<List<string>, bool> _handleClose)
+        public InputScriptForm(Func<List<string>, bool> _handleClose, List<string> scriptList)
         {
             InitializeComponent();
             this.handleClose = new HandleClose(_handleClose);
+
+            foreach (string s in scriptList)
+            {
+                addScriptTab(s);
+            }
         }
 
-        private void addScriptTab()
+        private void addScriptTab(string script)
         {
 
             RichTextBox box = new RichTextBox();
             box.Name = "scriptTextBox";
+            box.Text = script;
             box.Dock = DockStyle.Fill;
 
             TabPage tab = new TabPage();
@@ -42,7 +48,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            addScriptTab();
+            addScriptTab("");
         }
 
         private void removeBtn_Click(object sender, EventArgs e)

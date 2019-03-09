@@ -194,7 +194,7 @@ namespace DBI_Exam_Creator_Tool
 
         private void scriptBtn_Click(object sender, EventArgs e)
         {
-            InputScriptForm scriptForm = new InputScriptForm(this.handleCloseScriptForm);
+            InputScriptForm scriptForm = new InputScriptForm(this.handleCloseScriptForm, questionSet.DBScriptList);
             
             scriptForm.Visible = true;
             scriptForm.Show();
