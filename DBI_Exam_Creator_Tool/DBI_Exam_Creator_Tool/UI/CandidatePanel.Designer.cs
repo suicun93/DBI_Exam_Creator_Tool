@@ -228,8 +228,6 @@
             // checkColumnNameCheckbox
             // 
             this.checkColumnNameCheckbox.AutoSize = true;
-            this.checkColumnNameCheckbox.Checked = true;
-            this.checkColumnNameCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkColumnNameCheckbox.Location = new System.Drawing.Point(345, 22);
             this.checkColumnNameCheckbox.Name = "checkColumnNameCheckbox";
             this.checkColumnNameCheckbox.Size = new System.Drawing.Size(126, 17);

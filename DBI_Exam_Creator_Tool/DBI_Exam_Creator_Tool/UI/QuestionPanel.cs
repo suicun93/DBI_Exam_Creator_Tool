@@ -39,7 +39,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
             for (var i = 0; i < question.Candidates.Count; i++)
             {
-                addCandidateTab(question.Candidates[i], "Candidate " + (i + 1));
+                AddCandidateTab(question.Candidates[i], "Candidate " + (i + 1));
             }
         }
 
@@ -58,18 +58,18 @@ namespace DBI_Exam_Creator_Tool.UI
 
             question.Candidates.Add(c);
 
-            string tabTitle = "Candidate " + question.Candidates.Count();
+            string tabTitle = "Candidate " + question.Candidates.Count;
 
-            addCandidateTab(c, tabTitle);
+            AddCandidateTab(c, tabTitle);
         }
 
-        private void addCandidateTab(Candidate c, string tabTitle)
+        private void AddCandidateTab(Candidate c, string tabTitle)
         {
             TabPage tp = new TabPage(tabTitle);
-            tp.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            tp.BackColor = SystemColors.Control;
 
             CandidatePanel candidatePanel = new CandidatePanel(c, this.handleDeleteCandidate);
-            candidatePanel.BackColor = Color.Transparent;
+            candidatePanel.BackColor = SystemColors.Control;
             tp.Controls.Add(candidatePanel);
             candidateTabControl.TabPages.Add(tp);
 

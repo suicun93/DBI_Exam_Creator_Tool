@@ -41,7 +41,6 @@ namespace DBI_Exam_Creator_Tool.UI
             questionTypeComboBox.ValueMember = "Value";
             
             questionTypeComboBox.DataBindings.Add("SelectedValue", Candidate, "QuestionType");
-
             contentTxt.DataBindings.Add("Text", Candidate, "QuestionRequirement");
 
             solutionTxt.DataBindings.Add("Text", Candidate, "Solution");
@@ -161,32 +160,50 @@ namespace DBI_Exam_Creator_Tool.UI
 
             requireSortCheckBox.Visible = true;
 
+            requireSortCheckBox.Checked = false;
+
+            checkColumnNameCheckbox.Visible = true;
+
+            checkColumnNameCheckbox.Checked = false;
+
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void procedureState()
         {
-            testQueryTxt.Enabled = true;
-            
-            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
+            requireSortCheckBox.Visible = false;
+
+            requireSortCheckBox.Checked = false;
+
+            checkColumnNameCheckbox.Visible = false;
+
+            checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void triggerState()
         {
-            testQueryTxt.Enabled = true;
+            requireSortCheckBox.Visible = false;
 
-            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
+            requireSortCheckBox.Checked = false;
+
+            checkColumnNameCheckbox.Visible = false;
+
+            checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void dmlState()
         {
-            testQueryTxt.Enabled = true;
-            
-            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
+            requireSortCheckBox.Visible = false;
+
+            requireSortCheckBox.Checked = false;
+
+            checkColumnNameCheckbox.Visible = false;
+
+            checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
@@ -194,8 +211,14 @@ namespace DBI_Exam_Creator_Tool.UI
         private void schemaState()
         {
             //testQueryTxt.Enabled = false;
-            
-            requireSortCheckBox.Checked = requireSortCheckBox.Visible = false;
+
+            requireSortCheckBox.Visible = false;
+
+            requireSortCheckBox.Checked = false;
+
+            checkColumnNameCheckbox.Visible = false;
+
+            checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = true;
         }
