@@ -96,26 +96,28 @@ namespace DBI_Exam_Creator_Tool.UI
         // Preview Images.
         private void imgPreview_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            foreach (string imgData in Candidate.Illustration)
-            {
-                Image image = ImageUtils.Base64StringToImage(imgData);
-                using (Form form = new Form())
-                {
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.Size = image.Size;
-                    form.FormBorderStyle = FormBorderStyle.FixedDialog;
-                    form.MaximizeBox = false;
-                    form.MinimizeBox = false;
+            //foreach (string imgData in Candidate.Illustration)
+            //{
+            //    Image image = ImageUtils.Base64StringToImage(imgData);
+            //    using (Form form = new Form())
+            //    {
+            //        form.StartPosition = FormStartPosition.CenterScreen;
+            //        form.Size = image.Size;
+            //        form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //        form.MaximizeBox = false;
+            //        form.MinimizeBox = false;
 
-                    PictureBox pb = new PictureBox();
-                    pb.Dock = DockStyle.Fill;
-                    pb.Image = image;
+            //        PictureBox pb = new PictureBox();
+            //        pb.Dock = DockStyle.Fill;
+            //        pb.Image = image;
 
-                    form.Controls.Add(pb);
-                    form.ShowDialog();
-                }
-            }
-
+            //        form.Controls.Add(pb);
+            //        form.ShowDialog();
+            //    }
+            //}
+            PicturePreview preview = new PicturePreview(Candidate.Illustration);
+            preview.Visible = true;
+            preview.Show();
         }
 
         private void dataGridView_Click(object sender, EventArgs e)

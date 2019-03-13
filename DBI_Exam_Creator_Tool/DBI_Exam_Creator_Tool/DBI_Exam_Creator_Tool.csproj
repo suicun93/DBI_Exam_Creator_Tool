@@ -75,6 +75,12 @@
     <Compile Include="UI\InputScriptForm.Designer.cs">
       <DependentUpon>InputScriptForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PicturePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PicturePreview.Designer.cs">
+      <DependentUpon>PicturePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\QuestionPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <EmbeddedResource Include="UI\InputScriptForm.resx">
       <DependentUpon>InputScriptForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\PicturePreview.resx">
+      <DependentUpon>PicturePreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\QuestionPanel.resx">
       <DependentUpon>QuestionPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
