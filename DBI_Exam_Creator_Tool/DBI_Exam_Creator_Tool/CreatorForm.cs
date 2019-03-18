@@ -44,6 +44,9 @@ namespace DBI_Exam_Creator_Tool
             q.Point = 1;
             this.questions.Add(q);
             addQuestionTab(q);
+
+            // Focus newest tab
+            questionTabControl.SelectedIndex = questionTabControl.TabPages.Count - 1;
         }
 
         private void questionTabControl_Selected(object sender, TabControlEventArgs e)

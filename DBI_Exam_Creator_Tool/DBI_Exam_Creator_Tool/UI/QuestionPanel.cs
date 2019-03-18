@@ -60,6 +60,9 @@ namespace DBI_Exam_Creator_Tool.UI
             string tabTitle = "Candidate " + question.Candidates.Count;
 
             AddCandidateTab(c, tabTitle);
+
+            // Focus new candidate
+            candidateTabControl.SelectedIndex = candidateTabControl.TabPages.Count - 1;
         }
 
         private void AddCandidateTab(Candidate c, string tabTitle)
