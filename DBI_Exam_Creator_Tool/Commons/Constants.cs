@@ -22,6 +22,8 @@ namespace DBI_Exam_Creator_Tool.Commons
             public const string PARAMETER = "Parameter";
         }
 
+        public static PaperSet PaperSet;
+
 
         public static Dictionary<string, Candidate.QuestionTypes> QuestionTypes()
         {

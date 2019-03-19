@@ -80,14 +80,14 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Text = "Open Question Set";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Text = "Save Question Set";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -106,7 +106,7 @@
             // 
             this.exportPaperSetToolStripMenuItem.Name = "exportPaperSetToolStripMenuItem";
             this.exportPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportPaperSetToolStripMenuItem.Text = "Export Paper Set";
+            this.exportPaperSetToolStripMenuItem.Text = "Export Papers Folder";
             this.exportPaperSetToolStripMenuItem.Click += new System.EventHandler(this.exportPaperSetToolStripMenuItem_Click);
             // 
             // questionToolStripMenuItem

@@ -48,10 +48,6 @@ namespace DBI_Exam_Creator_Tool.Model
                 {
                     string paperPath = FileUtils.CreateNewDirectory(Path, (++countPaperNo).ToString("D2"));
 
-                    //Write Guide
-                    //string gradingPath = FileUtils.CreateNewDirectory(paperPath, "GradingGuide");
-                    //SerializableUtils.WriteJson(paperSet, gradingPath + @"\PaperSet.dat");
-
                     //Write DbScript
                     string givenPath = FileUtils.CreateNewDirectory(paperPath, "Given");
                     File.WriteAllText(givenPath + @"\DBscript" + ".sql", Spm.PaperSet.DBScriptList[0]);

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
-
+using DBI_Exam_Creator_Tool.Commons;
 using DBI_Exam_Creator_Tool.Entities;
+using DBI_Exam_Creator_Tool.Model;
 using DBI_Exam_Creator_Tool.UI;
 using DBI_Exam_Creator_Tool.Utils;
 using DBI_ShuffleTool.Utils.Doc;
@@ -193,8 +194,21 @@ namespace DBI_Exam_Creator_Tool
         private void exportPaperSetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ExportConfirm exportConfirm = new ExportConfirm(questionSet);
-            exportConfirm.Visible = true;
-            exportConfirm.Show();
+            //exportConfirm.Visible = true;
+            if (Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
+            {
+                exportConfirm.papersNumberInput.Value = Constants.PaperSet.ListPaperMatrixId.Count;
+                exportConfirm.papersNumberInput.Enabled = false;
+                exportConfirm.newBtn.Enabled = true;
+            }
+            else
+            {
+                exportConfirm.papersNumberInput.Maximum = PaperModel.MaxNumberOfTests(questionSet.QuestionList);
+                exportConfirm.papersNumberInput.Value = exportConfirm.papersNumberInput.Maximum;
+                exportConfirm.papersNumberInput.Enabled = true;
+                exportConfirm.newBtn.Enabled = false;
+            }
+            exportConfirm.Show(this);
         }
 
         private void importPaperSetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,9 +224,10 @@ namespace DBI_Exam_Creator_Tool
 
                 // Load data.
                 string localPath = importDialog.FileName;
-                PaperSet paperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
-                this.questionSet = paperSet.QuestionSet;
+                Constants.PaperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
+                this.questionSet = Constants.PaperSet.QuestionSet;
                 this.questions = questionSet.QuestionList;
+                this.questionSet.DBScriptList = Constants.PaperSet.DBScriptList;
 
                 // Visualization.
                 foreach (Question q in questions)

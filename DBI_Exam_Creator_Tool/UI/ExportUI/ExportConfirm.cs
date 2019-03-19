@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
+using DBI_Exam_Creator_Tool.Commons;
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Model;
 using DBI_Exam_Creator_Tool.Utils;
@@ -17,8 +19,7 @@ namespace DBI_Exam_Creator_Tool.UI
         {
             InitializeComponent();
             QuestionSet = questionSet;
-            papersNumberInput.Maximum = PaperModel.MaxNumberOfTests(QuestionSet.QuestionList);
-            papersNumberInput.Value = papersNumberInput.Maximum;
+            
             exportBtn.Visible = true;
         }
 
@@ -64,6 +65,16 @@ namespace DBI_Exam_Creator_Tool.UI
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Dispose();
+        }
+
+        private void newBtn_Click(object sender, EventArgs e)
+        {
+            Constants.PaperSet.ListPaperMatrixId = new List<int>();
+            papersNumberInput.Enabled = true;
+            papersNumberInput.Maximum = PaperModel.MaxNumberOfTests(QuestionSet.QuestionList);
+            papersNumberInput.Value = papersNumberInput.Maximum;
+            papersNumberInput.Enabled = true;
+            newBtn.Enabled = false;
         }
     }
 }

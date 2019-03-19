@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace DBI_Exam_Creator_Tool.Entities
 {
     [Serializable]
-    class PaperSet
+    public class PaperSet
     {
         public List<Paper> Papers { get; set; }
         public List<string> DBScriptList { get; set; }

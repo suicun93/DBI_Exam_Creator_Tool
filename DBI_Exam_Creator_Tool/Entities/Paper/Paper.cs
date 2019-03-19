@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace DBI_Exam_Creator_Tool.Entities
 {
     [Serializable]
-    class Paper
+    public class Paper
     {
         public Paper(string paperNo, List<Candidate> candidateSet)
         {

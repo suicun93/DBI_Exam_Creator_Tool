@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DBI_Exam_Creator_Tool.Commons;
 using DBI_Exam_Creator_Tool.Entities;
 
 namespace DBI_Exam_Creator_Tool.Model
@@ -21,9 +22,23 @@ namespace DBI_Exam_Creator_Tool.Model
             QuestionSet = questionSet;
             PaperSet = new PaperSet(new List<Paper>(), QuestionSet.DBScriptList, new List<int>(), QuestionSet);
 
-            List<List<CandidateNode>> allPaperCases = GetAllPaperCases();
+            List<List<CandidateNode>> allCases = GetAllPaperCases();
 
-            List<List<CandidateNode>> cases = GetRandomNElementsInList(numOfPage, allPaperCases, PaperSet.ListPaperMatrixId);
+            List<List<CandidateNode>> papers = null;
+
+            if (Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
+            {
+                foreach (var paperId in Constants.PaperSet.ListPaperMatrixId)
+                {
+                    papers.Add(allCases.ElementAt(paperId));
+                }
+            }
+            else
+            {
+                papers = GetRandomNElementsInList(numOfPage, allCases, PaperSet.ListPaperMatrixId);
+            }
+
+            
             //List<List<CandidateNode>> cases = new List<List<CandidateNode>>();
             //List<List<CandidateNode>> tmp = GetAllPaperCases();
             //List<CandidateNode> first = tmp.First();
@@ -33,16 +48,10 @@ namespace DBI_Exam_Creator_Tool.Model
             //PaperSet.ListPaperMatrixId.Add(tmp.IndexOf(first));
             //PaperSet.ListPaperMatrixId.Add(tmp.IndexOf(last));
 
-            //Get index of cases
-            foreach (var _case in cases)
-            {
-                PaperSet.ListPaperMatrixId.Add(allPaperCases.IndexOf(_case));
-            }
-
             //codeTestCount: for TestCode
             int codeTestCount = 0;
             //Adding candidate into Tests
-            foreach (List<CandidateNode> c in cases)
+            foreach (List<CandidateNode> c in papers)
             {
                 List<Candidate> candidateList = new List<Candidate>();
                 //Adding candidate into a Test
@@ -51,9 +60,11 @@ namespace DBI_Exam_Creator_Tool.Model
                 {
                     candidateList.Add(candidateNode.Candi);
                 }
-                var paper = new Paper();
-                paper.PaperNo = (++codeTestCount).ToString();
-                paper.CandidateSet = candidateList;
+                var paper = new Paper
+                {
+                    PaperNo = (++codeTestCount).ToString(),
+                    CandidateSet = candidateList
+                };
                 PaperSet.Papers.Add(paper);
             }
         }
@@ -68,12 +79,28 @@ namespace DBI_Exam_Creator_Tool.Model
         private List<List<CandidateNode>> GetRandomNElementsInList(int numOfCases, List<List<CandidateNode>> allCases, List<int> listPaperMatrixId)
         {
             List<List<CandidateNode>> newList = new List<List<CandidateNode>>();
+            int jump = (allCases.Count - 1) / (numOfCases - 1);
+
             for (int i = 0; i < numOfCases; i++)
             {
-                int randNumber = GetRandomNumber(0, allCases.Count);
-                newList.Add(allCases.ElementAt(randNumber));
-                allCases.RemoveAt(randNumber);
-                listPaperMatrixId.Add(randNumber);
+                int pos = jump * i;
+                newList.Add(allCases.ElementAt(pos));
+            }
+
+            //Shuffle a list C# (Fisher-Yates shuffle)
+            int n = numOfCases;
+            while (n > 1)
+            {
+                n--;
+                int k = new Random().Next(n + 1);
+                List<CandidateNode> value = newList[k];
+                newList[k] = newList[n];
+                newList[n] = value;
+            }
+            //Adding Matrix Id
+            foreach (var element in newList)
+            {
+                listPaperMatrixId.Add(allCases.IndexOf(element));
             }
             return newList;
         }
@@ -129,17 +156,6 @@ namespace DBI_Exam_Creator_Tool.Model
                 child.Children = null;
             }
             return child;
-        }
-
-        /// <summary>
-        /// Random a number from min to max
-        /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
-        private int GetRandomNumber(int min, int max)
-        {
-            return new Random().Next(min, max);
         }
     }
 }
