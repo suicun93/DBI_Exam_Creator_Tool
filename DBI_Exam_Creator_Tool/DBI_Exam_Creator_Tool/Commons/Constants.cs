@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using DBI_Exam_Creator_Tool.Entities;
 
 namespace DBI_Exam_Creator_Tool.Commons

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DBI_Exam_Creator_Tool.Commons;
 using System.IO;
 using System.Drawing;
 

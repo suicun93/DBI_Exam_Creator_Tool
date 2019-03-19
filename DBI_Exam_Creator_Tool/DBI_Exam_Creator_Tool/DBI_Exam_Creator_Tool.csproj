@@ -52,42 +52,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatorForm.cs">
+    <Compile Include="UI\CreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreatorForm.Designer.cs">
+    <Compile Include="UI\CreatorForm.Designer.cs">
       <DependentUpon>CreatorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Paper.cs" />
-    <Compile Include="Entities\PaperSet.cs" />
-    <Compile Include="Entities\QuestionSet.cs" />
-    <Compile Include="UI\CandidatePanel.cs">
+    <Compile Include="Entities\Candidate\CandidateNode.cs" />
+    <Compile Include="Entities\Paper\Paper.cs" />
+    <Compile Include="Entities\Paper\PaperSet.cs" />
+    <Compile Include="Entities\Question\QuestionSet.cs" />
+    <Compile Include="Model\PaperModel.cs" />
+    <Compile Include="Model\ShufflePaperModel.cs" />
+    <Compile Include="UI\CandidateUI\CandidatePanel.cs">
       <SubType>UserControl</SubType>
       <CustomToolNamespace>UI</CustomToolNamespace>
     </Compile>
-    <Compile Include="UI\CandidatePanel.Designer.cs">
+    <Compile Include="UI\CandidateUI\CandidatePanel.Designer.cs">
       <DependentUpon>CandidatePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\Constants.cs" />
-    <Compile Include="Entities\Candidate.cs" />
-    <Compile Include="Entities\Question.cs" />
-    <Compile Include="UI\ExportConfirm.cs">
+    <Compile Include="Entities\Candidate\Candidate.cs" />
+    <Compile Include="Entities\Question\Question.cs" />
+    <Compile Include="UI\ExportUI\ExportConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExportConfirm.Designer.cs">
+    <Compile Include="UI\ExportUI\ExportConfirm.Designer.cs">
       <DependentUpon>ExportConfirm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\InputScriptForm.cs">
+    <Compile Include="UI\CandidateUI\InputScriptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\InputScriptForm.Designer.cs">
+    <Compile Include="UI\CandidateUI\InputScriptForm.Designer.cs">
       <DependentUpon>InputScriptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PicturePreview.cs">
+    <Compile Include="UI\CandidateUI\PicturePreview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\PicturePreview.Designer.cs">
+    <Compile Include="UI\CandidateUI\PicturePreview.Designer.cs">
       <DependentUpon>PicturePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExportUI\ProgressBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportUI\ProgressBarForm.Designer.cs">
+      <DependentUpon>ProgressBarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\QuestionPanel.cs">
       <SubType>UserControl</SubType>
@@ -95,18 +104,20 @@
     <Compile Include="UI\QuestionPanel.Designer.cs">
       <DependentUpon>QuestionPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\DocUtils.cs" />
+    <Compile Include="Utils\OfficeUtils\DocUtils.cs" />
+    <Compile Include="Utils\OfficeUtils\ExportDocUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Utils\ImageUtils.cs" />
     <Compile Include="Utils\SerializeUtils.cs" />
-    <Compile Include="Utils\PreviewDocUtils.cs" />
+    <Compile Include="Utils\OfficeUtils\PreviewDocUtils.cs" />
     <Compile Include="Utils\SqlUtils.cs" />
     <Compile Include="Utils\Utilities.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CreatorForm.resx">
+    <EmbeddedResource Include="UI\CreatorForm.resx">
       <DependentUpon>CreatorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CandidatePanel.resx">
+    <EmbeddedResource Include="UI\CandidateUI\CandidatePanel.resx">
       <DependentUpon>CandidatePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,13 +130,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\ExportConfirm.resx">
+    <EmbeddedResource Include="UI\ExportUI\ExportConfirm.resx">
       <DependentUpon>ExportConfirm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\InputScriptForm.resx">
+    <EmbeddedResource Include="UI\CandidateUI\InputScriptForm.resx">
       <DependentUpon>InputScriptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\PicturePreview.resx">
+    <EmbeddedResource Include="UI\CandidateUI\PicturePreview.resx">
       <DependentUpon>PicturePreview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\QuestionPanel.resx">
