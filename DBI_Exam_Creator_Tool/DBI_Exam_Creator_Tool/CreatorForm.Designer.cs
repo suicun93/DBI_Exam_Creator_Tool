@@ -211,12 +211,14 @@
             // 
             // exportPaperSetToolStripMenuItem
             // 
+            this.exportPaperSetToolStripMenuItem.Enabled = false;
             this.exportPaperSetToolStripMenuItem.Name = "exportPaperSetToolStripMenuItem";
             this.exportPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportPaperSetToolStripMenuItem.Text = "Export Paper Set";
             // 
             // importPaperSetToolStripMenuItem
             // 
+            this.importPaperSetToolStripMenuItem.Enabled = false;
             this.importPaperSetToolStripMenuItem.Name = "importPaperSetToolStripMenuItem";
             this.importPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importPaperSetToolStripMenuItem.Text = "Import Paper Set";
