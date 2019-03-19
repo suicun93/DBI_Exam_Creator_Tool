@@ -64,7 +64,6 @@
             // 
             // addCandidateBtn
             // 
-            this.addCandidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCandidateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCandidateBtn.Location = new System.Drawing.Point(102, 40);
             this.addCandidateBtn.Name = "addCandidateBtn";

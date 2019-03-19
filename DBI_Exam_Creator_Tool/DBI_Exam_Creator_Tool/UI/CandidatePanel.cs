@@ -158,7 +158,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void selectState()
         {
-            //testQueryTxt.Enabled = false;
+            testQueryTxt.Enabled = false;
 
             requireSortCheckBox.Visible = true;
 
@@ -182,6 +182,8 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
+
+            testQueryTxt.Enabled = true;
         }
 
         private void triggerState()
@@ -195,6 +197,8 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
+
+            testQueryTxt.Enabled = true;
         }
 
         private void dmlState()
@@ -208,11 +212,13 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = false;
+
+            testQueryTxt.Enabled = true;
         }
 
         private void schemaState()
         {
-            //testQueryTxt.Enabled = false;
+            testQueryTxt.Enabled = false;
 
             requireSortCheckBox.Visible = false;
 
@@ -223,6 +229,11 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Checked = false;
 
             dbNameLabel.Visible = DBNameTxt.Visible = true;
+        }
+
+        private void CandidatePanel_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;//Fill Usercontrol within the his parent layout
         }
     }
 }

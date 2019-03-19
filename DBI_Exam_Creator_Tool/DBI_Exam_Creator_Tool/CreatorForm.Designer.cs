@@ -46,6 +46,7 @@
             this.addQuestionBtn = new System.Windows.Forms.Button();
             this.importDialog = new System.Windows.Forms.OpenFileDialog();
             this.scriptBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,6 +132,7 @@
             // 
             // previewBtn
             // 
+            this.previewBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.previewBtn.Location = new System.Drawing.Point(915, 27);
             this.previewBtn.Name = "previewBtn";
             this.previewBtn.Size = new System.Drawing.Size(75, 23);
@@ -142,6 +144,9 @@
             // questionTabControl
             // 
             this.questionTabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.questionTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.questionTabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.questionTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.questionTabControl.ItemSize = new System.Drawing.Size(25, 100);
@@ -157,6 +162,7 @@
             // 
             // exportBtn
             // 
+            this.exportBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exportBtn.Location = new System.Drawing.Point(996, 27);
             this.exportBtn.Name = "exportBtn";
             this.exportBtn.Size = new System.Drawing.Size(75, 23);
@@ -191,7 +197,8 @@
             // 
             // scriptBtn
             // 
-            this.scriptBtn.Location = new System.Drawing.Point(797, 27);
+            this.scriptBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.scriptBtn.Location = new System.Drawing.Point(793, 27);
             this.scriptBtn.Name = "scriptBtn";
             this.scriptBtn.Size = new System.Drawing.Size(93, 23);
             this.scriptBtn.TabIndex = 6;
@@ -199,11 +206,25 @@
             this.scriptBtn.UseVisualStyleBackColor = true;
             this.scriptBtn.Click += new System.EventHandler(this.scriptBtn_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(671, 27);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Verify Solution";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.scriptBtn_Click);
+            // 
             // CreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1079, 632);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.scriptBtn);
             this.Controls.Add(this.removeQuestionBtn);
             this.Controls.Add(this.addQuestionBtn);
@@ -211,8 +232,8 @@
             this.Controls.Add(this.previewBtn);
             this.Controls.Add(this.questionTabControl);
             this.Controls.Add(this.menuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
+            this.MinimumSize = new System.Drawing.Size(1095, 671);
             this.Name = "CreatorForm";
             this.Text = "CreatorForm";
             this.menuStrip.ResumeLayout(false);
@@ -241,5 +262,6 @@
         private System.Windows.Forms.Button removeQuestionBtn;
         private System.Windows.Forms.OpenFileDialog importDialog;
         private System.Windows.Forms.Button scriptBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

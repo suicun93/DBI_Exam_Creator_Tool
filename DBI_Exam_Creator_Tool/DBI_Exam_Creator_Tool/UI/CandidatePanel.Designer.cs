@@ -42,12 +42,12 @@
             this.solutionTxt = new System.Windows.Forms.TextBox();
             this.testQueryTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.separator1 = new System.Windows.Forms.Label();
             this.requireSortCheckBox = new System.Windows.Forms.CheckBox();
-            this.dbNameLabel = new System.Windows.Forms.Label();
-            this.DBNameTxt = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.checkColumnNameCheckbox = new System.Windows.Forms.CheckBox();
+            this.separator1 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             deleteCandidateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             deleteCandidateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             deleteCandidateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            deleteCandidateBtn.Location = new System.Drawing.Point(809, 18);
+            deleteCandidateBtn.Location = new System.Drawing.Point(808, 18);
             deleteCandidateBtn.Name = "deleteCandidateBtn";
             deleteCandidateBtn.Size = new System.Drawing.Size(115, 23);
             deleteCandidateBtn.TabIndex = 32;
@@ -67,7 +67,7 @@
             // 
             // browseImgBtn
             // 
-            this.browseImgBtn.Location = new System.Drawing.Point(83, 107);
+            this.browseImgBtn.Location = new System.Drawing.Point(83, 136);
             this.browseImgBtn.Name = "browseImgBtn";
             this.browseImgBtn.Size = new System.Drawing.Size(99, 23);
             this.browseImgBtn.TabIndex = 23;
@@ -79,7 +79,7 @@
             // 
             this.imgLabel.AutoSize = true;
             this.imgLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.imgLabel.Location = new System.Drawing.Point(3, 112);
+            this.imgLabel.Location = new System.Drawing.Point(3, 142);
             this.imgLabel.Name = "imgLabel";
             this.imgLabel.Size = new System.Drawing.Size(54, 13);
             this.imgLabel.TabIndex = 24;
@@ -93,7 +93,7 @@
             this.contentTxt.Multiline = true;
             this.contentTxt.Name = "contentTxt";
             this.contentTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.contentTxt.Size = new System.Drawing.Size(841, 46);
+            this.contentTxt.Size = new System.Drawing.Size(853, 79);
             this.contentTxt.TabIndex = 22;
             // 
             // contentLabel
@@ -143,7 +143,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 164);
+            this.label1.Location = new System.Drawing.Point(3, 173);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 33;
@@ -151,74 +151,47 @@
             // 
             // solutionTxt
             // 
-            this.solutionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.solutionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.solutionTxt.Location = new System.Drawing.Point(83, 161);
+            this.solutionTxt.Location = new System.Drawing.Point(83, 169);
             this.solutionTxt.Multiline = true;
             this.solutionTxt.Name = "solutionTxt";
             this.solutionTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.solutionTxt.Size = new System.Drawing.Size(841, 84);
+            this.solutionTxt.Size = new System.Drawing.Size(853, 113);
             this.solutionTxt.TabIndex = 34;
             // 
             // testQueryTxt
             // 
-            this.testQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.testQueryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.testQueryTxt.Location = new System.Drawing.Point(83, 261);
+            this.testQueryTxt.Enabled = false;
+            this.testQueryTxt.Location = new System.Drawing.Point(83, 307);
             this.testQueryTxt.Multiline = true;
             this.testQueryTxt.Name = "testQueryTxt";
             this.testQueryTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.testQueryTxt.Size = new System.Drawing.Size(841, 147);
+            this.testQueryTxt.Size = new System.Drawing.Size(853, 136);
             this.testQueryTxt.TabIndex = 35;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 264);
+            this.label2.Location = new System.Drawing.Point(3, 307);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 36;
             this.label2.Text = "Test Queries";
             // 
-            // separator1
-            // 
-            this.separator1.AutoSize = true;
-            this.separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.separator1.Location = new System.Drawing.Point(-16, 144);
-            this.separator1.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.separator1.MinimumSize = new System.Drawing.Size(1000, 0);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(1000, 2);
-            this.separator1.TabIndex = 37;
-            this.separator1.Text = "label3";
-            // 
             // requireSortCheckBox
             // 
             this.requireSortCheckBox.AutoSize = true;
-            this.requireSortCheckBox.Location = new System.Drawing.Point(232, 22);
+            this.requireSortCheckBox.Location = new System.Drawing.Point(232, 18);
             this.requireSortCheckBox.Name = "requireSortCheckBox";
             this.requireSortCheckBox.Size = new System.Drawing.Size(85, 17);
             this.requireSortCheckBox.TabIndex = 41;
             this.requireSortCheckBox.Text = "Require Sort";
             this.requireSortCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // dbNameLabel
-            // 
-            this.dbNameLabel.AutoSize = true;
-            this.dbNameLabel.Location = new System.Drawing.Point(491, 23);
-            this.dbNameLabel.Name = "dbNameLabel";
-            this.dbNameLabel.Size = new System.Drawing.Size(84, 13);
-            this.dbNameLabel.TabIndex = 43;
-            this.dbNameLabel.Text = "Database Name";
-            this.dbNameLabel.Visible = false;
-            // 
-            // DBNameTxt
-            // 
-            this.DBNameTxt.Location = new System.Drawing.Point(581, 20);
-            this.DBNameTxt.Name = "DBNameTxt";
-            this.DBNameTxt.Size = new System.Drawing.Size(189, 20);
-            this.DBNameTxt.TabIndex = 44;
-            this.DBNameTxt.Visible = false;
             // 
             // contextMenuStrip1
             // 
@@ -228,21 +201,56 @@
             // checkColumnNameCheckbox
             // 
             this.checkColumnNameCheckbox.AutoSize = true;
-            this.checkColumnNameCheckbox.Location = new System.Drawing.Point(345, 22);
+            this.checkColumnNameCheckbox.Location = new System.Drawing.Point(338, 18);
             this.checkColumnNameCheckbox.Name = "checkColumnNameCheckbox";
             this.checkColumnNameCheckbox.Size = new System.Drawing.Size(126, 17);
             this.checkColumnNameCheckbox.TabIndex = 45;
             this.checkColumnNameCheckbox.Text = "Check Column Name";
             this.checkColumnNameCheckbox.UseVisualStyleBackColor = true;
             // 
+            // separator1
+            // 
+            this.separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.separator1.Location = new System.Drawing.Point(-1, 294);
+            this.separator1.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.separator1.MinimumSize = new System.Drawing.Size(1000, 0);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(2000, 2);
+            this.separator1.TabIndex = 37;
+            this.separator1.Text = "label3";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(485, 18);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(95, 17);
+            this.checkBox1.TabIndex = 45;
+            this.checkBox1.Text = "Check Distinct";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(601, 18);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(123, 17);
+            this.checkBox2.TabIndex = 45;
+            this.checkBox2.Text = "Related to Schema?";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // CandidatePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.browseImgBtn);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.checkColumnNameCheckbox);
-            this.Controls.Add(this.DBNameTxt);
-            this.Controls.Add(this.dbNameLabel);
             this.Controls.Add(this.requireSortCheckBox);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.label2);
@@ -251,14 +259,16 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(deleteCandidateBtn);
             this.Controls.Add(this.imgPreview);
-            this.Controls.Add(this.browseImgBtn);
             this.Controls.Add(this.imgLabel);
             this.Controls.Add(this.contentTxt);
             this.Controls.Add(this.contentLabel);
             this.Controls.Add(this.questionTypeComboBox);
             this.Controls.Add(this.typeLabel);
+            this.DoubleBuffered = true;
+            this.MinimumSize = new System.Drawing.Size(941, 451);
             this.Name = "CandidatePanel";
-            this.Size = new System.Drawing.Size(927, 411);
+            this.Size = new System.Drawing.Size(939, 451);
+            this.Load += new System.EventHandler(this.CandidatePanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,11 +287,11 @@
         private System.Windows.Forms.TextBox solutionTxt;
         private System.Windows.Forms.TextBox testQueryTxt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label separator1;
         private System.Windows.Forms.CheckBox requireSortCheckBox;
-        private System.Windows.Forms.Label dbNameLabel;
-        private System.Windows.Forms.TextBox DBNameTxt;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox checkColumnNameCheckbox;
+        private System.Windows.Forms.Label separator1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
