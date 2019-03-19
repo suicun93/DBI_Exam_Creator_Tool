@@ -58,6 +58,8 @@
     <Compile Include="CreatorForm.Designer.cs">
       <DependentUpon>CreatorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Paper.cs" />
+    <Compile Include="Entities\PaperSet.cs" />
     <Compile Include="Entities\QuestionSet.cs" />
     <Compile Include="UI\CandidatePanel.cs">
       <SubType>UserControl</SubType>
@@ -69,6 +71,12 @@
     <Compile Include="Commons\Constants.cs" />
     <Compile Include="Entities\Candidate.cs" />
     <Compile Include="Entities\Question.cs" />
+    <Compile Include="UI\ExportConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportConfirm.Designer.cs">
+      <DependentUpon>ExportConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\InputScriptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +119,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\ExportConfirm.resx">
+      <DependentUpon>ExportConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\InputScriptForm.resx">
       <DependentUpon>InputScriptForm.cs</DependentUpon>
     </EmbeddedResource>

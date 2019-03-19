@@ -32,6 +32,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importPaperSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportPaperSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.questionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +48,6 @@
             this.importDialog = new System.Windows.Forms.OpenFileDialog();
             this.scriptBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.exportPaperSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importPaperSetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,14 +79,28 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // importPaperSetToolStripMenuItem
+            // 
+            this.importPaperSetToolStripMenuItem.Name = "importPaperSetToolStripMenuItem";
+            this.importPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importPaperSetToolStripMenuItem.Text = "Import Paper Set";
+            this.importPaperSetToolStripMenuItem.Click += new System.EventHandler(this.importPaperSetToolStripMenuItem_Click);
+            // 
+            // exportPaperSetToolStripMenuItem
+            // 
+            this.exportPaperSetToolStripMenuItem.Name = "exportPaperSetToolStripMenuItem";
+            this.exportPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportPaperSetToolStripMenuItem.Text = "Export Paper Set";
+            this.exportPaperSetToolStripMenuItem.Click += new System.EventHandler(this.exportPaperSetToolStripMenuItem_Click);
             // 
             // questionToolStripMenuItem
             // 
@@ -208,20 +222,6 @@
             this.button1.Text = "Verify Solution";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.scriptBtn_Click);
-            // 
-            // exportPaperSetToolStripMenuItem
-            // 
-            this.exportPaperSetToolStripMenuItem.Enabled = false;
-            this.exportPaperSetToolStripMenuItem.Name = "exportPaperSetToolStripMenuItem";
-            this.exportPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exportPaperSetToolStripMenuItem.Text = "Export Paper Set";
-            // 
-            // importPaperSetToolStripMenuItem
-            // 
-            this.importPaperSetToolStripMenuItem.Enabled = false;
-            this.importPaperSetToolStripMenuItem.Name = "importPaperSetToolStripMenuItem";
-            this.importPaperSetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.importPaperSetToolStripMenuItem.Text = "Import Paper Set";
             // 
             // CreatorForm
             // 

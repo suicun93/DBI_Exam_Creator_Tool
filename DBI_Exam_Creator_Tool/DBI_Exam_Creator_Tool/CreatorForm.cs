@@ -12,6 +12,7 @@ using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.UI;
 using DBI_Exam_Creator_Tool.Utils;
 using DBI_ShuffleTool.Utils.Doc;
+using Newtonsoft.Json;
 
 namespace DBI_Exam_Creator_Tool
 {
@@ -78,21 +79,6 @@ namespace DBI_Exam_Creator_Tool
 
             printQuestionNo();
         }
-        
-        private void exportBtn_Click(object sender, EventArgs e)
-        {
-            export();
-        }
-
-        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            export();
-        }
-
-        private void importToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            import();
-        }
 
         // Add question.
         private void addQuestionTab(Question q)
@@ -109,7 +95,7 @@ namespace DBI_Exam_Creator_Tool
             printQuestionNo();
         }
 
-        private void import()
+        private void open()
         {
             importDialog.Filter = "Data (*.dat)|*.dat";
             importDialog.FilterIndex = 2;
@@ -136,7 +122,7 @@ namespace DBI_Exam_Creator_Tool
         }
 
         // Export to .jon file.
-        private void export()
+        private void save()
         {
             exportDialog.Filter = "Data (*.dat)|*.dat";
             exportDialog.FilterIndex = 2;
@@ -206,6 +192,49 @@ namespace DBI_Exam_Creator_Tool
         {
             questionSet.DBScriptList = scripts;
             return false;
+        }
+
+        private void exportPaperSetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExportConfirm exportConfirm = new ExportConfirm();
+            exportConfirm.Visible = true;
+            exportConfirm.Show();
+        }
+
+        private void importPaperSetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            importDialog.Filter = "Data (*.dat)|*.dat";
+            importDialog.FilterIndex = 2;
+            importDialog.RestoreDirectory = true;
+            if (importDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Clear.
+                this.questions.Clear();
+                this.questionTabControl.TabPages.Clear();
+
+                // Load data.
+                string localPath = importDialog.FileName;
+                PaperSet paperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
+                this.questionSet = paperSet.QuestionSet;
+                this.questions = questionSet.QuestionList;
+
+                // Visualization.
+                foreach (Question q in questions)
+                {
+                    addQuestionTab(q);
+                }
+                MessageBox.Show("Import data successfully.");
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            open();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            save();
         }
     }
 }
