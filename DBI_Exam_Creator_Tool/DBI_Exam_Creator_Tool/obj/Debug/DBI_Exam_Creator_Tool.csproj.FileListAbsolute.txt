@@ -33,3 +33,4 @@ C:\dev\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Too
 E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.UI.InputScriptForm.resources
 E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.UI.PicturePreview.resources
 C:\dev\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.UI.ExportConfirm.resources
+E:\Capstone\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\DBI_Exam_Creator_Tool\obj\Debug\DBI_Exam_Creator_Tool.UI.ExportConfirm.resources
