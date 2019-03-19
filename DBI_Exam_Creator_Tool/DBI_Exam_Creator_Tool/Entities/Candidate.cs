@@ -27,8 +27,8 @@ namespace DBI_Exam_Creator_Tool.Entities
         
         public bool RequireSort { get; set; }
         public bool CheckColumnName { get; set; }
-
-        public string DBName { get; set; }
+        public bool CheckDistinct { get; set; }
+        public bool RelatedSchema { get; set; }
 
         public List<string> Illustration { get; set; }
 
@@ -40,18 +40,20 @@ namespace DBI_Exam_Creator_Tool.Entities
             Illustration = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string content, QuestionTypes questionType, List<string> images, string solution, string testQuery, bool requireSort, bool checkColumnName, string _DBName)
+        public Candidate(string candidateId, string questionId, string questionRequirement, QuestionTypes questionType, 
+            string solution, string testQuery, bool requireSort, bool checkColumnName, bool checkDistinct, bool relatedSchema, List<string> illustration)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
-            QuestionRequirement = content;
+            QuestionRequirement = questionRequirement;
             QuestionType = questionType;
-            Illustration = images;
             Solution = solution;
             TestQuery = testQuery;
             RequireSort = requireSort;
             CheckColumnName = checkColumnName;
-            DBName = _DBName;
+            CheckDistinct = checkDistinct;
+            RelatedSchema = relatedSchema;
+            Illustration = illustration;
         }
 
         public override bool Equals(object obj)

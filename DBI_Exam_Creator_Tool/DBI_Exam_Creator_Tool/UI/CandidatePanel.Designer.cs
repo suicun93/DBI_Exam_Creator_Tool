@@ -46,8 +46,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.checkColumnNameCheckbox = new System.Windows.Forms.CheckBox();
             this.separator1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkDistinctCheckbox = new System.Windows.Forms.CheckBox();
+            this.relatedSchemaCheckbox = new System.Windows.Forms.CheckBox();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -130,7 +130,7 @@
             // imgPreview
             // 
             this.imgPreview.AutoSize = true;
-            this.imgPreview.Location = new System.Drawing.Point(189, 112);
+            this.imgPreview.Location = new System.Drawing.Point(199, 142);
             this.imgPreview.Name = "imgPreview";
             this.imgPreview.Size = new System.Drawing.Size(0, 13);
             this.imgPreview.TabIndex = 29;
@@ -221,25 +221,25 @@
             this.separator1.TabIndex = 37;
             this.separator1.Text = "label3";
             // 
-            // checkBox1
+            // checkDistinctCheckbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(485, 18);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(95, 17);
-            this.checkBox1.TabIndex = 45;
-            this.checkBox1.Text = "Check Distinct";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkDistinctCheckbox.AutoSize = true;
+            this.checkDistinctCheckbox.Location = new System.Drawing.Point(485, 18);
+            this.checkDistinctCheckbox.Name = "checkDistinctCheckbox";
+            this.checkDistinctCheckbox.Size = new System.Drawing.Size(95, 17);
+            this.checkDistinctCheckbox.TabIndex = 45;
+            this.checkDistinctCheckbox.Text = "Check Distinct";
+            this.checkDistinctCheckbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // relatedSchemaCheckbox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(601, 18);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(123, 17);
-            this.checkBox2.TabIndex = 45;
-            this.checkBox2.Text = "Related to Schema?";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.relatedSchemaCheckbox.AutoSize = true;
+            this.relatedSchemaCheckbox.Location = new System.Drawing.Point(601, 18);
+            this.relatedSchemaCheckbox.Name = "relatedSchemaCheckbox";
+            this.relatedSchemaCheckbox.Size = new System.Drawing.Size(123, 17);
+            this.relatedSchemaCheckbox.TabIndex = 45;
+            this.relatedSchemaCheckbox.Text = "Related to Schema?";
+            this.relatedSchemaCheckbox.UseVisualStyleBackColor = true;
             // 
             // CandidatePanel
             // 
@@ -248,8 +248,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.browseImgBtn);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.relatedSchemaCheckbox);
+            this.Controls.Add(this.checkDistinctCheckbox);
             this.Controls.Add(this.checkColumnNameCheckbox);
             this.Controls.Add(this.requireSortCheckBox);
             this.Controls.Add(this.separator1);
@@ -291,7 +291,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.CheckBox checkColumnNameCheckbox;
         private System.Windows.Forms.Label separator1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkDistinctCheckbox;
+        private System.Windows.Forms.CheckBox relatedSchemaCheckbox;
     }
 }

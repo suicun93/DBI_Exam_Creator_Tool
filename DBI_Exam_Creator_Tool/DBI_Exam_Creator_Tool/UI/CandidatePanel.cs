@@ -48,8 +48,8 @@ namespace DBI_Exam_Creator_Tool.UI
 
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
             checkColumnNameCheckbox.DataBindings.Add("Checked", Candidate, "CheckColumnName");
-
-            DBNameTxt.DataBindings.Add("Text", Candidate, "DBName");
+            checkDistinctCheckbox.DataBindings.Add("Checked", Candidate, "CheckDistinct");
+            relatedSchemaCheckbox.DataBindings.Add("Checked", Candidate, "RelatedSchema");
 
             // Images.
             if (Candidate.Illustration.Count != 0)
@@ -167,8 +167,6 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Visible = true;
 
             checkColumnNameCheckbox.Checked = false;
-
-            dbNameLabel.Visible = DBNameTxt.Visible = false;
         }
 
         private void procedureState()
@@ -180,8 +178,6 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Visible = false;
 
             checkColumnNameCheckbox.Checked = false;
-
-            dbNameLabel.Visible = DBNameTxt.Visible = false;
 
             testQueryTxt.Enabled = true;
         }
@@ -196,8 +192,6 @@ namespace DBI_Exam_Creator_Tool.UI
 
             checkColumnNameCheckbox.Checked = false;
 
-            dbNameLabel.Visible = DBNameTxt.Visible = false;
-
             testQueryTxt.Enabled = true;
         }
 
@@ -210,8 +204,6 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Visible = false;
 
             checkColumnNameCheckbox.Checked = false;
-
-            dbNameLabel.Visible = DBNameTxt.Visible = false;
 
             testQueryTxt.Enabled = true;
         }
@@ -227,8 +219,6 @@ namespace DBI_Exam_Creator_Tool.UI
             checkColumnNameCheckbox.Visible = false;
 
             checkColumnNameCheckbox.Checked = false;
-
-            dbNameLabel.Visible = DBNameTxt.Visible = true;
         }
 
         private void CandidatePanel_Load(object sender, EventArgs e)

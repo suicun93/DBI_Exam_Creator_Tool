@@ -65,7 +65,6 @@ namespace DBI_Exam_Creator_Tool
         // Preview entire the Questions List.
         private void previewBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(questions.Count().ToString());
             PreviewDocUtils.PreviewCandidatePackage(questions);
         }
 
