@@ -34,11 +34,11 @@ namespace DBI_Exam_Creator_Tool.UI
             questionTypeComboBox.DisplayMember = "Key";
             questionTypeComboBox.ValueMember = "Value";
             
-            questionTypeComboBox.DataBindings.Add("SelectedValue", Candidate, "QuestionType");
-            contentTxt.DataBindings.Add("Text", Candidate, "QuestionRequirement");
+            questionTypeComboBox.DataBindings.Add("SelectedValue", Candidate, "QuestionType", true, DataSourceUpdateMode.OnPropertyChanged);
+            contentTxt.DataBindings.Add("Text", Candidate, "QuestionRequirement", true, DataSourceUpdateMode.OnPropertyChanged);
 
-            solutionTxt.DataBindings.Add("Text", Candidate, "Solution");
-            testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery");
+            solutionTxt.DataBindings.Add("Text", Candidate, "Solution", true, DataSourceUpdateMode.OnPropertyChanged);
+            testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery", true, DataSourceUpdateMode.OnPropertyChanged);
 
             requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
             checkColumnNameCheckbox.DataBindings.Add("Checked", Candidate, "CheckColumnName");
