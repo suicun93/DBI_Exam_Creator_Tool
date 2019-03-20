@@ -229,7 +229,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
             relatedSchemaCheckbox.Visible = true;
 
-            relatedSchemaCheckbox.Checked = false;
+            //relatedSchemaCheckbox.Checked = false;
         }
 
         private void schemaState()
