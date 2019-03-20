@@ -195,7 +195,7 @@ namespace DBI_Exam_Creator_Tool
         {
             ExportConfirm exportConfirm = new ExportConfirm(questionSet);
             //exportConfirm.Visible = true;
-            if (Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
+            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
             {
                 exportConfirm.papersNumberInput.Value = Constants.PaperSet.ListPaperMatrixId.Count;
                 exportConfirm.papersNumberInput.Enabled = false;

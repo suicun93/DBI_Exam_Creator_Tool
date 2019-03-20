@@ -24,21 +24,27 @@ namespace DBI_Exam_Creator_Tool.Model
 
             List<List<CandidateNode>> allCases = GetAllPaperCases();
 
-            List<List<CandidateNode>> papers = null;
+            List<List<CandidateNode>> papersCandidateNode = new List<List<CandidateNode>>();
 
-            if (Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
+            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
             {
                 foreach (var paperId in Constants.PaperSet.ListPaperMatrixId)
                 {
-                    papers.Add(allCases.ElementAt(paperId));
+                    papersCandidateNode.Add(allCases.ElementAt(paperId));
                 }
             }
             else
             {
-                papers = GetRandomNElementsInList(numOfPage, allCases, PaperSet.ListPaperMatrixId);
+                papersCandidateNode = GetRandomNElementsInList(numOfPage, allCases, PaperSet.ListPaperMatrixId);
             }
 
-            
+            //Adding Matrix Id
+            foreach (var candidateNode in papersCandidateNode)
+            {
+                PaperSet.ListPaperMatrixId.Add(allCases.IndexOf(candidateNode));
+            }
+
+
             //List<List<CandidateNode>> cases = new List<List<CandidateNode>>();
             //List<List<CandidateNode>> tmp = GetAllPaperCases();
             //List<CandidateNode> first = tmp.First();
@@ -51,7 +57,7 @@ namespace DBI_Exam_Creator_Tool.Model
             //codeTestCount: for TestCode
             int codeTestCount = 0;
             //Adding candidate into Tests
-            foreach (List<CandidateNode> c in papers)
+            foreach (List<CandidateNode> c in papersCandidateNode)
             {
                 List<Candidate> candidateList = new List<Candidate>();
                 //Adding candidate into a Test
@@ -97,11 +103,7 @@ namespace DBI_Exam_Creator_Tool.Model
                 newList[k] = newList[n];
                 newList[n] = value;
             }
-            //Adding Matrix Id
-            foreach (var element in newList)
-            {
-                listPaperMatrixId.Add(allCases.IndexOf(element));
-            }
+            
             return newList;
         }
 
