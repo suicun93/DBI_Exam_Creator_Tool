@@ -40,10 +40,10 @@ namespace DBI_Exam_Creator_Tool.UI
             solutionTxt.DataBindings.Add("Text", Candidate, "Solution", true, DataSourceUpdateMode.OnPropertyChanged);
             testQueryTxt.DataBindings.Add("Text", Candidate, "TestQuery", true, DataSourceUpdateMode.OnPropertyChanged);
 
-            requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort");
-            checkColumnNameCheckbox.DataBindings.Add("Checked", Candidate, "CheckColumnName");
-            checkDistinctCheckbox.DataBindings.Add("Checked", Candidate, "CheckDistinct");
-            relatedSchemaCheckbox.DataBindings.Add("Checked", Candidate, "RelatedSchema");
+            requireSortCheckBox.DataBindings.Add("Checked", Candidate, "RequireSort", true, DataSourceUpdateMode.OnPropertyChanged);
+            checkColumnNameCheckbox.DataBindings.Add("Checked", Candidate, "CheckColumnName", true, DataSourceUpdateMode.OnPropertyChanged);
+            checkDistinctCheckbox.DataBindings.Add("Checked", Candidate, "CheckDistinct", true, DataSourceUpdateMode.OnPropertyChanged);
+            relatedSchemaCheckbox.DataBindings.Add("Checked", Candidate, "RelatedSchema", true, DataSourceUpdateMode.OnPropertyChanged);
 
             // Images.
             if (Candidate.Illustration.Count != 0)
@@ -250,7 +250,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
             relatedSchemaCheckbox.Visible = false;
 
-            relatedSchemaCheckbox.Checked = false;
+            //relatedSchemaCheckbox.Checked = false;
         }
 
         private void CandidatePanel_Load(object sender, EventArgs e)
