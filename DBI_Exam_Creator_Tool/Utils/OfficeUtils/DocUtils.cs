@@ -10,7 +10,7 @@ namespace DBI_Exam_Creator_Tool.Utils
         /// Setting for doc file
         /// </summary>
         /// <param name="document"></param>
-        static public void SettingsPage(Document document)
+        public static void SettingsPage(Document document)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace DBI_Exam_Creator_Tool.Utils
         /// <param name="doc">Document want to save</param>
         /// <param name="path"></param>
         /// <param name="ei">ExamForDoc</param>
-        static public void SavingDocFile(Document doc, string path, Paper exam)
+        public static void SavingDocFile(Document doc, string path, Paper exam)
         {
             try
             {
@@ -60,10 +60,8 @@ namespace DBI_Exam_Creator_Tool.Utils
         /// <summary>
         /// Setting header and footer 
         /// </summary>
-        /// <param name="examItem"></param>
-        /// <param name="section"></param>
-        /// <param name="isTest">For adding Paper No</param>
-        static public void SettingsHeaderAndFooter(Paper examItem, Document doc)
+        /// <param name="paper"></param>
+        public static void SettingsHeaderAndFooter(Paper paper, Document doc)
         {
             try
             {
@@ -71,11 +69,17 @@ namespace DBI_Exam_Creator_Tool.Utils
                 {
                     Range headerRange = wordSection.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                     headerRange.Collapse(WdCollapseDirection.wdCollapseEnd);
-                    headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
-                    //headerRange.Fields.Add(headerRange, WdFieldType.wdFieldNumPages);
+                    if (paper != null)
+                    {
+                        Paragraph p1 = headerRange.Paragraphs.Add();
+                        p1.Range.Text = "             Paper No: " + paper.PaperNo;
+                    }
 
-                    //Paragraph p4 = headerRange.Paragraphs.Add();
-                    //p4.Range.Text = " of ";
+                    headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
+                    headerRange.Fields.Add(headerRange, WdFieldType.wdFieldNumPages);
+
+                    Paragraph p4 = headerRange.Paragraphs.Add();
+                    p4.Range.Text = " of ";
                     headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                     headerRange.Fields.Add(headerRange, WdFieldType.wdFieldPage);
                 }
