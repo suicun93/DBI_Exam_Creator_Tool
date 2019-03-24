@@ -19,6 +19,10 @@ namespace DBI_Exam_Creator_Tool.Entities
         {
             QuestionId = questionId;
             Point = point;
+            foreach (var candidate in candidates)
+            {
+                candidate.Point = decimal.ToDouble(point);
+            }
             Candidates = candidates;
         }
 

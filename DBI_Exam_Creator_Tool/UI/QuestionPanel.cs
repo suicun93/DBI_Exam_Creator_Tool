@@ -46,6 +46,7 @@ namespace DBI_Exam_Creator_Tool.UI
         private void addCandidateBtn_Click(object sender, EventArgs e)
         {
             Candidate c = new Candidate();
+            c.Point = decimal.ToDouble(question.Point);
             c.QuestionId = question.QuestionId;
             c.CandidateId = Guid.NewGuid().ToString();
             c.QuestionType = Candidate.QuestionTypes.Select;

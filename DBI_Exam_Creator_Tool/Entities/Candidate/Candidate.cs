@@ -37,9 +37,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             Illustration = new List<string>();
         }
 
-        public Candidate(string candidateId, string questionId, string questionRequirement, QuestionTypes questionType, 
-            string solution, string testQuery, bool requireSort, bool checkColumnName, bool checkDistinct, bool relatedSchema, 
-            List<string> illustration)
+        public Candidate(string candidateId, string questionId, string questionRequirement, QuestionTypes questionType, string solution, string testQuery, bool requireSort, bool checkColumnName, bool checkDistinct, bool relatedSchema, List<string> illustration, double point)
         {
             CandidateId = candidateId;
             QuestionId = questionId;
@@ -52,6 +50,7 @@ namespace DBI_Exam_Creator_Tool.Entities
             CheckDistinct = checkDistinct;
             RelatedSchema = relatedSchema;
             Illustration = illustration;
+            Point = point;
         }
 
         public override bool Equals(object obj)

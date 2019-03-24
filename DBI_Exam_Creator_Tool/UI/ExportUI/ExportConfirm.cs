@@ -45,6 +45,14 @@ namespace DBI_Exam_Creator_Tool.UI
                     MessageBox.Show("You need to Browse first!!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                foreach (var question in QuestionSet.QuestionList)
+                {
+                    foreach (var candidate in question.Candidates)
+                    {
+                        candidate.Point = decimal.ToDouble(question.Point);
+                    }
+                }
+
                 Spm = new ShufflePaperModel(QuestionSet, Convert.ToInt32(papersNumberInput.Value));
 
                 //Create Test
