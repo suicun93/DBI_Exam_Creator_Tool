@@ -77,7 +77,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void newBtn_Click(object sender, EventArgs e)
         {
-            Constants.PaperSet.ListPaperMatrixId = new List<int>();
+            Constants.PaperSet.ListPaperMatrixId = null;
             papersNumberInput.Enabled = true;
             papersNumberInput.Maximum = PaperModel.MaxNumberOfTests(QuestionSet.QuestionList);
             papersNumberInput.Value = papersNumberInput.Maximum;

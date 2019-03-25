@@ -26,7 +26,7 @@ namespace DBI_Exam_Creator_Tool.Model
 
             List<List<CandidateNode>> papersCandidateNode = new List<List<CandidateNode>>();
 
-            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0)
+            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0 && Constants.PaperSet.ListPaperMatrixId.Count > 0)
             {
                 foreach (var paperId in Constants.PaperSet.ListPaperMatrixId)
                 {
@@ -35,7 +35,7 @@ namespace DBI_Exam_Creator_Tool.Model
             }
             else
             {
-                papersCandidateNode = GetRandomNElementsInList(numOfPage, allCases, PaperSet.ListPaperMatrixId);
+                papersCandidateNode = GetRandomNElementsInList(numOfPage, allCases);
             }
 
             //Adding Matrix Id
@@ -82,8 +82,14 @@ namespace DBI_Exam_Creator_Tool.Model
         /// <param name="allCases"></param>
         /// <param name="listPaperMatrixId"></param>
         /// <returns></returns>
-        private List<List<CandidateNode>> GetRandomNElementsInList(int numOfCases, List<List<CandidateNode>> allCases, List<int> listPaperMatrixId)
+        private List<List<CandidateNode>> GetRandomNElementsInList(int numOfCases, List<List<CandidateNode>> allCases)
         {
+            if (numOfCases == 1)
+            {
+                List<List<CandidateNode>> oneCase =
+                    new List<List<CandidateNode>> {allCases.ElementAt(new Random().Next(allCases.Count))};
+                return oneCase;
+            }
             List<List<CandidateNode>> newList = new List<List<CandidateNode>>();
             int jump = (allCases.Count - 1) / (numOfCases - 1);
 
@@ -103,7 +109,7 @@ namespace DBI_Exam_Creator_Tool.Model
                 newList[k] = newList[n];
                 newList[n] = value;
             }
-            
+
             return newList;
         }
 
