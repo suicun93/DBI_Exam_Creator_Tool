@@ -150,7 +150,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void selectState()
         {
-            testQueryTxt.Enabled = false;
+            testQueryTxt.Enabled = true;
 
             requireSortCheckBox.Visible = true;
 
