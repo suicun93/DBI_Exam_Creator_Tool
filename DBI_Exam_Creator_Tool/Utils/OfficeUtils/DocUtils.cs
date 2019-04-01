@@ -4,10 +4,10 @@ using Microsoft.Office.Interop.Word;
 
 namespace DBI_Exam_Creator_Tool.Utils
 {
-    static class DocUtils
+    internal static class DocUtils
     {
         /// <summary>
-        /// Setting for doc file
+        ///     Setting for doc file
         /// </summary>
         /// <param name="document"></param>
         public static void SettingsPage(Document document)
@@ -15,9 +15,7 @@ namespace DBI_Exam_Creator_Tool.Utils
             try
             {
                 foreach (Section section in document.Sections)
-                {
                     section.PageSetup.PaperSize = WdPaperSize.wdPaperA4;
-                }
 
                 //1 inch = 72 points
 
@@ -35,11 +33,10 @@ namespace DBI_Exam_Creator_Tool.Utils
             {
                 throw e;
             }
-
         }
 
         /// <summary>
-        /// Saving file
+        ///     Saving file
         /// </summary>
         /// <param name="doc">Document want to save</param>
         /// <param name="path"></param>
@@ -54,11 +51,10 @@ namespace DBI_Exam_Creator_Tool.Utils
             {
                 throw e;
             }
-
         }
 
         /// <summary>
-        /// Setting header and footer 
+        ///     Setting header and footer
         /// </summary>
         /// <param name="paper"></param>
         public static void SettingsHeaderAndFooter(Paper paper, Document doc)
@@ -67,18 +63,18 @@ namespace DBI_Exam_Creator_Tool.Utils
             {
                 foreach (Section wordSection in doc.Sections)
                 {
-                    Range headerRange = wordSection.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
+                    var headerRange = wordSection.Headers[WdHeaderFooterIndex.wdHeaderFooterPrimary].Range;
                     headerRange.Collapse(WdCollapseDirection.wdCollapseEnd);
                     if (paper != null)
                     {
-                        Paragraph p1 = headerRange.Paragraphs.Add();
+                        var p1 = headerRange.Paragraphs.Add();
                         p1.Range.Text = "             Paper No: " + paper.PaperNo;
                     }
 
                     headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                     headerRange.Fields.Add(headerRange, WdFieldType.wdFieldNumPages);
 
-                    Paragraph p4 = headerRange.Paragraphs.Add();
+                    var p4 = headerRange.Paragraphs.Add();
                     p4.Range.Text = " of ";
                     headerRange.ParagraphFormat.Alignment = WdParagraphAlignment.wdAlignParagraphLeft;
                     headerRange.Fields.Add(headerRange, WdFieldType.wdFieldPage);
@@ -88,7 +84,6 @@ namespace DBI_Exam_Creator_Tool.Utils
             {
                 throw e;
             }
-
         }
     }
 }

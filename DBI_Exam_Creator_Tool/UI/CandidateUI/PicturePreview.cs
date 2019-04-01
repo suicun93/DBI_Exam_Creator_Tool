@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
-
 using DBI_Exam_Creator_Tool.Utils;
 
 namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class PicturePreview : Form
     {
-        public List<string> Images { get; set; }
-
         public PicturePreview(List<string> images)
         {
             InitializeComponent();
-            this.Images = images;
+            Images = images;
 
             renderImages();
         }
+
+        public List<string> Images { get; set; }
 
         private void renderImages()
         {
@@ -25,13 +23,13 @@ namespace DBI_Exam_Creator_Tool.UI
             for (var i = 0; i < Images.Count; i++)
             {
                 var imgData = Images[i];
-                Image image = ImageUtils.Base64StringToImage(imgData);
+                var image = ImageUtils.Base64StringToImage(imgData);
 
-                PictureBox pb = new PictureBox();
+                var pb = new PictureBox();
                 pb.Dock = DockStyle.Fill;
                 pb.Image = image;
 
-                TabPage tab = new TabPage("Image " + (i + 1));
+                var tab = new TabPage("Image " + (i + 1));
                 tab.AutoScroll = true;
                 tab.Controls.Add(pb);
 
@@ -42,13 +40,13 @@ namespace DBI_Exam_Creator_Tool.UI
         private void renderTab(int i)
         {
             var imgData = Images[i];
-            Image image = ImageUtils.Base64StringToImage(imgData);
+            var image = ImageUtils.Base64StringToImage(imgData);
 
-            PictureBox pb = new PictureBox();
+            var pb = new PictureBox();
             pb.Dock = DockStyle.Fill;
             pb.Image = image;
 
-            TabPage tab = new TabPage("Image " + (i + 1));
+            var tab = new TabPage("Image " + (i + 1));
             tab.AutoScroll = true;
             tab.Controls.Add(pb);
 

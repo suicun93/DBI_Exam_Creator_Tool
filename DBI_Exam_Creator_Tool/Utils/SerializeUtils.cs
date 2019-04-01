@@ -1,14 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using DBI_Exam_Creator_Tool.Entities;
 using Newtonsoft.Json;
 
 namespace DBI_Exam_Creator_Tool.Utils
 {
-    class SerializeUtils
+    internal class SerializeUtils
     {
         /// <summary>
-        /// Write to File
+        ///     Write to File
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="path"></param>
@@ -27,7 +26,7 @@ namespace DBI_Exam_Creator_Tool.Utils
         }
 
         /// <summary>
-        /// Deserialize
+        ///     Deserialize
         /// </summary>
         /// <param name="localPath"></param>
         /// <returns></returns>

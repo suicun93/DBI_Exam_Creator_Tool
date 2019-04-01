@@ -11,9 +11,11 @@ namespace DBI_Exam_Creator_Tool.Entities
             PaperNo = paperNo;
             CandidateSet = candidateSet;
         }
+
         public Paper()
         {
         }
+
         public string PaperNo { get; set; }
         public List<Candidate> CandidateSet { get; set; }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Drawing;
+using System.IO;
 
 namespace DBI_Exam_Creator_Tool.Utils
 {
@@ -10,9 +10,9 @@ namespace DBI_Exam_Creator_Tool.Utils
         {
             Image img = null;
 
-            byte[] imageBytes = Convert.FromBase64String(inputString);
+            var imageBytes = Convert.FromBase64String(inputString);
 
-            using (MemoryStream ms = new MemoryStream())
+            using (var ms = new MemoryStream())
             {
                 ms.Write(imageBytes, 0, imageBytes.Length);
                 img = Image.FromStream(ms, true);
@@ -24,15 +24,15 @@ namespace DBI_Exam_Creator_Tool.Utils
 
         public static string ImageToBase64(string filePath)
         {
-            using (Image image = Image.FromFile(filePath))
+            using (var image = Image.FromFile(filePath))
             {
-                using (MemoryStream m = new MemoryStream())
+                using (var m = new MemoryStream())
                 {
                     image.Save(m, image.RawFormat);
-                    byte[] imageBytes = m.ToArray();
+                    var imageBytes = m.ToArray();
 
                     // Convert byte[] to Base64 String
-                    string base64String = Convert.ToBase64String(imageBytes);
+                    var base64String = Convert.ToBase64String(imageBytes);
                     return base64String;
                 }
             }

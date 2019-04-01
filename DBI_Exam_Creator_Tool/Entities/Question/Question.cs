@@ -6,10 +6,6 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class Question
     {
-        public string QuestionId { get; set; }
-        public decimal Point { get; set; }
-        public List<Candidate> Candidates { get; set; }
-
         public Question()
         {
             Candidates = new List<Candidate>();
@@ -20,11 +16,13 @@ namespace DBI_Exam_Creator_Tool.Entities
             QuestionId = questionId;
             Point = point;
             foreach (var candidate in candidates)
-            {
                 candidate.Point = decimal.ToDouble(point);
-            }
             Candidates = candidates;
         }
+
+        public string QuestionId { get; set; }
+        public decimal Point { get; set; }
+        public List<Candidate> Candidates { get; set; }
 
         public override bool Equals(object obj)
         {

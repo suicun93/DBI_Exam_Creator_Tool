@@ -47,7 +47,6 @@
             this.checkColumnNameCheckbox = new System.Windows.Forms.CheckBox();
             this.separator1 = new System.Windows.Forms.Label();
             this.checkDistinctCheckbox = new System.Windows.Forms.CheckBox();
-            this.relatedSchemaCheckbox = new System.Windows.Forms.CheckBox();
             deleteCandidateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -231,16 +230,6 @@
             this.checkDistinctCheckbox.Text = "Check Distinct";
             this.checkDistinctCheckbox.UseVisualStyleBackColor = true;
             // 
-            // relatedSchemaCheckbox
-            // 
-            this.relatedSchemaCheckbox.AutoSize = true;
-            this.relatedSchemaCheckbox.Location = new System.Drawing.Point(601, 18);
-            this.relatedSchemaCheckbox.Name = "relatedSchemaCheckbox";
-            this.relatedSchemaCheckbox.Size = new System.Drawing.Size(123, 17);
-            this.relatedSchemaCheckbox.TabIndex = 45;
-            this.relatedSchemaCheckbox.Text = "Related to Schema?";
-            this.relatedSchemaCheckbox.UseVisualStyleBackColor = true;
-            // 
             // CandidatePanel
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -248,7 +237,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.browseImgBtn);
-            this.Controls.Add(this.relatedSchemaCheckbox);
             this.Controls.Add(this.checkDistinctCheckbox);
             this.Controls.Add(this.checkColumnNameCheckbox);
             this.Controls.Add(this.requireSortCheckBox);
@@ -292,6 +280,5 @@
         private System.Windows.Forms.CheckBox checkColumnNameCheckbox;
         private System.Windows.Forms.Label separator1;
         private System.Windows.Forms.CheckBox checkDistinctCheckbox;
-        private System.Windows.Forms.CheckBox relatedSchemaCheckbox;
     }
 }

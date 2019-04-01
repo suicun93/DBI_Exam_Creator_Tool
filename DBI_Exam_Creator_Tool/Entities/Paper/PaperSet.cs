@@ -8,14 +8,12 @@ namespace DBI_Exam_Creator_Tool.Entities
     [Serializable]
     public class PaperSet
     {
-        public List<Paper> Papers { get; set; }
-        public List<string> DBScriptList { get; set; }
-        public List<int> ListPaperMatrixId { get; set; }
-        public QuestionSet QuestionSet { get; set; }
+        public PaperSet()
+        {
+        }
 
-        public PaperSet() { }
-
-        public PaperSet(List<Paper> papers, List<string> dBScriptList, List<int> listPaperMatrixId, QuestionSet questionSet)
+        public PaperSet(List<Paper> papers, List<string> dBScriptList, List<int> listPaperMatrixId,
+            QuestionSet questionSet)
         {
             Papers = papers;
             DBScriptList = dBScriptList;
@@ -23,15 +21,20 @@ namespace DBI_Exam_Creator_Tool.Entities
             QuestionSet = questionSet;
         }
 
+        public List<Paper> Papers { get; set; }
+        public List<string> DBScriptList { get; set; }
+        public List<int> ListPaperMatrixId { get; set; }
+        public QuestionSet QuestionSet { get; set; }
+
         public T CloneObjectSerializable<T>() where T : class
         {
-            MemoryStream ms = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
+            var ms = new MemoryStream();
+            var bf = new BinaryFormatter();
             bf.Serialize(ms, this);
             ms.Position = 0;
-            object result = bf.Deserialize(ms);
+            var result = bf.Deserialize(ms);
             ms.Close();
-            return (T)result;
+            return (T) result;
         }
     }
 }

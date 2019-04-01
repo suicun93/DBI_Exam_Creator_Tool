@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DBI_Exam_Creator_Tool.Entities
 {
-    class CandidateNode
+    internal class CandidateNode
     {
         public CandidateNode()
         {
@@ -24,13 +21,11 @@ namespace DBI_Exam_Creator_Tool.Entities
                 paths.Add(candidatesPath);
                 return;
             }
-            foreach (CandidateNode child in node.Children)
+            foreach (var child in node.Children)
             {
-                List<CandidateNode> tmp = new List<CandidateNode>();
+                var tmp = new List<CandidateNode>();
                 foreach (var candidateNode in candidatesPath)
-                {
                     tmp.Add(candidateNode);
-                }
                 tmp.Add(child);
                 AddPath(child, tmp);
             }

@@ -1,10 +1,10 @@
-﻿using Microsoft.SqlServer.TransactSql.ScriptDom;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Microsoft.SqlServer.TransactSql.ScriptDom;
 
 namespace DBI_ShuffleTool.Utils
 {
-    static class SqlUtils
+    internal static class SqlUtils
     {
         public static string FormatSqlCode(string query)
         {
@@ -12,7 +12,7 @@ namespace DBI_ShuffleTool.Utils
             IList<ParseError> errors;
             var parsedQuery = parser.Parse(new StringReader(query), out errors);
 
-            var generator = new Sql110ScriptGenerator(new SqlScriptGeneratorOptions()
+            var generator = new Sql110ScriptGenerator(new SqlScriptGeneratorOptions
             {
                 KeywordCasing = KeywordCasing.Uppercase,
                 IncludeSemicolons = true,

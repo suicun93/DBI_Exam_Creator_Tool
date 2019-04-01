@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using DBI_Exam_Creator_Tool.Commons;
@@ -11,15 +10,15 @@ namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class ExportConfirm : Form
     {
-        ShufflePaperModel Spm;
-        QuestionSet QuestionSet;
-        string OutPutPath;
+        private string OutPutPath;
+        private readonly QuestionSet QuestionSet;
+        private ShufflePaperModel Spm;
 
         public ExportConfirm(QuestionSet questionSet)
         {
             InitializeComponent();
             QuestionSet = questionSet;
-            
+
             exportBtn.Visible = true;
         }
 
@@ -46,24 +45,20 @@ namespace DBI_Exam_Creator_Tool.UI
                     return;
                 }
                 foreach (var question in QuestionSet.QuestionList)
-                {
-                    foreach (var candidate in question.Candidates)
-                    {
-                        candidate.Point = decimal.ToDouble(question.Point);
-                    }
-                }
+                foreach (var candidate in question.Candidates)
+                    candidate.Point = decimal.ToDouble(question.Point);
 
                 Spm = new ShufflePaperModel(QuestionSet, Convert.ToInt32(papersNumberInput.Value));
 
                 //Create Test
-                PaperModel paperModel = new PaperModel
+                var paperModel = new PaperModel
                 {
                     Path = OutPutPath,
-                    Spm = Spm,
+                    Spm = Spm
                 };
                 Process.Start(OutPutPath);
 
-                using (ProgressBarForm progress = new ProgressBarForm(paperModel.CreateTests))
+                using (var progress = new ProgressBarForm(paperModel.CreateTests))
                 {
                     progress.ShowDialog(this);
                 }
@@ -72,7 +67,7 @@ namespace DBI_Exam_Creator_Tool.UI
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.Dispose();
+            Dispose();
         }
 
         private void newBtn_Click(object sender, EventArgs e)

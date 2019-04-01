@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-
 using DBI_Exam_Creator_Tool.Entities;
 
 namespace DBI_Exam_Creator_Tool.UI
 {
     public partial class QuestionPanel : UserControl
     {
-        public Question question { get; set; }
-
-        private delegate bool HandleRemove(Question q, TabPage tab);
-        private HandleRemove handleRemove;
+        private readonly HandleRemove handleRemove;
 
         public QuestionPanel()
         {
@@ -22,10 +18,12 @@ namespace DBI_Exam_Creator_Tool.UI
         {
             InitializeComponent();
             this.question = question;
-            this.handleRemove = new HandleRemove(_handleRemove);
+            handleRemove = new HandleRemove(_handleRemove);
 
             OnCreate();
         }
+
+        public Question question { get; set; }
 
         private void OnCreate()
         {
@@ -33,19 +31,17 @@ namespace DBI_Exam_Creator_Tool.UI
             pointNumeric.DataBindings.Add("Value", question, "Point", true, DataSourceUpdateMode.OnPropertyChanged);
 
             for (var i = 0; i < question.Candidates.Count; i++)
-            {
                 AddCandidateTab(question.Candidates[i], "Candidate " + (i + 1));
-            }
         }
 
         private void removeQuestionBtn_Click(object sender, EventArgs e)
         {
-            this.handleRemove(this.question, (TabPage)this.Parent);
+            handleRemove(question, (TabPage) Parent);
         }
 
         private void addCandidateBtn_Click(object sender, EventArgs e)
         {
-            Candidate c = new Candidate();
+            var c = new Candidate();
             c.Point = decimal.ToDouble(question.Point);
             c.QuestionId = question.QuestionId;
             c.CandidateId = Guid.NewGuid().ToString();
@@ -53,7 +49,7 @@ namespace DBI_Exam_Creator_Tool.UI
 
             question.Candidates.Add(c);
 
-            string tabTitle = "Candidate " + question.Candidates.Count;
+            var tabTitle = "Candidate " + question.Candidates.Count;
 
             AddCandidateTab(c, tabTitle);
 
@@ -63,10 +59,10 @@ namespace DBI_Exam_Creator_Tool.UI
 
         private void AddCandidateTab(Candidate c, string tabTitle)
         {
-            TabPage tp = new TabPage(tabTitle);
+            var tp = new TabPage(tabTitle);
             tp.BackColor = SystemColors.Control;
 
-            CandidatePanel candidatePanel = new CandidatePanel(c, this.handleDeleteCandidate);
+            var candidatePanel = new CandidatePanel(c, handleDeleteCandidate);
             candidatePanel.BackColor = SystemColors.Control;
             tp.Controls.Add(candidatePanel);
             candidateTabControl.TabPages.Add(tp);
@@ -78,5 +74,7 @@ namespace DBI_Exam_Creator_Tool.UI
             candidateTabControl.TabPages.Remove(tab);
             return false;
         }
+
+        private delegate bool HandleRemove(Question q, TabPage tab);
     }
 }

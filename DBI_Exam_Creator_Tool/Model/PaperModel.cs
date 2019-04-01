@@ -6,7 +6,7 @@ using DBI_Exam_Creator_Tool.Utils;
 
 namespace DBI_Exam_Creator_Tool.Model
 {
-    class PaperModel
+    internal class PaperModel
     {
         public string Path { get; set; }
         public ShufflePaperModel Spm { get; set; }
@@ -14,20 +14,15 @@ namespace DBI_Exam_Creator_Tool.Model
 
         public void CreateTests()
         {
-
             //Remove Illustration in PaperSet
-            PaperSet paperSet = Spm.PaperSet.CloneObjectSerializable<PaperSet>();
+            var paperSet = Spm.PaperSet.CloneObjectSerializable<PaperSet>();
 
             //Saving Question Set
-            QuestionSet tmpQuestionSet = paperSet.QuestionSet.CloneObjectSerializable<QuestionSet>();
+            var tmpQuestionSet = paperSet.QuestionSet.CloneObjectSerializable<QuestionSet>();
 
             foreach (var paper in paperSet.Papers)
-            {
-                foreach (var candidate in paper.CandidateSet)
-                {
-                    candidate.Illustration = new List<string>();
-                }
-            }
+            foreach (var candidate in paper.CandidateSet)
+                candidate.Illustration = new List<string>();
             //Adding Illustration into QuestionSet
             paperSet.QuestionSet = tmpQuestionSet;
 
@@ -39,17 +34,17 @@ namespace DBI_Exam_Creator_Tool.Model
 
 
             //Count PaperNo
-            int countPaperNo = 0;
+            var countPaperNo = 0;
 
             //Write Paper Image
             try
             {
-                foreach (Paper paper in Spm.PaperSet.Papers)
+                foreach (var paper in Spm.PaperSet.Papers)
                 {
-                    string paperPath = FileUtils.CreateNewDirectory(Path, (++countPaperNo).ToString("D2"));
+                    var paperPath = FileUtils.CreateNewDirectory(Path, (++countPaperNo).ToString("D2"));
 
                     //Write DbScript
-                    string givenPath = FileUtils.CreateNewDirectory(paperPath, "Given");
+                    var givenPath = FileUtils.CreateNewDirectory(paperPath, "Given");
                     File.WriteAllText(givenPath + @"\DBscript" + ".sql", Spm.PaperSet.DBScriptList[0]);
 
                     //Create word file
@@ -64,16 +59,14 @@ namespace DBI_Exam_Creator_Tool.Model
 
         public static int MaxNumberOfTests(List<Question> questionsBank)
         {
-            int count = 1;
-            foreach (Question question in questionsBank)
+            var count = 1;
+            foreach (var question in questionsBank)
             {
                 if (question == null || question.Candidates.Count == 0)
-                {
                     continue;
-                }
                 count *= question.Candidates.Count;
             }
-            if ((count) < 1) count = 1;
+            if (count < 1) count = 1;
             return count;
         }
     }

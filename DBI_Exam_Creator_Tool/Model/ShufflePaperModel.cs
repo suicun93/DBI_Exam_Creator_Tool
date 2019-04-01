@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using DBI_Exam_Creator_Tool.Commons;
 using DBI_Exam_Creator_Tool.Entities;
 
 namespace DBI_Exam_Creator_Tool.Model
 {
-    class ShufflePaperModel
+    internal class ShufflePaperModel
     {
-        public QuestionSet QuestionSet;//QBank from Creator
-        public PaperSet PaperSet;//Include PaperSet after create 
+        public PaperSet PaperSet; //Include PaperSet after create 
+        public QuestionSet QuestionSet; //QBank from Creator
 
         /// <summary>
-        /// Create List of PaperSet
+        ///     Create List of PaperSet
         /// </summary>
         /// <param name="questionSet"></param>
         /// <param name="numOfPage"></param>
@@ -22,27 +21,20 @@ namespace DBI_Exam_Creator_Tool.Model
             QuestionSet = questionSet;
             PaperSet = new PaperSet(new List<Paper>(), QuestionSet.DBScriptList, new List<int>(), QuestionSet);
 
-            List<List<CandidateNode>> allCases = GetAllPaperCases();
+            var allCases = GetAllPaperCases();
 
-            List<List<CandidateNode>> papersCandidateNode = new List<List<CandidateNode>>();
+            var papersCandidateNode = new List<List<CandidateNode>>();
 
-            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null && Constants.PaperSet.ListPaperMatrixId.Count > 0 && Constants.PaperSet.ListPaperMatrixId.Count > 0)
-            {
+            if (Constants.PaperSet != null && Constants.PaperSet.ListPaperMatrixId != null &&
+                Constants.PaperSet.ListPaperMatrixId.Count > 0 && Constants.PaperSet.ListPaperMatrixId.Count > 0)
                 foreach (var paperId in Constants.PaperSet.ListPaperMatrixId)
-                {
                     papersCandidateNode.Add(allCases.ElementAt(paperId));
-                }
-            }
             else
-            {
                 papersCandidateNode = GetRandomNElementsInList(numOfPage, allCases);
-            }
 
             //Adding Matrix Id
             foreach (var candidateNode in papersCandidateNode)
-            {
                 PaperSet.ListPaperMatrixId.Add(allCases.IndexOf(candidateNode));
-            }
 
 
             //List<List<CandidateNode>> cases = new List<List<CandidateNode>>();
@@ -55,17 +47,15 @@ namespace DBI_Exam_Creator_Tool.Model
             //PaperSet.ListPaperMatrixId.Add(tmp.IndexOf(last));
 
             //codeTestCount: for TestCode
-            int codeTestCount = 0;
+            var codeTestCount = 0;
             //Adding candidate into Tests
-            foreach (List<CandidateNode> c in papersCandidateNode)
+            foreach (var c in papersCandidateNode)
             {
-                List<Candidate> candidateList = new List<Candidate>();
+                var candidateList = new List<Candidate>();
                 //Adding candidate into a Test
 
                 foreach (var candidateNode in c)
-                {
                     candidateList.Add(candidateNode.Candi);
-                }
                 var paper = new Paper
                 {
                     PaperNo = (++codeTestCount).ToString(),
@@ -76,36 +66,35 @@ namespace DBI_Exam_Creator_Tool.Model
         }
 
         /// <summary>
-        /// Get random elements in List
+        ///     Get random elements in List
         /// </summary>
         /// <param name="numOfCases"></param>
         /// <param name="allCases"></param>
-        /// <param name="listPaperMatrixId"></param>
         /// <returns></returns>
         private List<List<CandidateNode>> GetRandomNElementsInList(int numOfCases, List<List<CandidateNode>> allCases)
         {
             if (numOfCases == 1)
             {
-                List<List<CandidateNode>> oneCase =
+                var oneCase =
                     new List<List<CandidateNode>> {allCases.ElementAt(new Random().Next(allCases.Count))};
                 return oneCase;
             }
-            List<List<CandidateNode>> newList = new List<List<CandidateNode>>();
-            int jump = (allCases.Count - 1) / (numOfCases - 1);
+            var newList = new List<List<CandidateNode>>();
+            var jump = (allCases.Count - 1) / (numOfCases - 1);
 
-            for (int i = 0; i < numOfCases; i++)
+            for (var i = 0; i < numOfCases; i++)
             {
-                int pos = jump * i;
+                var pos = jump * i;
                 newList.Add(allCases.ElementAt(pos));
             }
 
             //Shuffle a list C# (Fisher-Yates shuffle)
-            int n = numOfCases;
+            var n = numOfCases;
             while (n > 1)
             {
                 n--;
-                int k = new Random().Next(n + 1);
-                List<CandidateNode> value = newList[k];
+                var k = new Random().Next(n + 1);
+                var value = newList[k];
                 newList[k] = newList[n];
                 newList[n] = value;
             }
@@ -114,33 +103,31 @@ namespace DBI_Exam_Creator_Tool.Model
         }
 
         /// <summary>
-        /// Add all cases of the tests
+        ///     Add all cases of the tests
         /// </summary>
         /// <returns></returns>
         private List<List<CandidateNode>> GetAllPaperCases()
         {
-            CandidateNode root = SetCandidateNode(null, 0, BuildingTree());
+            var root = SetCandidateNode(null, 0, BuildingTree());
             root.AddPath(root, new List<CandidateNode>());
             return root.paths;
         }
 
         /// <summary>
-        /// Building a tree of Candidates for generate all the cases
+        ///     Building a tree of Candidates for generate all the cases
         /// </summary>
         /// <returns></returns>
         private int[] BuildingTree()
         {
             var quizs = new int[QuestionSet.QuestionList.Count];
-            int i = 0;
+            var i = 0;
             foreach (var question in QuestionSet.QuestionList)
-            {
                 quizs[i++] = question.Candidates.Count;
-            }
             return quizs;
         }
 
         /// <summary>
-        /// Set relation of all Nodes in the Tree
+        ///     Set relation of all Nodes in the Tree
         /// </summary>
         /// <param name="value"></param>
         /// <param name="pos"></param>
@@ -148,21 +135,15 @@ namespace DBI_Exam_Creator_Tool.Model
         /// <returns></returns>
         public CandidateNode SetCandidateNode(Candidate value, int pos, int[] quizs)
         {
-            CandidateNode child = new CandidateNode
+            var child = new CandidateNode
             {
                 Candi = value
             };
             if (pos < quizs.Length)
-            {
                 foreach (var candi in QuestionSet.QuestionList.ElementAt(pos).Candidates)
-                {
                     child.Children.Add(SetCandidateNode(candi, pos + 1, quizs));
-                }
-            }
             else
-            {
                 child.Children = null;
-            }
             return child;
         }
     }
