@@ -71,7 +71,7 @@ namespace DBI202_Creator.UI
         private void removeQuestionBtn_Click(object sender, EventArgs e)
         {
             var tab = questionTabControl.TabPages[questionTabControl.SelectedIndex];
-            var qp = (QuestionPanel) tab.Controls["questionPanel"];
+            var qp = (QuestionPanel)tab.Controls["questionPanel"];
 
             questions.Remove(qp.question);
             questionTabControl.TabPages.Remove(tab);
@@ -96,40 +96,54 @@ namespace DBI202_Creator.UI
 
         private void open()
         {
-            importDialog.Filter = "Data (*.dat)|*.dat";
-            importDialog.FilterIndex = 2;
-            importDialog.RestoreDirectory = true;
-            if (importDialog.ShowDialog() == DialogResult.OK)
+            openFileDialog.Filter = "Data (*.dat)|*.dat";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Clear.
-                questions.Clear();
-                questionTabControl.TabPages.Clear();
+                try
+                {
+                    // Clear.
+                    questions.Clear();
+                    questionTabControl.TabPages.Clear();
 
-                // Load data.
-                var localPath = importDialog.FileName;
-                var set = SerializeUtils.DeserializeObject(localPath);
-                questionSet = set;
-                questions = questionSet.QuestionList;
+                    // Load data.
+                    var localPath = openFileDialog.FileName;
+                    var set = SerializeUtils.DeserializeObject(localPath);
+                    questionSet = set;
+                    questions = questionSet.QuestionList;
 
-                // Visualization.
-                foreach (var q in questions)
-                    addQuestionTab(q);
-                MessageBox.Show("Import data successfully.");
+                    // Visualization.
+                    foreach (var q in questions)
+                        addQuestionTab(q);
+                    MessageBox.Show("Open question set successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Open question set faield.\n" + ex.Message);
+                }
             }
         }
 
         // Export to .jon file.
         private void save()
         {
-            exportDialog.Filter = "Data (*.dat)|*.dat";
-            exportDialog.FilterIndex = 2;
-            exportDialog.RestoreDirectory = true;
-            if (exportDialog.ShowDialog() == DialogResult.OK)
+            saveQuestionSetDialog.Filter = "Data (*.dat)|*.dat";
+            saveQuestionSetDialog.FilterIndex = 2;
+            saveQuestionSetDialog.RestoreDirectory = true;
+            if (saveQuestionSetDialog.ShowDialog() == DialogResult.OK)
             {
-                var saveFolder = Path.GetDirectoryName(exportDialog.FileName);
-                var savePath = Path.Combine(saveFolder, exportDialog.FileName);
-                SerializeUtils.SerializeObject(questionSet, savePath);
-                MessageBox.Show("Export data successfully to " + savePath, "Success");
+                try
+                {
+                    var saveFolder = Path.GetDirectoryName(saveQuestionSetDialog.FileName);
+                    var savePath = Path.Combine(saveFolder, saveQuestionSetDialog.FileName);
+                    SerializeUtils.SerializeObject(questionSet, savePath);
+                    MessageBox.Show("Export data successfully to " + savePath, "Success");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Save failed.\n" + ex.Message);
+                }
             }
         }
 
@@ -208,30 +222,38 @@ namespace DBI202_Creator.UI
 
         private void importPaperSetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            importDialog.Filter = "Data (*.dat)|*.dat";
-            importDialog.FilterIndex = 2;
-            importDialog.RestoreDirectory = true;
-            if (importDialog.ShowDialog() == DialogResult.OK)
+            openFileDialog.Filter = "Data (*.dat)|*.dat";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Clear.
                 questions.Clear();
                 questionTabControl.TabPages.Clear();
 
                 // Load data.
-                var localPath = importDialog.FileName;
-                //Constants.PaperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
-                var stream = new FileStream(localPath, FileMode.Open, FileAccess.Read);
-                var formatter = new BinaryFormatter();
-                Constants.PaperSet = (PaperSet) formatter.Deserialize(stream);
+                var localPath = openFileDialog.FileName;
 
-                questionSet = Constants.PaperSet.QuestionSet;
-                questions = questionSet.QuestionList;
-                questionSet.DBScriptList = Constants.PaperSet.DBScriptList;
+                try
+                {
+                    using (var stream = new FileStream(localPath, FileMode.Open, FileAccess.Read))
+                    {
+                        var formatter = new BinaryFormatter();
+                        Constants.PaperSet = (PaperSet)formatter.Deserialize(stream);
+                        questionSet = Constants.PaperSet.QuestionSet;
+                        questions = questionSet.QuestionList;
+                        questionSet.DBScriptList = Constants.PaperSet.DBScriptList;
 
-                // Visualization.
-                foreach (var q in questions)
-                    addQuestionTab(q);
-                MessageBox.Show("Import data successfully.");
+                        // Visualization.
+                        foreach (var q in questions)
+                            addQuestionTab(q);
+                        MessageBox.Show("Import data successfully.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Import data failed.\n" + ex.Message);
+                }
             }
         }
 

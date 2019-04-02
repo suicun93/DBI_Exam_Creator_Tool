@@ -45,8 +45,8 @@ namespace DBI202_Creator.UI.ExportUI
                     return;
                 }
                 foreach (var question in QuestionSet.QuestionList)
-                foreach (var candidate in question.Candidates)
-                    candidate.Point = decimal.ToDouble(question.Point);
+                    foreach (var candidate in question.Candidates)
+                        candidate.Point = decimal.ToDouble(question.Point);
 
                 Spm = new ShufflePaperModel(QuestionSet, Convert.ToInt32(papersNumberInput.Value));
 

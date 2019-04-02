@@ -43,10 +43,10 @@
             this.removeCandidateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.previewBtn = new System.Windows.Forms.Button();
             this.questionTabControl = new System.Windows.Forms.TabControl();
-            this.exportDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveQuestionSetDialog = new System.Windows.Forms.SaveFileDialog();
             this.removeQuestionBtn = new System.Windows.Forms.Button();
             this.addQuestionBtn = new System.Windows.Forms.Button();
-            this.importDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.scriptBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
@@ -206,7 +206,7 @@
             // 
             // importDialog
             // 
-            this.importDialog.FileName = "openFileDialog";
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // scriptBtn
             // 
@@ -269,10 +269,10 @@
         private System.Windows.Forms.ToolStripMenuItem removeCandidateToolStripMenuItem1;
         private System.Windows.Forms.Button previewBtn;
         private System.Windows.Forms.TabControl questionTabControl;
-        private System.Windows.Forms.SaveFileDialog exportDialog;
+        private System.Windows.Forms.SaveFileDialog saveQuestionSetDialog;
         private System.Windows.Forms.Button addQuestionBtn;
         private System.Windows.Forms.Button removeQuestionBtn;
-        private System.Windows.Forms.OpenFileDialog importDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button scriptBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem exportPaperSetToolStripMenuItem;

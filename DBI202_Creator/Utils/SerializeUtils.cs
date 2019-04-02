@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using DBI202_Creator.Entities.Question;
 
@@ -23,9 +24,9 @@ namespace DBI202_Creator.Utils
                 }
                 return true;
             }
-            catch
+            catch (Exception)
             {
-                return false;
+                throw;
             }
         }
 
