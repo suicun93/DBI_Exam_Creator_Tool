@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using DBI_Exam_Creator_Tool.Commons;
 using DBI_Exam_Creator_Tool.Entities;
@@ -217,7 +218,11 @@ namespace DBI_Exam_Creator_Tool
 
                 // Load data.
                 var localPath = importDialog.FileName;
-                Constants.PaperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
+                //Constants.PaperSet = JsonConvert.DeserializeObject<PaperSet>(File.ReadAllText(localPath));
+                var stream = new FileStream(localPath, FileMode.Open, FileAccess.Read);
+                BinaryFormatter formatter = new BinaryFormatter();
+                Constants.PaperSet = (PaperSet)formatter.Deserialize(stream);
+
                 questionSet = Constants.PaperSet.QuestionSet;
                 questions = questionSet.QuestionList;
                 questionSet.DBScriptList = Constants.PaperSet.DBScriptList;

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 using DBI_Exam_Creator_Tool.Entities;
 using DBI_Exam_Creator_Tool.Utils;
 
@@ -16,22 +19,27 @@ namespace DBI_Exam_Creator_Tool.Model
         {
             //Remove Illustration in PaperSet
             var paperSet = Spm.PaperSet.CloneObjectSerializable<PaperSet>();
+            IFormatter formatter = new BinaryFormatter();
 
             //Saving Question Set
             var tmpQuestionSet = paperSet.QuestionSet.CloneObjectSerializable<QuestionSet>();
 
             foreach (var paper in paperSet.Papers)
-            foreach (var candidate in paper.CandidateSet)
-                candidate.Illustration = new List<string>();
+                foreach (var candidate in paper.CandidateSet)
+                    candidate.Illustration = new List<string>();
             //Adding Illustration into QuestionSet
             paperSet.QuestionSet = tmpQuestionSet;
 
             //Remove Duplicated database
             paperSet.QuestionSet.DBScriptList = new List<string>();
 
-            //Export PaperSet.dat
-            SerializeUtils.WriteJson(paperSet, Path + @"\PaperSet.dat");
-
+            // Export PaperSet.dat
+            //SerializeUtils.WriteJson(paperSet, Path + @"\PaperSet.dat");
+            //  Binary
+            using (var stream = new FileStream(Path + @"\PaperSet.dat", FileMode.Create, FileAccess.Write))
+            {
+                formatter.Serialize(stream, paperSet);
+            }
 
             //Count PaperNo
             var countPaperNo = 0;
@@ -53,7 +61,7 @@ namespace DBI_Exam_Creator_Tool.Model
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
         }
 

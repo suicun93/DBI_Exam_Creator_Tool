@@ -41,6 +41,10 @@ namespace DBI_Exam_Creator_Tool.Utils
                 //Saving file
                 DocUtils.SavingDocFile(doc, path, paper);
             }
+            catch (Exception)
+            {
+                // skipped
+            }
             finally
             {
                 wordApp?.Application.Quit(false);
